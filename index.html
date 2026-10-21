@@ -1,88 +1,102 @@
 <!DOCTYPE html>
-<html lang="tr"><head><style>body {transition: opacity ease-in 0.2s; } 
-body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
-</style><style data-emotion="css" data-s=""></style>
+<html lang="tr">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avşar Krom | Ürün Kimlik Kartı</title>
+    <title>Avşar Krom | Dijital Katalog & Ürün Kimlik Sistemi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; color: #0f172a; }
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #0f172a; }
         
-        /* ZEBRA ZD220 (58x38 mm) MİLİMETRİK YAZDIRMA AYARI */
+        /* YUMUŞAK VE PRESTİJLİ ANİMASYONLAR */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeUp 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .product-card-hover {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .product-card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+        }
+
+        /* ZEBRA ZD220 (80x50 mm) BOZULMAYAN YAZDIRMA AYARI */
         @media print {
             @page {
-                size: 58mm 38mm;
-                margin: 0mm;
+                size: 80mm 50mm;
+                margin: 0mm !important;
             }
             html, body {
-                width: 58mm;
-                height: 38mm;
+                width: 80mm !important;
+                height: 50mm !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 background: #ffffff !important;
-                overflow: hidden;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
             body * { visibility: hidden; }
-            #yazdirmaAlani, #yazdirmaAlani * { visibility: visible; }
-            #yazdirmaAlani {
-                position: fixed;
-                left: 0;
-                top: 0;
-                width: 58mm !important;
-                height: 38mm !important;
+            #etiketCanvas, #etiketCanvas * { visibility: visible; }
+            #etiketCanvas {
+                position: fixed !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 80mm !important;
+                height: 50mm !important;
                 margin: 0 !important;
-                padding: 1.5mm 2mm !important;
+                padding: 0 !important;
                 border: none !important;
-                border-radius: 0 !important;
-                box-shadow: none !important;
-                box-sizing: border-box !important;
             }
         }
     </style>
-<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.mx-auto{margin-left:auto;margin-right:auto}.my-auto{margin-top:auto;margin-bottom:auto}.mt-1{margin-top:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-1{margin-bottom:0.25rem}.mb-3{margin-bottom:0.75rem}.mb-5{margin-bottom:1.25rem}.mb-1\.5{margin-bottom:0.375rem}.mt-0\.5{margin-top:0.125rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-9{height:2.25rem}.h-14{height:3.5rem}.max-h-64{max-height:16rem}.min-h-screen{min-height:100vh}.w-9{width:2.25rem}.w-full{width:100%}.w-14{width:3.5rem}.w-20{width:5rem}.max-w-xl{max-width:36rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.flex-grow{flex-grow:1}.cursor-pointer{cursor:pointer}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-1\.5{gap:0.375rem}.gap-3{gap:0.75rem}.gap-2{gap:0.5rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.whitespace-nowrap{white-space:nowrap}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-xl{border-radius:0.75rem}.rounded-full{border-radius:9999px}.rounded-sm{border-radius:0.125rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-200\/60{border-color:rgb(226 232 240 / 0.6)}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249 / var(--tw-border-opacity, 1))}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225 / var(--tw-border-opacity, 1))}.border-black{--tw-border-opacity:1;border-color:rgb(0 0 0 / var(--tw-border-opacity, 1))}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-emerald-400{--tw-border-opacity:1;border-color:rgb(52 211 153 / var(--tw-border-opacity, 1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-white\/50{background-color:rgb(255 255 255 / 0.5)}.bg-\[\#25D366\]{--tw-bg-opacity:1;background-color:rgb(37 211 102 / var(--tw-bg-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.bg-blue-50\/70{background-color:rgb(239 246 255 / 0.7)}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.bg-red-50{--tw-bg-opacity:1;background-color:rgb(254 242 242 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.p-4{padding:1rem}.p-8{padding:2rem}.p-1{padding:0.25rem}.p-1\.5{padding:0.375rem}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-6{padding:1.5rem}.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}.px-4{padding-left:1rem;padding-right:1rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.pt-5{padding-top:1.25rem}.pb-1{padding-bottom:0.25rem}.pb-3{padding-bottom:0.75rem}.pr-1{padding-right:0.25rem}.text-left{text-align:left}.text-center{text-align:center}.text-\[11px\]{font-size:11px}.text-base{font-size:1rem;line-height:1.5rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-\[10px\]{font-size:10px}.text-\[8px\]{font-size:8px}.text-\[9px\]{font-size:9px}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.font-extrabold{font-weight:800}.font-black{font-weight:900}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-wider{letter-spacing:0.05em}.tracking-tight{letter-spacing:-0.025em}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-black{--tw-text-opacity:1;color:rgb(0 0 0 / var(--tw-text-opacity, 1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.transition{transition-property:color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.hover\:bg-\[\#20bd5a\]:hover{--tw-bg-opacity:1;background-color:rgb(32 189 90 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-800:hover{--tw-bg-opacity:1;background-color:rgb(30 41 59 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240 / var(--tw-bg-opacity, 1))}.hover\:bg-emerald-700:hover{--tw-bg-opacity:1;background-color:rgb(4 120 87 / var(--tw-bg-opacity, 1))}.hover\:bg-red-100:hover{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.hover\:text-slate-500:hover{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.hover\:text-slate-600:hover{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.hover\:text-slate-800:hover{--tw-text-opacity:1;color:rgb(30 41 59 / var(--tw-text-opacity, 1))}.hover\:underline:hover{-webkit-text-decoration-line:underline;text-decoration-line:underline}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-slate-900:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(15 23 42 / var(--tw-ring-opacity, 1))}.disabled\:opacity-50:disabled{opacity:0.5}@media (min-width: 640px){.sm\:flex-row{flex-direction:row}}</style><style id="monica-reading-highlight-style">
-        .monica-reading-highlight {
-          animation: fadeInOut 1.5s ease-in-out;
-        }
+</head>
+<body class="min-h-screen flex flex-col justify-between">
 
-        @keyframes fadeInOut {
-          0%, 100% { background-color: transparent; }
-          30%, 70% { background-color: rgba(2, 118, 255, 0.20); }
-        }
-      </style><style data-styled="active" data-styled-version="5.3.11"></style></head>
-<body class="min-h-screen flex flex-col justify-between" monica-id="ofpnmcalabcbjgholdjcjblkibolbppb" monica-version="9.0.23">
-
-    <!-- ÜST KURUMSAL BAŞLIK -->
-    <header class="bg-white border-b border-slate-200 py-3.5 px-4 shadow-sm">
-        <div class="max-w-xl mx-auto flex justify-between items-center">
-            <a href="?" class="flex items-center gap-3">
-                <div class="w-9 h-9 bg-slate-900 text-white rounded-lg flex items-center justify-center font-bold text-base tracking-wider shrink-0">AK</div>
+    <!-- ÜST KURUMSAL BAŞLIK (LOGOYA BASINCA TÜM KATALOG AÇILIR) -->
+    <header class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200/80 py-3.5 px-4 shadow-sm">
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+            <a href="?" class="group flex items-center gap-3 cursor-pointer" title="Tüm Ürün Kataloğunu Gör">
+                <div class="w-10 h-10 bg-slate-900 group-hover:bg-slate-800 text-white rounded-xl flex items-center justify-center font-extrabold text-base tracking-wider shrink-0 shadow-sm transition transform group-hover:scale-105">
+                    AK
+                </div>
                 <div>
-                    <h1 class="font-bold text-base leading-none text-slate-900">AVŞAR KROM</h1>
+                    <h1 class="font-extrabold text-base leading-none text-slate-900 tracking-tight">AVŞAR KROM</h1>
                     <span class="text-[11px] text-slate-500 font-medium">Endüstriyel Mutfak Ekipmanları</span>
                 </div>
             </a>
-            <span class="text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-md whitespace-nowrap shrink-0">
-                ✓ Doğrulanmış Ürün
-            </span>
+            <div class="flex items-center gap-2">
+                <a href="?" id="ustKatalogBtn" class="hidden text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-800 px-3.5 py-2 rounded-xl transition">
+                    📦 Tüm Ürünler
+                </a>
+                <span class="text-[11px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1.5 rounded-lg whitespace-nowrap shrink-0">
+                    ✓ AISI 304 Kalite
+                </span>
+            </div>
         </div>
     </header>
 
     <!-- ANA İÇERİK ALANI -->
-    <main class="flex-grow flex items-center justify-center p-4">
-        <div id="icerikAlani" class="w-full max-w-xl"></div>
+    <main class="flex-grow flex items-center justify-center p-4 sm:p-6">
+        <div id="icerikAlani" class="w-full max-w-5xl"></div>
     </main>
 
     <!-- DENGELİ ALT BİLGİ (FOOTER) -->
-    <footer class="py-5 px-4 text-center border-t border-slate-200/60 bg-white/50 flex flex-col items-center gap-1.5">
-        <div class="text-xs font-medium text-slate-500">© Avşar Krom Endüstriyel Mutfak Çözümleri</div>
-        <div class="text-xs text-slate-400 whitespace-nowrap">İletişim: <a href="tel:+905323333806" class="hover:text-slate-600 font-medium">+90 532 333 38 06</a></div>
-        <button onclick="yoneticiGirisKontrol()" class="mt-1 text-[11px] text-slate-300 hover:text-slate-500 transition flex items-center gap-1">
+    <footer class="py-6 px-4 text-center border-t border-slate-200/60 bg-white flex flex-col items-center gap-1.5 mt-8">
+        <div class="text-xs font-semibold text-slate-600">© Avşar Krom Endüstriyel Mutfak Çözümleri</div>
+        <div class="text-xs text-slate-400 whitespace-nowrap">Mustafa Avşar | İletişim: <a href="tel:+905323333806" class="hover:text-slate-700 font-semibold">+90 532 333 38 06</a></div>
+        <button onclick="yoneticiGirisKontrol()" class="mt-1.5 text-[11px] text-slate-300 hover:text-slate-600 transition flex items-center gap-1">
             <span>🔒</span> <span>Yönetici Paneli</span>
         </button>
     </footer>
+
+    <!-- GİZLİ QR ÜRETİM KUTUSU -->
+    <div id="gizliQrKutu" class="hidden"></div>
 
     <script id="anaScript">
         const WHATSAPP_NO = "905323333806";
@@ -90,301 +104,241 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 
         // /*URUNLER_BASLANGIC*/
         const VARSAYILAN_AYARLAR = {
-          "otomatikKur": true,
-          "manuelDolarKuru": 36.5
-};
+            otomatikKur: true,
+            manuelDolarKuru: 36.50
+        };
 
         const VARSAYILAN_URUNLER = [
-          {
-                    "kod": "EVT-TEK-SAG-60_1",
-                    "ad": "60'lık Seri Sağdan Tek Evyeli Tezgah",
-                    "olcu": "1500 x 600 x 850 mm",
-                    "stokAdet": 1,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "USD",
-                    "eskiFiyat": 400,
-                    "indirimliFiyat": 350,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-TEK-SAG-60_1.jpg",
-                    "aciklama": "Sağdan pres baskı tek evye havuzlu, sol tarafı çalışma ve damlalık tablalı, ayarlanabilir rotil ayaklı paslanmaz yıkama tezgahı."
-          },
-          {
-                    "kod": "EVT-TEK-ORT-60_1",
-                    "ad": "60'lık Seri Ortadan Tek Evyeli Tezgah",
-                    "olcu": "1900 x 600 x 850 mm",
-                    "stokAdet": 5,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-TEK-ORT-60_1.jpg",
-                    "aciklama": "Merkezi (orta) konumlandırılmış geniş evye havuzlu, her iki yanında simetrik çalışma alanı bulunan 190 cm endüstriyel evyeli tezgah."
-          },
-          {
-                    "kod": "EVT-TEK-SOL-60_1",
-                    "ad": "60'lık Seri Soldan Tek Evyeli Tezgah",
-                    "olcu": "2005 x 585 x 850 mm",
-                    "stokAdet": 2,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-TEK-SOL-60_1.jpg",
-                    "aciklama": "Soldan tek evyeli, geniş sağ çalışma ve süzülme tablalı, 200,5 cm uzunluğunda yüksek mukavemetli hazırlık ve yıkama tezgahı."
-          },
-          {
-                    "kod": "EVT-CFT-SAG-60_1",
-                    "ad": "60'lık Seri Sağdan Çift Evyeli Tezgah",
-                    "olcu": "2130 x 600 x 850 mm",
-                    "stokAdet": 1,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-CFT-SAG-60_1.jpg",
-                    "aciklama": "Sağ bölümde çift evye havuzuna sahip, sol tarafı geniş damlalıklı, 213 cm uzunluğunda profesyonel bulaşıkhane ve hazırlık tezgahı."
-          },
-          {
-                    "kod": "EVT-CFT-SAG-60_2",
-                    "ad": "60'lık Seri Sağdan Çift Evyeli Tezgah",
-                    "olcu": "1750 x 600 x 850 mm",
-                    "stokAdet": 1,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-CFT-SAG-60_2.jpg",
-                    "aciklama": "Sağdan çift evye havuzlu, 175 cm uzunluğunda, yoğun yıkama ve durulama işlemleri için tasarlanmış paslanmaz çelik tezgah."
-          },
-          {
-                    "kod": "EVT-TEK-SOL-60_2",
-                    "ad": "60'lık Seri Soldan Tek Evyeli Tezgah",
-                    "olcu": "1680 x 580 x 850 mm",
-                    "stokAdet": 5,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-TEK-SOL-60_2.jpg",
-                    "aciklama": "Soldan tek evye havuzlu, 168 cm boyunda, su taşma profilli ve arka sırtlı endüstriyel mutfak tezgahı."
-          },
-          {
-                    "kod": "EVT-TEK-SAG-60_2",
-                    "ad": "60'lık Seri Sağdan Tek Evyeli Tezgah",
-                    "olcu": "1650 x 580 x 850 mm",
-                    "stokAdet": 3,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-TEK-SAG-60_2.jpg",
-                    "aciklama": "Sağdan tek evyeli, 165 cm boyunda, hijyenik pres baskı evyeli ve ayarlanabilir rotil ayaklı çalışma tezgahı."
-          },
-          {
-                    "kod": "EVT-CFT-SOL-60_1",
-                    "ad": "60'lık Seri Soldan Çift Evyeli Tezgah",
-                    "olcu": "1550 x 580 x 850 mm",
-                    "stokAdet": 1,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-CFT-SOL-60_1.jpg",
-                    "aciklama": "Sol bölümde çift evye havuzlu, sağ tarafı damlalıklı, 155 cm uzunluğunda paslanmaz yıkama tezgahı."
-          },
-          {
-                    "kod": "EVT-TEK-SOL-60_3",
-                    "ad": "60'lık Seri Soldan Tek Evyeli Tezgah",
-                    "olcu": "1370 x 600 x 850 mm",
-                    "stokAdet": 1,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-TEK-SOL-60_3.jpg",
-                    "aciklama": "Soldan tek evyeli, 137x60x85 cm ölçülerinde kompakt ve dayanıklı endüstriyel yıkama tezgahı."
-          },
-          {
-                    "kod": "EVT-TEK-ORT-60_2",
-                    "ad": "60'lık Seri Ortadan Tek Evyeli Tezgah",
-                    "olcu": "1400 x 580 x 850 mm",
-                    "stokAdet": 3,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-TEK-ORT-60_2.jpg",
-                    "aciklama": "Ortadan tek evye havuzlu, 140x58x85 cm ölçülerinde çok amaçlı endüstriyel mutfak tezgahı."
-          },
-          {
-                    "kod": "EVT-TEK-SAG-60_3",
-                    "ad": "60'lık Seri Sağdan Tek Evyeli Tezgah",
-                    "olcu": "1400 x 600 x 850 mm",
-                    "stokAdet": 3,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-TEK-SAG-60_3.jpg",
-                    "aciklama": "Sağdan tek evye havuzlu, 140x60x85 cm standart ölçülerde paslanmaz çelik yıkama ve hazırlık tezgahı."
-          },
-          {
-                    "kod": "EVT-TEK-SOL-60_4",
-                    "ad": "60'lık Seri Soldan Tek Evyeli Tezgah",
-                    "olcu": "1400 x 600 x 850 mm",
-                    "stokAdet": 4,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-TEK-SOL-60_4.jpg",
-                    "aciklama": "Soldan tek evye havuzlu, 140x60x85 cm standart ölçülerde paslanmaz çelik yıkama ve hazırlık tezgahı."
-          },
-          {
-                    "kod": "EVT-TEK-SAG-60_4",
-                    "ad": "60'lık Seri Sağdan Tek Evyeli Kompakt Tezgah",
-                    "olcu": "840 x 580 x 850 mm",
-                    "stokAdet": 4,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-TEK-SAG-60_4.jpg",
-                    "aciklama": "Dar alanlar için ideal 84x58x85 cm ölçülerinde, sağdan evyeli kompakt paslanmaz tezgah."
-          },
-          {
-                    "kod": "EVT-TEK-SOL-60_5",
-                    "ad": "60'lık Seri Soldan Tek Evyeli Kompakt Tezgah",
-                    "olcu": "840 x 580 x 850 mm",
-                    "stokAdet": 2,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-TEK-SOL-60_5.jpg",
-                    "aciklama": "Dar alanlar için ideal 84x58x85 cm ölçülerinde, soldan evyeli kompakt paslanmaz tezgah."
-          },
-          {
-                    "kod": "EVT-BMG-SAG-60_1",
-                    "ad": "60'lık Seri Sağdan Evyeli Soldan Makine Girişli Tezgah",
-                    "olcu": "1200 x 580 x 860 mm",
-                    "stokAdet": 1,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Makine Boşluklu",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-BMG-SAG-60_1.jpg",
-                    "aciklama": "Sağ tarafı evyeli, sol alt kısmı bulaşık makinesi girişine uygun boşluklu 120x58x86 cm bulaşıkhane tezgahı."
-          },
-          {
-                    "kod": "EVT-TEK-SAG-60_5",
-                    "ad": "60'lık Seri Sağdan Tek Evyeli Tezgah",
-                    "olcu": "1365 x 580 x 850 mm",
-                    "stokAdet": 2,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-TEK-SAG-60_5.jpg",
-                    "aciklama": "136,5 x 58 x 85 cm ölçülerinde, sağdan tek evye havuzlu endüstriyel yıkama tezgahı."
-          },
-          {
-                    "kod": "EVT-CFT-SAG-70_1",
-                    "ad": "70'lik Seri Sağdan Çift Evyeli Tezgah",
-                    "olcu": "1395 x 680 x 880 mm",
-                    "stokAdet": 1,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-CFT-SAG-70_1.jpg",
-                    "aciklama": "70'lik derin seri (139,5 x 68 x 88 cm), sağdan çift evyeli yüksek kapasiteli profesyonel yıkama tezgahı."
-          },
-          {
-                    "kod": "EVT-BMG-SAG-70_1",
-                    "ad": "70'lik Seri Sağdan Evyeli Soldan Makine Girişli Tezgah",
-                    "olcu": "1395 x 680 x 880 mm",
-                    "stokAdet": 1,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Makine Boşluklu",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-BMG-SAG-70_1.jpg",
-                    "aciklama": "70'lik seri (139,5 x 68 x 88 cm), sağdan evyeli ve sol alt bölümü bulaşık makinesi girişine uygun bulaşıkhane tezgahı."
-          },
-          {
-                    "kod": "EVT-BAT-SAG-70_1",
-                    "ad": "70'lik Seri Sağdan Tek Evyeli Bataryalı Tezgah",
-                    "olcu": "990 x 670 x 880 mm",
-                    "stokAdet": 1,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Batarya Montajlı",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-BAT-SAG-70_1.jpg",
-                    "aciklama": "99 x 67 x 88 cm ölçülerinde, üzerinde su bataryası takılı kullanıma hazır sağdan evyeli paslanmaz tezgah."
-          },
-          {
-                    "kod": "EVT-TEK-ORT-60_3",
-                    "ad": "60'lık Seri Ortadan Tekli Evye Ünitesi",
-                    "olcu": "600 x 580 x 860 mm",
-                    "stokAdet": 1,
-                    "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
-                    "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
-                    "paraBirimi": "TL",
-                    "eskiFiyat": 0,
-                    "indirimliFiyat": 0,
-                    "kdvDurumu": "KDV Dahil",
-                    "gorsel": "gorseller/EVT-TEK-ORT-60_3.jpg",
-                    "aciklama": "60 x 58 x 86 cm ölçülerinde, dar alanlar için bağımsız tekli evye ünitesi."
-          }
-];
+            {
+                kod: "EVT-TEK-SAG-60_1",
+                ad: "60'lık Seri Sağdan Tek Evyeli Tezgah",
+                olcu: "1500 x 600 x 850 mm",
+                stokAdet: 1,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-TEK-SAG-60_1.jpg",
+                aciklama: "Sağdan pres baskı tek evye havuzlu, sol tarafı çalışma ve damlalık tablalı, ayarlanabilir rotil ayaklı paslanmaz yıkama tezgahı."
+            },
+            {
+                kod: "EVT-TEK-ORT-60_1",
+                ad: "60'lık Seri Ortadan Tek Evyeli Tezgah",
+                olcu: "1900 x 600 x 850 mm",
+                stokAdet: 5,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-TEK-ORT-60_1.jpg",
+                aciklama: "Merkezi (orta) konumlandırılmış geniş evye havuzlu, her iki yanında simetrik çalışma alanı bulunan 190 cm endüstriyel evyeli tezgah."
+            },
+            {
+                kod: "EVT-TEK-SOL-60_1",
+                ad: "60'lık Seri Soldan Tek Evyeli Tezgah",
+                olcu: "2005 x 585 x 850 mm",
+                stokAdet: 2,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-TEK-SOL-60_1.jpg",
+                aciklama: "Soldan tek evyeli, geniş sağ çalışma ve süzülme tablalı, 200,5 cm uzunluğunda yüksek mukavemetli hazırlık ve yıkama tezgahı."
+            },
+            {
+                kod: "EVT-CFT-SAG-60_1",
+                ad: "60'lık Seri Sağdan Çift Evyeli Tezgah",
+                olcu: "2130 x 600 x 850 mm",
+                stokAdet: 1,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-CFT-SAG-60_1.jpg",
+                aciklama: "Sağ bölümde çift evye havuzuna sahip, sol tarafı geniş damlalıklı, 213 cm uzunluğunda profesyonel bulaşıkhane ve hazırlık tezgahı."
+            },
+            {
+                kod: "EVT-CFT-SAG-60_2",
+                ad: "60'lık Seri Sağdan Çift Evyeli Tezgah",
+                olcu: "1750 x 600 x 850 mm",
+                stokAdet: 1,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-CFT-SAG-60_2.jpg",
+                aciklama: "Sağdan çift evye havuzlu, 175 cm uzunluğunda, yoğun yıkama ve durulama işlemleri için tasarlanmış paslanmaz çelik tezgah."
+            },
+            {
+                kod: "EVT-TEK-SOL-60_2",
+                ad: "60'lık Seri Soldan Tek Evyeli Tezgah",
+                olcu: "1680 x 580 x 850 mm",
+                stokAdet: 5,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-TEK-SOL-60_2.jpg",
+                aciklama: "Soldan tek evye havuzlu, 168 cm boyunda, su taşma profilli ve arka sırtlı endüstriyel mutfak tezgahı."
+            },
+            {
+                kod: "EVT-TEK-SAG-60_2",
+                ad: "60'lık Seri Sağdan Tek Evyeli Tezgah",
+                olcu: "1650 x 580 x 850 mm",
+                stokAdet: 3,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-TEK-SAG-60_2.jpg",
+                aciklama: "Sağdan tek evyeli, 165 cm boyunda, hijyenik pres baskı evyeli ve ayarlanabilir rotil ayaklı çalışma tezgahı."
+            },
+            {
+                kod: "EVT-CFT-SOL-60_1",
+                ad: "60'lık Seri Soldan Çift Evyeli Tezgah",
+                olcu: "1550 x 580 x 850 mm",
+                stokAdet: 1,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-CFT-SOL-60_1.jpg",
+                aciklama: "Sol bölümde çift evye havuzlu, sağ tarafı damlalıklı, 155 cm uzunluğunda paslanmaz yıkama tezgahı."
+            },
+            {
+                kod: "EVT-TEK-SOL-60_3",
+                ad: "60'lık Seri Soldan Tek Evyeli Tezgah",
+                olcu: "1370 x 600 x 850 mm",
+                stokAdet: 1,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-TEK-SOL-60_3.jpg",
+                aciklama: "Soldan tek evyeli, 137x60x85 cm ölçülerinde kompakt ve dayanıklı endüstriyel yıkama tezgahı."
+            },
+            {
+                kod: "EVT-TEK-ORT-60_2",
+                ad: "60'lık Seri Ortadan Tek Evyeli Tezgah",
+                olcu: "1400 x 580 x 850 mm",
+                stokAdet: 3,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-TEK-ORT-60_2.jpg",
+                aciklama: "Ortadan tek evye havuzlu, 140x58x85 cm ölçülerinde çok amaçlı endüstriyel mutfak tezgahı."
+            },
+            {
+                kod: "EVT-TEK-SAG-60_3",
+                ad: "60'lık Seri Sağdan Tek Evyeli Tezgah",
+                olcu: "1400 x 600 x 850 mm",
+                stokAdet: 3,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-TEK-SAG-60_3.jpg",
+                aciklama: "Sağdan tek evye havuzlu, 140x60x85 cm standart ölçülerde paslanmaz çelik yıkama ve hazırlık tezgahı."
+            },
+            {
+                kod: "EVT-TEK-SOL-60_4",
+                ad: "60'lık Seri Soldan Tek Evyeli Tezgah",
+                olcu: "1400 x 600 x 850 mm",
+                stokAdet: 4,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-TEK-SOL-60_4.jpg",
+                aciklama: "Soldan tek evye havuzlu, 140x60x85 cm standart ölçülerde paslanmaz çelik yıkama ve hazırlık tezgahı."
+            },
+            {
+                kod: "EVT-TEK-SAG-60_4",
+                ad: "60'lık Seri Sağdan Tek Evyeli Kompakt Tezgah",
+                olcu: "840 x 580 x 850 mm",
+                stokAdet: 4,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-TEK-SAG-60_4.jpg",
+                aciklama: "Dar alanlar için ideal 84x58x85 cm ölçülerinde, sağdan evyeli kompakt paslanmaz tezgah."
+            },
+            {
+                kod: "EVT-TEK-SOL-60_5",
+                ad: "60'lık Seri Soldan Tek Evyeli Kompakt Tezgah",
+                olcu: "840 x 580 x 850 mm",
+                stokAdet: 2,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-TEK-SOL-60_5.jpg",
+                aciklama: "Dar alanlar için ideal 84x58x85 cm ölçülerinde, soldan evyeli kompakt paslanmaz tezgah."
+            },
+            {
+                kod: "EVT-BMG-SAG-60_1",
+                ad: "60'lık Seri Sağdan Evyeli Soldan Makine Girişli Tezgah",
+                olcu: "1200 x 580 x 860 mm",
+                stokAdet: 1,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Makine Boşluklu",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-BMG-SAG-60_1.jpg",
+                aciklama: "Sağ tarafı evyeli, sol alt kısmı bulaşık makinesi girişine uygun boşluklu 120x58x86 cm bulaşıkhane tezgahı."
+            },
+            {
+                kod: "EVT-TEK-SAG-60_5",
+                ad: "60'lık Seri Sağdan Tek Evyeli Tezgah",
+                olcu: "1365 x 580 x 850 mm",
+                stokAdet: 2,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-TEK-SAG-60_5.jpg",
+                aciklama: "136,5 x 58 x 85 cm ölçülerinde, sağdan tek evye havuzlu endüstriyel yıkama tezgahı."
+            },
+            {
+                kod: "EVT-CFT-SAG-70_1",
+                ad: "70'lik Seri Sağdan Çift Evyeli Tezgah",
+                olcu: "1395 x 680 x 880 mm",
+                stokAdet: 1,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-CFT-SAG-70_1.jpg",
+                aciklama: "70'lik derin seri (139,5 x 68 x 88 cm), sağdan çift evyeli yüksek kapasiteli profesyonel yıkama tezgahı."
+            },
+            {
+                kod: "EVT-BMG-SAG-70_1",
+                ad: "70'lik Seri Sağdan Evyeli Soldan Makine Girişli Tezgah",
+                olcu: "1395 x 680 x 880 mm",
+                stokAdet: 1,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Makine Boşluklu",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-BMG-SAG-70_1.jpg",
+                aciklama: "70'lik seri (139,5 x 68 x 88 cm), sağdan evyeli ve sol alt bölümü bulaşık makinesi girişine uygun bulaşıkhane tezgahı."
+            },
+            {
+                kod: "EVT-BAT-SAG-70_1",
+                ad: "70'lik Seri Sağdan Tek Evyeli Bataryalı Tezgah",
+                olcu: "990 x 670 x 880 mm",
+                stokAdet: 1,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Batarya Montajlı",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-BAT-SAG-70_1.jpg",
+                aciklama: "99 x 67 x 88 cm ölçülerinde, üzerinde su bataryası takılı kullanıma hazır sağdan evyeli paslanmaz tezgah."
+            },
+            {
+                kod: "EVT-TEK-ORT-60_3",
+                ad: "60'lık Seri Ortadan Tekli Evye Ünitesi",
+                olcu: "600 x 580 x 860 mm",
+                stokAdet: 1,
+                malzeme: "AISI 304 Kalite Paslanmaz Çelik",
+                kalinlik: "1.20 mm Sac / Kutu Profil Ayak",
+                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
+                gorsel: "gorseller/EVT-TEK-ORT-60_3.jpg",
+                aciklama: "60 x 58 x 86 cm ölçülerinde, dar alanlar için bağımsız tekli evye ünitesi."
+            }
+        ];
         // /*URUNLER_BITIS*/
 
         let AYARLAR = JSON.parse(localStorage.getItem('avsar_ayarlar')) || VARSAYILAN_AYARLAR;
-        // Yeni 20 ürünü hemen yüklemesi için versiyon anahtarını v3 yaptık
-        let URUNLER = JSON.parse(localStorage.getItem('avsar_urunler_v3')) || VARSAYILAN_URUNLER;
+        let URUNLER = JSON.parse(localStorage.getItem('avsar_urunler_v4')) || VARSAYILAN_URUNLER;
         let GUNCEL_DOLAR_KURU = parseFloat(AYARLAR.manuelDolarKuru) || 36.50;
+        let aktifFiltre = "Tümü";
 
         function veritabaniKaydet() {
-            localStorage.setItem('avsar_urunler_v3', JSON.stringify(URUNLER));
+            localStorage.setItem('avsar_urunler_v4', JSON.stringify(URUNLER));
             localStorage.setItem('avsar_ayarlar', JSON.stringify(AYARLAR));
         }
 
@@ -406,14 +360,15 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
         const params = new URLSearchParams(window.location.search);
         const urunKodu = params.get('urun');
         const kutu = document.getElementById('icerikAlani');
+        const ustKatalogBtn = document.getElementById('ustKatalogBtn');
 
         function ekraniCiz() {
             if (urunKodu) {
+                ustKatalogBtn.classList.remove('hidden');
                 musteriEkraniGoster(urunKodu.toUpperCase());
-            } else if (sessionStorage.getItem('avsar_admin_giris') === 'evet') {
-                yonetimPaneliGoster('qr');
             } else {
-                karsilamaEkraniGoster();
+                ustKatalogBtn.classList.add('hidden');
+                vitrinKatalogGoster();
             }
         }
 
@@ -425,7 +380,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                     const data = await res.json();
                     if (data && data.rates && data.rates.TRY) {
                         GUNCEL_DOLAR_KURU = parseFloat(data.rates.TRY.toFixed(2));
-                        ekraniCiz();
+                        if (urunKodu) musteriEkraniGoster(urunKodu.toUpperCase());
                     }
                 } catch (e) {}
             }
@@ -433,86 +388,134 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
 
         sistemiBaslat();
 
-        function karsilamaEkraniGoster() {
+        // =====================================================
+        // 1. ANİMASYONLU & MİNİMAL VİTRİN KATALOĞU (LOGOYA BASINCA AÇILAN EKRAN)
+        // =====================================================
+        function vitrinKatalogGoster() {
+            const yoneticiBar = sessionStorage.getItem('avsar_admin_giris') === 'evet' ? `
+                <div class="mb-6 flex justify-between items-center bg-slate-900 text-white px-5 py-3 rounded-2xl text-xs shadow-sm">
+                    <span class="font-semibold">🔓 Yönetici Oturumu Açık</span>
+                    <button onclick="yonetimPaneliGoster('qr')" class="bg-white text-slate-900 font-bold px-3.5 py-1.5 rounded-xl hover:bg-slate-100 transition">⚙️ Yönetim & Etiket Paneline Geç</button>
+                </div>
+            ` : '';
+
             kutu.innerHTML = `
-                <div class="bg-white rounded-3xl p-8 shadow-md border border-slate-200 text-center max-w-md mx-auto">
-                    <div class="w-14 h-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center font-extrabold text-xl mx-auto mb-4 shadow-sm">
-                        AK
+                <div class="animate-fade-up">
+                    ${yoneticiBar}
+                    
+                    <!-- MİNİMAL HERO BAŞLIK -->
+                    <div class="text-center max-w-2xl mx-auto mb-8">
+                        <span class="inline-block text-[11px] font-bold uppercase tracking-widest text-slate-500 bg-slate-200/70 px-3 py-1 rounded-full mb-3">
+                            Dijital Ürün Kataloğu
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
+                            Endüstriyel Paslanmaz Ekipmanlar
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-500">
+                            Tüm ürünlerimiz AISI 304 kalite paslanmaz çelikten üretilmektedir. Detaylı teknik kart ve sipariş için ürün seçin veya ekipman üzerindeki QR kodu okutun.
+                        </p>
                     </div>
-                    <h2 class="text-xl font-bold text-slate-900 mb-2">Dijital Ürün Kimlik Sistemi</h2>
-                    <p class="text-xs text-slate-500 leading-relaxed mb-6">
-                        Ürün teknik detaylarını ve güncel kampanya fiyatlarını görüntülemek için ekipman üzerindeki <b>QR kodu</b> telefon kameranızla okutun veya ürün kodunu aşağıya yazın.
-                    </p>
-                    <div class="flex gap-2 mb-6">
-                        <input type="text" id="manuelKodInput" placeholder="Ürün Kodu (Örn: EVT-TEK-SAG-60_1)" 
-                            onkeypress="if(event.key === 'Enter') kodIleGit()"
-                            class="w-full px-4 py-3 border border-slate-300 rounded-xl text-sm font-bold uppercase focus:outline-none focus:ring-2 focus:ring-slate-900">
-                        <button onclick="kodIleGit()" class="bg-slate-900 hover:bg-slate-800 text-white font-semibold px-5 py-3 rounded-xl text-sm transition shrink-0">
-                            Göster
-                        </button>
+
+                    <!-- ARAMA VE SERİ FİLTRE ÇUBUĞU -->
+                    <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-200/80 mb-8 flex flex-col md:flex-row gap-3 items-center justify-between">
+                        <div class="relative w-full md:w-80">
+                            <input type="text" id="vitrinArama" oninput="vitrinFiltrele()" placeholder="Ürün kodu veya ölçü ara (Örn: 1900, EVT)..." 
+                                class="w-full pl-9 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-slate-900 focus:bg-white transition">
+                            <span class="absolute left-3 top-2.5 text-slate-400 text-sm">🔍</span>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 w-full md:w-auto justify-center" id="filtreButonlari">
+                            <button onclick="seriFiltreSec('Tümü')" class="filtre-btn px-3.5 py-2 rounded-xl text-xs font-bold transition bg-slate-900 text-white">Tümü (${URUNLER.length})</button>
+                            <button onclick="seriFiltreSec('60')" class="filtre-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition bg-slate-100 text-slate-600 hover:bg-slate-200">60'lık Seri</button>
+                            <button onclick="seriFiltreSec('70')" class="filtre-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition bg-slate-100 text-slate-600 hover:bg-slate-200">70'lik Seri</button>
+                            <button onclick="seriFiltreSec('CFT')" class="filtre-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition bg-slate-100 text-slate-600 hover:bg-slate-200">Çift Evyeli</button>
+                            <button onclick="seriFiltreSec('BMG')" class="filtre-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition bg-slate-100 text-slate-600 hover:bg-slate-200">Makine Girişli</button>
+                        </div>
                     </div>
-                    <div class="border-t border-slate-100 pt-5">
-                        <a href="https://wa.me/${WHATSAPP_NO}?text=${encodeURIComponent('Merhaba Avşar Krom, endüstriyel mutfak ekipmanlarınız hakkında bilgi almak istiyorum.')}" target="_blank" 
-                           class="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold py-3 px-4 rounded-xl shadow-sm transition text-xs">
-                            💬 WhatsApp Müşteri Hattına Bağlan
-                        </a>
-                    </div>
+
+                    <!-- ÜRÜN VİTRİN IZGARASI -->
+                    <div id="vitrinGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
                 </div>
             `;
+            vitrinFiltrele();
         }
 
-        function kodIleGit() {
-            const girilen = document.getElementById('manuelKodInput').value.trim().toUpperCase();
-            if (girilen) window.location.search = "?urun=" + girilen;
+        function seriFiltreSec(seri) {
+            aktifFiltre = seri;
+            vitrinFiltrele();
         }
 
-        function yoneticiGirisKontrol() {
-            if (sessionStorage.getItem('avsar_admin_giris') === 'evet') {
-                window.history.replaceState({}, document.title, window.location.pathname);
-                yonetimPaneliGoster('qr');
+        function vitrinFiltrele() {
+            const aramaInput = document.getElementById('vitrinArama');
+            const arama = aramaInput ? aramaInput.value.toLowerCase() : "";
+
+            // Filtre butonlarının rengini güncelle
+            document.querySelectorAll('.filtre-btn').forEach(btn => {
+                const seciliMi = btn.getAttribute('onclick').includes(`'${aktifFiltre}'`);
+                btn.className = `filtre-btn px-3.5 py-2 rounded-xl text-xs font-bold transition ${seciliMi ? 'bg-slate-900 text-white shadow-sm' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}`;
+            });
+
+            const liste = URUNLER.filter(u => {
+                const metinUyumu = u.kod.toLowerCase().includes(arama) || u.ad.toLowerCase().includes(arama) || u.olcu.toLowerCase().includes(arama);
+                let filtreUyumu = true;
+                if (aktifFiltre === '60') filtreUyumu = u.kod.includes('-60_');
+                else if (aktifFiltre === '70') filtreUyumu = u.kod.includes('-70_');
+                else if (aktifFiltre === 'CFT') filtreUyumu = u.kod.includes('-CFT-');
+                else if (aktifFiltre === 'BMG') filtreUyumu = u.kod.includes('-BMG-');
+                return metinUyumu && filtreUyumu;
+            });
+
+            const grid = document.getElementById('vitrinGrid');
+            if (!grid) return;
+
+            if (liste.length === 0) {
+                grid.innerHTML = `<div class="col-span-full bg-white p-12 rounded-3xl text-center text-slate-400 text-sm border border-slate-200/60">Arama kriterine uygun ürün bulunamadı.</div>`;
                 return;
             }
-            kutu.innerHTML = `
-                <div class="bg-white rounded-3xl p-8 shadow-md border border-slate-200 text-center max-w-sm mx-auto">
-                    <div class="text-2xl mb-2">🔒</div>
-                    <h3 class="font-bold text-base text-slate-900 mb-1">Yönetici Girişi</h3>
-                    <p class="text-xs text-slate-500 mb-5">Etiket ve fiyat yönetim paneline erişmek için şifrenizi girin.</p>
-                    <input type="password" id="sifreInput" placeholder="Yönetici Şifresi" 
-                        onkeypress="if(event.key === 'Enter') sifreDogrula()"
-                        class="w-full px-4 py-3 border border-slate-300 rounded-xl text-sm text-center font-bold mb-3 focus:outline-none focus:ring-2 focus:ring-slate-900">
-                    <div id="sifreHata" class="hidden text-xs text-red-600 font-semibold mb-3">Hatalı şifre girdiniz!</div>
-                    <div class="grid grid-cols-2 gap-2">
-                        <button onclick="ekraniCiz()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2.5 rounded-xl text-xs">İptal</button>
-                        <button onclick="sifreDogrula()" class="bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2.5 rounded-xl text-xs">Giriş Yap</button>
+
+            grid.innerHTML = liste.map((u, idx) => {
+                const fh = fiyatHesapla(u);
+                return `
+                <a href="?urun=${u.kod}" style="animation-delay: ${Math.min(idx * 40, 300)}ms" class="animate-fade-up opacity-0 product-card-hover group bg-white rounded-3xl border border-slate-200/80 overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
+                            <img src="${u.gorsel}" alt="${u.ad}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                                 onerror="this.src='https://placehold.co/800x600/f1f5f9/475569?text=${encodeURIComponent(u.kod)}'">
+                            <span class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-sm text-white text-[11px] font-extrabold px-3 py-1 rounded-full tracking-wider">
+                                ${u.kod}
+                            </span>
+                            <span class="absolute top-3 right-3 bg-white/95 backdrop-blur-sm text-slate-800 text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm">
+                                Stok: ${u.stokAdet || 1} Adet
+                            </span>
+                        </div>
+                        <div class="p-5">
+                            <h3 class="font-bold text-slate-900 text-base leading-snug group-hover:text-slate-700 transition mb-2">${u.ad}</h3>
+                            <div class="inline-flex items-center gap-1.5 bg-slate-100 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-xl">
+                                <span>📐</span> <span>${u.olcu}</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            `;
-            setTimeout(() => document.getElementById('sifreInput').focus(), 100);
+                    <div class="px-5 py-3.5 bg-slate-50/80 border-t border-slate-100 flex justify-between items-center">
+                        <span class="text-xs font-bold ${fh.yeniTL > 0 ? 'text-emerald-600 text-sm' : 'text-slate-500'}">
+                            ${fh.yeniTL > 0 ? formatTL(fh.yeniTL) : 'Fiyat & Teklif Al'}
+                        </span>
+                        <span class="text-xs font-bold text-slate-900 group-hover:translate-x-1 transition transform inline-flex items-center gap-1">
+                            İncele <span>→</span>
+                        </span>
+                    </div>
+                </a>
+            `}).join('');
         }
 
-        function sifreDogrula() {
-            if (document.getElementById('sifreInput').value === YONETICI_SIFRESI) {
-                sessionStorage.setItem('avsar_admin_giris', 'evet');
-                window.history.replaceState({}, document.title, window.location.pathname);
-                yonetimPaneliGoster('qr');
-            } else {
-                document.getElementById('sifreHata').classList.remove('hidden');
-            }
-        }
-
-        function yoneticiCikis() {
-            sessionStorage.removeItem('avsar_admin_giris');
-            karsilamaEkraniGoster();
-        }
-
-        // MÜŞTERİ EKRANI
+        // =====================================================
+        // 2. MÜŞTERİ TEK ÜRÜN EKRANI (QR OKUTULDUĞUNDA AÇILAN EKRAN)
+        // =====================================================
         function musteriEkraniGoster(kod) {
             const u = URUNLER.find(item => item.kod.toUpperCase() === kod);
             if (!u) {
                 kutu.innerHTML = `
-                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 text-center max-w-md mx-auto">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 text-center max-w-md mx-auto animate-fade-up">
                         <p class="font-semibold text-slate-700 mb-2">Ürün Kimlik Kartı Bulunamadı (<b>${kod}</b>)</p>
-                        <a href="?" class="inline-block mt-3 text-xs bg-slate-900 text-white font-semibold px-5 py-2.5 rounded-xl">Sorgulama Ekranına Dön</a>
+                        <a href="?" class="inline-block mt-3 text-xs bg-slate-900 text-white font-semibold px-5 py-2.5 rounded-xl">Tüm Ürün Kataloğuna Dön</a>
                     </div>`;
                 return;
             }
@@ -549,134 +552,191 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
             const yoneticiBar = sessionStorage.getItem('avsar_admin_giris') === 'evet' ? `
                 <div class="mb-3 flex justify-between items-center bg-slate-900 text-white px-4 py-2.5 rounded-2xl text-xs">
                     <span>👁️ Müşteri Önizleme Modu</span>
-                    <button onclick="window.history.replaceState({}, document.title, window.location.pathname); yonetimPaneliGoster('qr');" class="bg-white text-slate-900 font-bold px-3 py-1 rounded-lg">⬅️ Panele Dön</button>
+                    <button onclick="window.history.replaceState({}, document.title, window.location.pathname); yonetimPaneliGoster('qr');" class="bg-white text-slate-900 font-bold px-3 py-1 rounded-lg">⬅️ Etiket Paneline Dön</button>
                 </div>
             ` : '';
 
             kutu.innerHTML = `
-                ${yoneticiBar}
-                <div class="bg-white rounded-3xl shadow-md border border-slate-200/80 overflow-hidden">
-                    <div class="relative bg-slate-100 aspect-[4/3] w-full flex items-center justify-center overflow-hidden">
-                        <img src="${u.gorsel}" alt="${u.ad}" class="w-full h-full object-cover" 
-                             onerror="this.src='https://placehold.co/800x600/e2e8f0/475569?text=Gorsel+Hazirlaniyor+(${u.kod})'">
-                        <span class="absolute top-4 left-4 bg-slate-900/90 text-white text-xs font-bold px-3.5 py-1.5 rounded-full tracking-wider shadow">
-                            KOD: ${u.kod}
-                        </span>
-                        <span class="absolute top-4 right-4 bg-emerald-600/95 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
-                            Stok: ${u.stokAdet || 1} Adet Hazır
-                        </span>
-                    </div>
-
-                    <div class="p-6">
-                        <h2 class="text-xl font-bold text-slate-900 mb-2">${u.ad}</h2>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-5">${u.aciklama}</p>
-
-                        ${fiyatBolumuHTML}
-
-                        <div class="bg-slate-50 rounded-2xl p-4 mb-6 space-y-2.5 border border-slate-200/60 text-sm">
-                            <div class="flex justify-between border-b border-slate-200 pb-2 gap-2">
-                                <span class="text-slate-500 shrink-0">📐 Ölçüler (En x Boy x Yük.)</span>
-                                <span class="font-bold text-slate-900 text-right">${u.olcu}</span>
-                            </div>
-                            <div class="flex justify-between border-b border-slate-200 pb-2 gap-2">
-                                <span class="text-slate-500 shrink-0">🛡️ Malzeme</span>
-                                <span class="font-semibold text-slate-900 text-right">${u.malzeme}</span>
-                            </div>
-                            <div class="flex justify-between gap-2">
-                                <span class="text-slate-500 shrink-0">⚙️ Kalınlık / Yapı</span>
-                                <span class="font-semibold text-slate-900 text-right">${u.kalinlik}</span>
-                            </div>
+                <div class="max-w-xl mx-auto animate-fade-up">
+                    ${yoneticiBar}
+                    <div class="bg-white rounded-3xl shadow-md border border-slate-200/80 overflow-hidden">
+                        <div class="relative bg-slate-100 aspect-[4/3] w-full flex items-center justify-center overflow-hidden">
+                            <img src="${u.gorsel}" alt="${u.ad}" class="w-full h-full object-cover" 
+                                 onerror="this.src='https://placehold.co/800x600/e2e8f0/475569?text=Gorsel+Hazirlaniyor+(${u.kod})'">
+                            <span class="absolute top-4 left-4 bg-slate-900/90 text-white text-xs font-bold px-3.5 py-1.5 rounded-full tracking-wider shadow">
+                                KOD: ${u.kod}
+                            </span>
+                            <span class="absolute top-4 right-4 bg-emerald-600/95 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
+                                Stok: ${u.stokAdet || 1} Adet Hazır
+                            </span>
                         </div>
 
-                        <div class="space-y-2.5">
-                            <a href="https://wa.me/${WHATSAPP_NO}?text=${msjStandart}" target="_blank" 
-                               class="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold py-3.5 px-4 rounded-xl shadow-sm transition text-sm">
-                                💬 WhatsApp ile Fiyat & Sipariş Bilgisi Al
-                            </a>
-                            <a href="https://wa.me/${WHATSAPP_NO}?text=${msjOzel}" target="_blank" 
-                               class="flex items-center justify-center gap-2 w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3.5 px-4 rounded-xl shadow-sm transition text-sm">
-                                📏 Özel Ölçü Üretim İste
-                            </a>
+                        <div class="p-6">
+                            <h2 class="text-xl font-bold text-slate-900 mb-2">${u.ad}</h2>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-5">${u.aciklama}</p>
+
+                            ${fiyatBolumuHTML}
+
+                            <div class="bg-slate-50 rounded-2xl p-4 mb-6 space-y-2.5 border border-slate-200/60 text-sm">
+                                <div class="flex justify-between border-b border-slate-200 pb-2 gap-2">
+                                    <span class="text-slate-500 shrink-0">📐 Ölçüler (En x Boy x Yük.)</span>
+                                    <span class="font-bold text-slate-900 text-right">${u.olcu}</span>
+                                </div>
+                                <div class="flex justify-between border-b border-slate-200 pb-2 gap-2">
+                                    <span class="text-slate-500 shrink-0">🛡️ Malzeme</span>
+                                    <span class="font-semibold text-slate-900 text-right">${u.malzeme}</span>
+                                </div>
+                                <div class="flex justify-between gap-2">
+                                    <span class="text-slate-500 shrink-0">⚙️ Kalınlık / Yapı</span>
+                                    <span class="font-semibold text-slate-900 text-right">${u.kalinlik}</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2.5">
+                                <a href="https://wa.me/${WHATSAPP_NO}?text=${msjStandart}" target="_blank" 
+                                   class="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold py-3.5 px-4 rounded-xl shadow-sm transition text-sm">
+                                    💬 WhatsApp ile Fiyat & Sipariş Bilgisi Al
+                                </a>
+                                <a href="https://wa.me/${WHATSAPP_NO}?text=${msjOzel}" target="_blank" 
+                                   class="flex items-center justify-center gap-2 w-full bg-slate-900 hover:bg-slate-800 text-white font-semibold py-3.5 px-4 rounded-xl shadow-sm transition text-sm">
+                                    📏 Özel Ölçü Üretim İste
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             `;
         }
 
-        // YÖNETİM PANELİ (ZEBRA 58x38mm PROFESYONEL ETİKET ŞABLONLU)
+        // =====================================================
+        // 3. YÖNETİCİ GİRİŞİ VE 80x50 mm ZEBRA PANELİ
+        // =====================================================
+        function yoneticiGirisKontrol() {
+            if (sessionStorage.getItem('avsar_admin_giris') === 'evet') {
+                window.history.replaceState({}, document.title, window.location.pathname);
+                yonetimPaneliGoster('qr');
+                return;
+            }
+            kutu.innerHTML = `
+                <div class="bg-white rounded-3xl p-8 shadow-md border border-slate-200 text-center max-w-sm mx-auto animate-fade-up">
+                    <div class="text-2xl mb-2">🔒</div>
+                    <h3 class="font-bold text-base text-slate-900 mb-1">Yönetici Girişi</h3>
+                    <p class="text-xs text-slate-500 mb-5">Etiket ve fiyat yönetim paneline erişmek için şifrenizi girin.</p>
+                    <input type="password" id="sifreInput" placeholder="Yönetici Şifresi" 
+                        onkeypress="if(event.key === 'Enter') sifreDogrula()"
+                        class="w-full px-4 py-3 border border-slate-300 rounded-xl text-sm text-center font-bold mb-3 focus:outline-none focus:ring-2 focus:ring-slate-900">
+                    <div id="sifreHata" class="hidden text-xs text-red-600 font-semibold mb-3">Hatalı şifre girdiniz!</div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="ekraniCiz()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2.5 rounded-xl text-xs">İptal</button>
+                        <button onclick="sifreDogrula()" class="bg-slate-900 hover:bg-slate-800 text-white font-semibold py-2.5 rounded-xl text-xs">Giriş Yap</button>
+                    </div>
+                </div>
+            `;
+            setTimeout(() => document.getElementById('sifreInput').focus(), 100);
+        }
+
+        function sifreDogrula() {
+            if (document.getElementById('sifreInput').value === YONETICI_SIFRESI) {
+                sessionStorage.setItem('avsar_admin_giris', 'evet');
+                window.history.replaceState({}, document.title, window.location.pathname);
+                yonetimPaneliGoster('qr');
+            } else {
+                document.getElementById('sifreHata').classList.remove('hidden');
+            }
+        }
+
+        function yoneticiCikis() {
+            sessionStorage.removeItem('avsar_admin_giris');
+            ekraniCiz();
+        }
+
+        function panoyaKopyala(elemanId, buton) {
+            const metin = document.getElementById(elemanId).value;
+            navigator.clipboard.writeText(metin);
+            const eskiYazi = buton.innerText;
+            buton.innerText = "✓ Kopyalandı";
+            buton.classList.add("bg-emerald-600", "text-white");
+            setTimeout(() => {
+                buton.innerText = eskiYazi;
+                buton.classList.remove("bg-emerald-600", "text-white");
+            }, 1200);
+        }
+
         function yonetimPaneliGoster(aktifSekme = 'qr') {
             kutu.innerHTML = `
-                <div class="bg-white rounded-3xl p-6 shadow-md border border-slate-200">
+                <div class="max-w-xl mx-auto bg-white rounded-3xl p-6 shadow-md border border-slate-200 animate-fade-up">
                     
                     <div class="flex justify-between items-center mb-4 pb-3 border-b border-slate-100">
                         <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full">🔓 Yönetici Oturumu Açık</span>
-                        <button onclick="yoneticiCikis()" class="text-xs text-red-600 font-semibold hover:underline">Çıkış Yap ✖</button>
+                        <div class="flex gap-3">
+                            <button onclick="vitrinKatalogGoster()" class="text-xs text-slate-600 font-semibold hover:underline">📦 Kataloğa Bak</button>
+                            <button onclick="yoneticiCikis()" class="text-xs text-red-600 font-semibold hover:underline">Çıkış Yap ✖</button>
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-2 gap-2 bg-slate-100 p-1.5 rounded-2xl mb-6">
                         <button onclick="yonetimPaneliGoster('qr')" class="py-2.5 rounded-xl text-xs font-bold transition ${aktifSekme === 'qr' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-800'}">
-                            🏷️ Zebra 58x38 Etiket Bas
+                            🏷️ 80×50 Etiket & Kopyalama
                         </button>
                         <button onclick="yonetimPaneliGoster('ekle')" class="py-2.5 rounded-xl text-xs font-bold transition ${aktifSekme === 'ekle' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-800'}">
                             ➕ Ürün & Fiyat Yönetimi (${URUNLER.length})
                         </button>
                     </div>
 
-                    <!-- SEKME 1: ZEBRA ZD220 (58 x 38 mm) PROFESYONEL ETİKET ÜRETİCİ -->
+                    <!-- SEKME 1: 80x50 mm ZEBRA DESIGNER KOPYALAMA & CANVAS ETİKET -->
                     <div id="sekmeQr" class="${aktifSekme === 'qr' ? 'block' : 'hidden'}">
-                        <label class="block text-xs font-semibold text-slate-500 mb-2">Zebra ZD220 ile basılacak ürünü seçin:</label>
-                        <select id="urunSecici" onchange="etiketGuncelle()" class="w-full p-3 border border-slate-300 rounded-xl mb-5 text-sm font-semibold bg-slate-50">
+                        <label class="block text-xs font-semibold text-slate-500 mb-2">Etiket bilgilerini alacağınız ürünü seçin:</label>
+                        <select id="urunSecici" onchange="etiketGuncelle()" class="w-full p-3 border border-slate-300 rounded-xl mb-4 text-sm font-bold bg-slate-50">
                             ${URUNLER.map(u => `<option value="${u.kod}">${u.kod} | ${u.olcu} (${u.stokAdet || 1} Adet)</option>`).join('')}
                         </select>
 
-                        <!-- 58 x 38 mm ORANLI PROFESYONEL ENDÜSTRİYEL ETİKET ŞABLONU -->
-                        <div class="bg-slate-100 p-4 rounded-2xl flex justify-center">
-                            <div id="yazdirmaAlani" class="bg-white border-2 border-black rounded-lg overflow-hidden flex flex-col justify-between" style="width: 348px; height: 228px; padding: 8px 10px;">
-                                
-                                <!-- ÜST TERS BASKI (SİYAH KUŞAK) -->
-                                <div class="bg-black text-white text-center py-1 px-2 rounded-sm flex justify-between items-center">
-                                    <span class="font-black text-xs tracking-wider">AVŞAR KROM</span>
-                                    <span class="text-[9px] font-semibold tracking-tight">ENDÜSTRİYEL MUTFAK</span>
-                                </div>
-
-                                <!-- ORTA İKİ SÜTUNLU ALAN (SOL: BİLGİLER, SAĞ: QR KOD) -->
-                                <div class="flex items-center justify-between gap-2 my-auto py-1">
-                                    <div class="flex-1 text-left pr-1 overflow-hidden">
-                                        <div id="etiketKod" class="font-black text-sm text-black leading-none mb-1"></div>
-                                        <div id="etiketAd" class="font-bold text-[11px] text-black leading-tight line-clamp-2 mb-1.5 border-b border-black pb-1"></div>
-                                        <div class="text-[10px] font-bold text-black leading-tight">
-                                            ÖLÇÜ: <span id="etiketOlcu" class="font-extrabold"></span>
-                                        </div>
-                                        <div class="text-[9px] font-semibold text-black leading-tight mt-0.5">
-                                            ÇELİK: AISI 304 Paslanmaz
-                                        </div>
-                                        <div class="text-[9px] font-bold text-black leading-tight mt-0.5">
-                                            TEL: 0532 333 38 06
-                                        </div>
-                                    </div>
-                                    <div class="flex flex-col items-center justify-center shrink-0">
-                                        <div id="qrKutu" class="p-1 bg-white border border-black"></div>
-                                        <span class="text-[8px] font-bold text-black mt-0.5 tracking-tight">FİYAT & DETAY</span>
-                                    </div>
-                                </div>
-
+                        <!-- ZEBRA DESIGNER İÇİN TEK TIKLA KOPYALAMA KUTUSU -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-2xl p-3.5 mb-5 space-y-2">
+                            <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">📋 ZebraDesigner Şablonuna Hızlı Kopyala</div>
+                            
+                            <div class="flex gap-1.5 items-center">
+                                <span class="text-xs font-semibold text-slate-500 w-16 shrink-0">Kod:</span>
+                                <input id="kopya_kod" readonly class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold">
+                                <button onclick="panoyaKopyala('kopya_kod', this)" class="bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold px-3 py-1.5 rounded-lg shrink-0 transition">Kopyala</button>
+                            </div>
+                            <div class="flex gap-1.5 items-center">
+                                <span class="text-xs font-semibold text-slate-500 w-16 shrink-0">Ürün Adı:</span>
+                                <input id="kopya_ad" readonly class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-semibold">
+                                <button onclick="panoyaKopyala('kopya_ad', this)" class="bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold px-3 py-1.5 rounded-lg shrink-0 transition">Kopyala</button>
+                            </div>
+                            <div class="flex gap-1.5 items-center">
+                                <span class="text-xs font-semibold text-slate-500 w-16 shrink-0">Ölçü:</span>
+                                <input id="kopya_olcu" readonly class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-bold">
+                                <button onclick="panoyaKopyala('kopya_olcu', this)" class="bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold px-3 py-1.5 rounded-lg shrink-0 transition">Kopyala</button>
+                            </div>
+                            <div class="flex gap-1.5 items-center">
+                                <span class="text-xs font-semibold text-slate-500 w-16 shrink-0">QR Linki:</span>
+                                <input id="kopya_link" readonly class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-[11px] text-slate-600">
+                                <button onclick="panoyaKopyala('kopya_link', this)" class="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-3 py-1.5 rounded-lg shrink-0 transition">Linki Kopyala</button>
                             </div>
                         </div>
-                        <p class="text-center text-[11px] text-slate-400 mt-2">📏 Bu şablon <b>58 x 38 mm</b> ribonlu etiket boyutuna tam uyumludur.</p>
 
-                        <div class="grid grid-cols-2 gap-3 mt-4">
-                            <button onclick="window.print()" class="bg-slate-900 text-white py-3 rounded-xl text-sm font-semibold hover:bg-slate-800">
-                                🖨️ Zebra ZD220'ye Yazdır
+                        <!-- BOZULMAYAN 80 x 50 mm CANVAS ETİKET GÖRSELİ -->
+                        <div class="bg-slate-100 p-4 rounded-2xl flex flex-col items-center">
+                            <canvas id="etiketCanvas" width="640" height="400" class="w-full max-w-[400px] bg-white border-2 border-slate-900 rounded-lg shadow-sm"></canvas>
+                            <p class="text-[11px] text-slate-500 mt-2">📏 <b>80 x 50 mm</b> Sabit Görüntü (Yazdırırken asla kaymaz ve bozulmaz)</p>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-2 mt-4">
+                            <button onclick="window.print()" class="bg-slate-900 text-white py-3 rounded-xl text-xs font-bold hover:bg-slate-800">
+                                🖨️ Direkt Yazdır
                             </button>
-                            <a id="onizlemeBtn" href="#" class="bg-slate-100 text-slate-800 py-3 rounded-xl text-sm font-semibold text-center hover:bg-slate-200">
-                                👁️ Müşteri Ekranını Gör
+                            <button onclick="etiketResimIndir()" class="bg-emerald-600 text-white py-3 rounded-xl text-xs font-bold hover:bg-emerald-700">
+                                📥 PNG İndir
+                            </button>
+                            <a id="onizlemeBtn" href="#" class="bg-slate-100 text-slate-800 py-3 rounded-xl text-xs font-bold text-center hover:bg-slate-200 flex items-center justify-center">
+                                👁️ Müşteri Ekranı
                             </a>
                         </div>
                     </div>
 
                     <!-- SEKME 2: ÜRÜN VE FİYAT EKLEME FORMU -->
                     <div id="sekmeEkle" class="${aktifSekme === 'ekle' ? 'block' : 'hidden'}">
-                        
                         <div class="bg-blue-50/70 border border-blue-200 p-3.5 rounded-2xl mb-5 flex flex-col sm:flex-row justify-between items-center gap-3">
                             <div class="text-xs">
                                 <span class="font-bold text-slate-800">💵 Aktif Dolar Kuru: 1$ = ${GUNCEL_DOLAR_KURU} ₺</span>
@@ -740,7 +800,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                                     </div>
                                     <div>
                                         <label class="text-xs font-semibold text-slate-600">Ölçüler (En x Boy x Yük.)</label>
-                                        <input type="text" id="f_olcu" placeholder="1395 x 680 x 880 mm" class="w-full p-2 border rounded-lg mt-1 text-xs font-bold">
+                                        <input type="text" id="f_olcu" placeholder="1500 x 600 x 850 mm" class="w-full p-2 border rounded-lg mt-1 text-xs font-bold">
                                     </div>
                                     <div>
                                         <label class="text-xs font-semibold text-slate-600">Sac Kalınlığı</label>
@@ -783,7 +843,7 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
                         </div>
 
                         <div class="bg-slate-900 text-white p-4 rounded-2xl text-center">
-                            <p class="text-xs text-slate-300 mb-2">Fiyatları güncellediğinizde GitHub'a yüklemek için güncel dosyayı indirin:</p>
+                            <p class="text-xs text-slate-300 mb-2">Değişiklikleri GitHub'a yüklemek için güncel dosyayı indirin:</p>
                             <button onclick="guncelKoduIndir()" class="w-full bg-white text-slate-900 font-bold py-2.5 rounded-xl text-xs hover:bg-slate-100 transition">
                                 💾 Güncel index.html Dosyasını İndir
                             </button>
@@ -802,20 +862,82 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
             sistemiBaslat();
         }
 
+        // 80 x 50 mm ETİKETİ DOĞRUDAN RESİM (CANVAS) OLARAK ÇİZEN FONKSİYON (Asla Bozulmaz)
         function etiketGuncelle() {
             const seciliKod = document.getElementById('urunSecici').value;
             const u = URUNLER.find(item => item.kod === seciliKod);
             if (!u) return;
-            const qrKutu = document.getElementById('qrKutu');
-            qrKutu.innerHTML = "";
-            
-            const urunLinki = window.location.origin + window.location.pathname + "?urun=" + u.kod;
-            new QRCode(qrKutu, { text: urunLinki, width: 96, height: 96, correctLevel: QRCode.CorrectLevel.M });
 
-            document.getElementById('etiketKod').innerText = u.kod;
-            document.getElementById('etiketAd').innerText = u.ad;
-            document.getElementById('etiketOlcu').innerText = u.olcu;
+            const urunLinki = window.location.origin + window.location.pathname + "?urun=" + u.kod;
+
+            // Hızlı kopyalama kutularını doldur (ZebraDesigner şablonun için)
+            document.getElementById('kopya_kod').value = u.kod;
+            document.getElementById('kopya_ad').value = u.ad;
+            document.getElementById('kopya_olcu').value = "ÖLÇÜ: " + u.olcu.replace(/ x /g, "*");
+            document.getElementById('kopya_link').value = urunLinki;
             document.getElementById('onizlemeBtn').href = "?urun=" + u.kod;
+
+            // Gizli kutuda QR üretip Canvas üzerine senin 80x50 ZebraDesigner tasarımını birebir çiz
+            const gizliKutu = document.getElementById('gizliQrKutu');
+            gizliKutu.innerHTML = "";
+            new QRCode(gizliKutu, { text: urunLinki, width: 170, height: 170, correctLevel: QRCode.CorrectLevel.M });
+
+            setTimeout(() => {
+                const qrCanvas = gizliKutu.querySelector('canvas');
+                const canvas = document.getElementById('etiketCanvas');
+                if (!canvas) return;
+                const ctx = canvas.getContext('2d');
+
+                // Beyaz Arka Plan (640x400 px = 80x50 mm oranı)
+                ctx.fillStyle = "#FFFFFF";
+                ctx.fillRect(0, 0, 640, 400);
+
+                // Üst Siyah Kuşak (Ters Baskı)
+                ctx.fillStyle = "#000000";
+                ctx.fillRect(16, 14, 608, 52);
+
+                ctx.fillStyle = "#FFFFFF";
+                ctx.font = "900 22px Inter, Arial, sans-serif";
+                ctx.textAlign = "center";
+                ctx.fillText("AVŞAR KROM   •   ENDÜSTRİYEL MUTFAK", 320, 48);
+
+                // Ortalanmış Ürün Kodu ve Ürün Adı (Senin 80x50 şablonunla birebir aynı)
+                ctx.fillStyle = "#000000";
+                ctx.font = "900 30px Inter, Arial, sans-serif";
+                ctx.fillText(u.kod, 320, 108);
+
+                ctx.font = "800 21px Inter, Arial, sans-serif";
+                ctx.fillText(u.ad, 320, 142);
+
+                // İnce Ayırıcı Çizgi
+                ctx.fillRect(24, 158, 592, 2);
+
+                // Sol Alt Bilgiler (Ölçü, Çelik, Telefon, Mustafa Avşar)
+                ctx.textAlign = "left";
+                ctx.font = "800 22px Inter, Arial, sans-serif";
+                ctx.fillText("ÖLÇÜ: " + u.olcu.replace(/ x /g, "*"), 30, 208);
+
+                ctx.font = "800 21px Inter, Arial, sans-serif";
+                ctx.fillText("ÇELİK: AISI 304 Paslanmaz", 30, 265);
+
+                ctx.font = "800 22px Inter, Arial, sans-serif";
+                ctx.fillText("TEL: 0532 333 38 06", 45, 325);
+                ctx.fillText("MUSTAFA AVŞAR", 58, 358);
+
+                // Sağ Alt QR Kod
+                if (qrCanvas) {
+                    ctx.drawImage(qrCanvas, 425, 180, 185, 185);
+                }
+            }, 60);
+        }
+
+        function etiketResimIndir() {
+            const canvas = document.getElementById('etiketCanvas');
+            const seciliKod = document.getElementById('urunSecici').value;
+            const link = document.createElement('a');
+            link.download = `Etiket_80x50_${seciliKod}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
         }
 
         function urunKaydet() {
@@ -893,5 +1015,5 @@ body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relati
             link.click();
         }
     </script>
-
-<div></div><div id="Chat-Plugin-Root" class="compose-root-component"></div><div id="monica-content-root" class="monica-widget" style="pointer-events: auto;"></div><div id="InlineText-Plugin-Root" class="compose-root-component"><div class="compose-root-component"></div></div><div id="intellisense-root"></div></body></html>
+</body>
+</html>
