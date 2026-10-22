@@ -73,11 +73,11 @@
             <button onclick="katalogSayfasinaDon()" class="group flex items-center gap-2.5 min-w-0 text-left focus:outline-none" title="Tüm Ürün Kataloğunu Gör">
                 <div class="w-11 h-9 bg-white border border-slate-200/90 rounded-xl flex items-center justify-center p-1 shrink-0 shadow-sm group-hover:scale-105 transition">
                     <svg viewBox="0 0 230 140" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                        <polygon points="10,12 128,12 108,36 10,36" fill="#005baa"/>
-                        <polygon points="10,56 84,56 64,80 10,80" fill="#5da9dd"/>
-                        <polygon points="10,100 42,100 22,124 10,124" fill="#ed1c24"/>
-                        <path d="M 38,124 L 142,8 L 142,132 L 118,108 L 118,96 L 88,96 L 63,124 Z M 118,54 L 98,76 L 118,76 Z" fill="#ed1c24" fill-rule="evenodd"/>
-                        <polygon points="145,78 178,42 210,42 174,78 218,124 185,124" fill="#ed1c24"/>
+                        <polygon points="10,12 128,12 108,36 10,36" fill="#005baa"></polygon>
+                        <polygon points="10,56 84,56 64,80 10,80" fill="#5da9dd"></polygon>
+                        <polygon points="10,100 42,100 22,124 10,124" fill="#ed1c24"></polygon>
+                        <path d="M 38,124 L 142,8 L 142,132 L 118,108 L 118,96 L 88,96 L 63,124 Z M 118,54 L 98,76 L 118,76 Z" fill="#ed1c24" fill-rule="evenodd"></path>
+                        <polygon points="145,78 178,42 210,42 174,78 218,124 185,124" fill="#ed1c24"></polygon>
                     </svg>
                 </div>
                 <div class="truncate">
@@ -120,237 +120,504 @@
 
         // /*URUNLER_BASLANGIC*/
         const VARSAYILAN_AYARLAR = {
-            otomatikKur: true,
-            manuelDolarKuru: 36.50
+            "otomatikKur": true,
+            "manuelDolarKuru": 49
         };
 
         const VARSAYILAN_URUNLER = [
             {
-                kod: "EVT-TEK-SAG-60_1",
-                ad: "60'lık Seri Sağdan Tek Evyeli Tezgah",
-                olcu: "1500 x 600 x 850 mm",
-                stokAdet: 1,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "USD", eskiFiyat: 400, indirimliFiyat: 350, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-TEK-SAG-60_1.jpg",
-                aciklama: "Sağdan pres baskı tek evye havuzlu, sol tarafı çalışma ve damlalık tablalı, ayarlanabilir rotil ayaklı paslanmaz yıkama tezgahı."
+                "kod": "EVT-TEK-SAG-60_1",
+                "ad": "60'lık Seri Sağdan Tek Evyeli Tezgah",
+                "olcu": "1500 x 600 x 850 mm",
+                "kilo": "",
+                "stokAdet": 1,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "USD",
+                "eskiFiyat": 400,
+                "indirimliFiyat": 350,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SAG-60_1.jpg",
+                "aciklama": "Sağdan pres baskı tek evye havuzlu, sol tarafı çalışma ve damlalık tablalı, ayarlanabilir rotil ayaklı paslanmaz yıkama tezgahı."
             },
             {
-                kod: "EVT-TEK-ORT-60_1",
-                ad: "60'lık Seri Ortadan Tek Evyeli Tezgah",
-                olcu: "1900 x 600 x 850 mm",
-                stokAdet: 5,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-TEK-ORT-60_1.jpg",
-                aciklama: "Merkezi (orta) konumlandırılmış geniş evye havuzlu, her iki yanında simetrik çalışma alanı bulunan 190 cm endüstriyel evyeli tezgah."
+                "kod": "EVT-TEK-ORT-60_1",
+                "ad": "60'lık Seri Ortadan Tek Evyeli Tezgah",
+                "olcu": "1900 x 600 x 850 mm",
+                "kilo": "",
+                "stokAdet": 5,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "TL",
+                "eskiFiyat": 0,
+                "indirimliFiyat": 0,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-ORT-60_1.jpg",
+                "aciklama": "Merkezi (orta) konumlandırılmış geniş evye havuzlu, her iki yanında simetrik çalışma alanı bulunan 190 cm endüstriyel evyeli tezgah."
             },
             {
-                kod: "EVT-TEK-SOL-60_1",
-                ad: "60'lık Seri Soldan Tek Evyeli Tezgah",
-                olcu: "2005 x 585 x 850 mm",
-                stokAdet: 2,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-TEK-SOL-60_1.jpg",
-                aciklama: "Soldan tek evyeli, geniş sağ çalışma ve süzülme tablalı, 200,5 cm uzunluğunda yüksek mukavemetli hazırlık ve yıkama tezgahı."
+                "kod": "EVT-TEK-SOL-60_1",
+                "ad": "60'lık Seri Soldan Tek Evyeli Tezgah",
+                "olcu": "2005 x 585 x 850 mm",
+                "kilo": "",
+                "stokAdet": 2,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "USD",
+                "eskiFiyat": 300,
+                "indirimliFiyat": 261,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SOL-60_1.jpg",
+                "aciklama": "Soldan tek evyeli, geniş sağ çalışma ve süzülme tablalı, 200,5 cm uzunluğunda yüksek mukavemetli hazırlık ve yıkama tezgahı."
             },
             {
-                kod: "EVT-CFT-SAG-60_1",
-                ad: "60'lık Seri Sağdan Çift Evyeli Tezgah",
-                olcu: "2130 x 600 x 850 mm",
-                stokAdet: 1,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-CFT-SAG-60_1.jpg",
-                aciklama: "Sağ bölümde çift evye havuzuna sahip, sol tarafı geniş damlalıklı, 213 cm uzunluğunda profesyonel bulaşıkhane ve hazırlık tezgahı."
+                "kod": "EVT-CFT-SAG-60_1",
+                "ad": "60'lık Seri Sağdan Çift Evyeli Tezgah",
+                "olcu": "2130 x 600 x 850 mm",
+                "kilo": "",
+                "stokAdet": 1,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "TL",
+                "eskiFiyat": 0,
+                "indirimliFiyat": 0,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-CFT-SAG-60_1.jpg",
+                "aciklama": "Sağ bölümde çift evye havuzuna sahip, sol tarafı geniş damlalıklı, 213 cm uzunluğunda profesyonel bulaşıkhane ve hazırlık tezgahı."
             },
             {
-                kod: "EVT-CFT-SAG-60_2",
-                ad: "60'lık Seri Sağdan Çift Evyeli Tezgah",
-                olcu: "1750 x 600 x 850 mm",
-                stokAdet: 1,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-CFT-SAG-60_2.jpg",
-                aciklama: "Sağdan çift evye havuzlu, 175 cm uzunluğunda, yoğun yıkama ve durulama işlemleri için tasarlanmış paslanmaz çelik tezgah."
+                "kod": "EVT-CFT-SAG-60_2",
+                "ad": "60'lık Seri Sağdan Çift Evyeli Tezgah",
+                "olcu": "1750 x 600 x 850 mm",
+                "kilo": "",
+                "stokAdet": 1,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "TL",
+                "eskiFiyat": 0,
+                "indirimliFiyat": 0,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-CFT-SAG-60_2.jpg",
+                "aciklama": "Sağdan çift evye havuzlu, 175 cm uzunluğunda, yoğun yıkama ve durulama işlemleri için tasarlanmış paslanmaz çelik tezgah."
             },
             {
-                kod: "EVT-TEK-SOL-60_2",
-                ad: "60'lık Seri Soldan Tek Evyeli Tezgah",
-                olcu: "1680 x 580 x 850 mm",
-                stokAdet: 5,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-TEK-SOL-60_2.jpg",
-                aciklama: "Soldan tek evye havuzlu, 168 cm boyunda, su taşma profilli ve arka sırtlı endüstriyel mutfak tezgahı."
+                "kod": "EVT-TEK-SOL-60_2",
+                "ad": "60'lık Seri Soldan Tek Evyeli Tezgah",
+                "olcu": "1680 × 600 × 850 mm",
+                "kilo": "",
+                "stokAdet": 5,
+                "malzeme": "Sol Tek Evyeli Çalışma Tezgahı",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "TL",
+                "eskiFiyat": 300,
+                "indirimliFiyat": 270,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SOL-60_2.jpg",
+                "aciklama": "Geniş çalışma alanına ihtiyaç duyan profesyonel mutfaklar için 304 kalite paslanmaz çelikten imal edilmiştir. 168 cm uzunluğundaki gövdesi, sol bölümdeki tekli evyesi ve dayanıklı kutu profil iskeletiyle hem yıkama hem de tezgah üstü hazırlık işlemlerinde üstün performans sağlar."
             },
             {
-                kod: "EVT-TEK-SAG-60_2",
-                ad: "60'lık Seri Sağdan Tek Evyeli Tezgah",
-                olcu: "1650 x 580 x 850 mm",
-                stokAdet: 3,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-TEK-SAG-60_2.jpg",
-                aciklama: "Sağdan tek evyeli, 165 cm boyunda, hijyenik pres baskı evyeli ve ayarlanabilir rotil ayaklı çalışma tezgahı."
+                "kod": "EVT-TEK-SAG-60_2",
+                "ad": "60'lık Seri Sağdan Tek Evyeli Tezgah",
+                "olcu": "1650 x 580 x 850 mm",
+                "kilo": "",
+                "stokAdet": 3,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "TL",
+                "eskiFiyat": 0,
+                "indirimliFiyat": 0,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SAG-60_2.jpg",
+                "aciklama": "Sağdan tek evyeli, 165 cm boyunda, hijyenik pres baskı evyeli ve ayarlanabilir rotil ayaklı çalışma tezgahı."
             },
             {
-                kod: "EVT-CFT-SOL-60_1",
-                ad: "60'lık Seri Soldan Çift Evyeli Tezgah",
-                olcu: "1550 x 580 x 850 mm",
-                stokAdet: 1,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-CFT-SOL-60_1.jpg",
-                aciklama: "Sol bölümde çift evye havuzlu, sağ tarafı damlalıklı, 155 cm uzunluğunda paslanmaz yıkama tezgahı."
+                "kod": "EVT-CFT-SOL-60_1",
+                "ad": "Sol Çift Evyeli Sağ Damlalıklı Çalışma Tezgahı",
+                "olcu": "1500 × 600 × 850 mm",
+                "kilo": "",
+                "stokAdet": 1,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "USD",
+                "eskiFiyat": 300,
+                "indirimliFiyat": 261,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-CFT-SOL-60_1.jpg",
+                "aciklama": "Yoğun yıkama trafiğine sahip endüstriyel mutfaklar için 304 kalite paslanmaz çelikten imal edilmiştir. Sol bölümde yer alan çiftli evye kazanı aynı anda yıkama ve durulama imkanı sağlarken, sağ taraftaki eğimli damlalık alanı suyun tezgah yüzeyinde birikmesini önleyerek hijyenik ve düzenli bir çalışma ortamı oluşturur."
             },
             {
-                kod: "EVT-TEK-SOL-60_3",
-                ad: "60'lık Seri Soldan Tek Evyeli Tezgah",
-                olcu: "1370 x 600 x 850 mm",
-                stokAdet: 1,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-TEK-SOL-60_3.jpg",
-                aciklama: "Soldan tek evyeli, 137x60x85 cm ölçülerinde kompakt ve dayanıklı endüstriyel yıkama tezgahı."
+                "kod": "EVT-TEK-SOL-60_3",
+                "ad": "Sol Tek Evyeli Çalışma Tezgahı",
+                "olcu": "1370 x 600 x 850 mm",
+                "kilo": "",
+                "stokAdet": 4,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "USD",
+                "eskiFiyat": 350,
+                "indirimliFiyat": 305,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SOL-60_3.jpg",
+                "aciklama": "Soldan tek evyeli, 137x60x85 cm ölçülerinde kompakt ve dayanıklı endüstriyel yıkama tezgahı."
             },
             {
-                kod: "EVT-TEK-ORT-60_2",
-                ad: "60'lık Seri Ortadan Tek Evyeli Tezgah",
-                olcu: "1400 x 580 x 850 mm",
-                stokAdet: 3,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-TEK-ORT-60_2.jpg",
-                aciklama: "Ortadan tek evye havuzlu, 140x58x85 cm ölçülerinde çok amaçlı endüstriyel mutfak tezgahı."
+                "kod": "EVT-TEK-ORT-60_2",
+                "ad": "Ortadan Tek Evyeli Çalışma Tezgahı",
+                "olcu": "1400 x 600 x 850 mm",
+                "kilo": "",
+                "stokAdet": 3,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "USD",
+                "eskiFiyat": 310,
+                "indirimliFiyat": 279,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-ORT-60_2.jpg",
+                "aciklama": "Endüstriyel mutfakların hijyen ve yoğun çalışma temposuna uygun olarak AISI 304 kalite paslanmaz çelikten üretilmiştir. Merkezde (ortada) konumlandırılan tekli evye yapısı, her iki yanında simetrik kullanım alanı bırakarak yıkama operasyonlarında dengeli ve ergonomik bir çalışma imkanı sunar."
             },
             {
-                kod: "EVT-TEK-SAG-60_3",
-                ad: "60'lık Seri Sağdan Tek Evyeli Tezgah",
-                olcu: "1400 x 600 x 850 mm",
-                stokAdet: 3,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-TEK-SAG-60_3.jpg",
-                aciklama: "Sağdan tek evye havuzlu, 140x60x85 cm standart ölçülerde paslanmaz çelik yıkama ve hazırlık tezgahı."
+                "kod": "EVT-TEK-SAG-60_3",
+                "ad": "60'lık Seri Sağdan Tek Evyeli Tezgah",
+                "olcu": "1400 x 600 x 850 mm",
+                "kilo": "",
+                "stokAdet": 3,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "TL",
+                "eskiFiyat": 0,
+                "indirimliFiyat": 0,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SAG-60_3.jpg",
+                "aciklama": "Sağdan tek evye havuzlu, 140x60x85 cm standart ölçülerde paslanmaz çelik yıkama ve hazırlık tezgahı."
             },
             {
-                kod: "EVT-TEK-SOL-60_4",
-                ad: "60'lık Seri Soldan Tek Evyeli Tezgah",
-                olcu: "1400 x 600 x 850 mm",
-                stokAdet: 4,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-TEK-SOL-60_4.jpg",
-                aciklama: "Soldan tek evye havuzlu, 140x60x85 cm standart ölçülerde paslanmaz çelik yıkama ve hazırlık tezgahı."
+                "kod": "EVT-TEK-SOL-60_4",
+                "ad": "Soldan Tek Evyeli Çalışma Tezgahı",
+                "olcu": "1400 x 600 x 850 mm",
+                "kilo": "",
+                "stokAdet": 4,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "TL",
+                "eskiFiyat": 300,
+                "indirimliFiyat": 270,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SOL-60_4.jpg",
+                "aciklama": "Endüstriyel mutfakların hijyen ve yoğun çalışma temposuna uygun olarak AISI 304 kalite paslanmaz çelikten üretilmiştir."
             },
             {
-                kod: "EVT-TEK-SAG-60_4",
-                ad: "60'lık Seri Sağdan Tek Evyeli Kompakt Tezgah",
-                olcu: "840 x 580 x 850 mm",
-                stokAdet: 4,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-TEK-SAG-60_4.jpg",
-                aciklama: "Dar alanlar için ideal 84x58x85 cm ölçülerinde, sağdan evyeli kompakt paslanmaz tezgah."
+                "kod": "EVT-TEK-SAG-60_4",
+                "ad": "60'lık Seri Sağdan Tek Evyeli Kompakt Tezgah",
+                "olcu": "840 x 580 x 850 mm",
+                "kilo": "",
+                "stokAdet": 4,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "TL",
+                "eskiFiyat": 0,
+                "indirimliFiyat": 0,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SAG-60_4.jpg",
+                "aciklama": "Dar alanlar için ideal 84x58x85 cm ölçülerinde, sağdan evyeli kompakt paslanmaz tezgah."
             },
             {
-                kod: "EVT-TEK-SOL-60_5",
-                ad: "60'lık Seri Soldan Tek Evyeli Kompakt Tezgah",
-                olcu: "840 x 580 x 850 mm",
-                stokAdet: 2,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-TEK-SOL-60_5.jpg",
-                aciklama: "Dar alanlar için ideal 84x58x85 cm ölçülerinde, soldan evyeli kompakt paslanmaz tezgah."
+                "kod": "EVT-TEK-SOL-60_5",
+                "ad": "60'lık Seri Soldan Tek Evyeli Kompakt Tezgah",
+                "olcu": "840 x 580 x 850 mm",
+                "kilo": "",
+                "stokAdet": 2,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "TL",
+                "eskiFiyat": 0,
+                "indirimliFiyat": 0,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SOL-60_5.jpg",
+                "aciklama": "Dar alanlar için ideal 84x58x85 cm ölçülerinde, soldan evyeli kompakt paslanmaz tezgah."
             },
             {
-                kod: "EVT-BMG-SAG-60_1",
-                ad: "60'lık Seri Sağdan Evyeli Soldan Makine Girişli Tezgah",
-                olcu: "1200 x 580 x 860 mm",
-                stokAdet: 1,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Makine Boşluklu",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-BMG-SAG-60_1.jpg",
-                aciklama: "Sağ tarafı evyeli, sol alt kısmı bulaşık makinesi girişine uygun boşluklu 120x58x86 cm bulaşıkhane tezgahı."
+                "kod": "EVT-BMG-SAG-60_1",
+                "ad": "60'lık Seri Sağdan Evyeli Soldan Makine Girişli Tezgah",
+                "olcu": "1200 x 580 x 860 mm",
+                "kilo": "",
+                "stokAdet": 1,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Makine Boşluklu",
+                "paraBirimi": "TL",
+                "eskiFiyat": 0,
+                "indirimliFiyat": 0,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-BMG-SAG-60_1.jpg",
+                "aciklama": "Sağ tarafı evyeli, sol alt kısmı bulaşık makinesi girişine uygun boşluklu 120x58x86 cm bulaşıkhane tezgahı."
             },
             {
-                kod: "EVT-TEK-SAG-60_5",
-                ad: "60'lık Seri Sağdan Tek Evyeli Tezgah",
-                olcu: "1365 x 580 x 850 mm",
-                stokAdet: 2,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-TEK-SAG-60_5.jpg",
-                aciklama: "136,5 x 58 x 85 cm ölçülerinde, sağdan tek evye havuzlu endüstriyel yıkama tezgahı."
+                "kod": "EVT-TEK-SAG-60_5",
+                "ad": "Sağ Tek Evyeli Çalışma Tezgahı",
+                "olcu": "137 x 600 x 850 mm",
+                "kilo": "",
+                "stokAdet": 2,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "TL",
+                "eskiFiyat": 300,
+                "indirimliFiyat": 261,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SAG-60_5.jpg",
+                "aciklama": "Profesyonel mutfakların yıkama ve hazırlık süreçleri için AISI 304 kalite paslanmaz çelikten üretilmiştir. Sağlam kutu profil ayak yapısı yüksek taşıma kapasitesi sunarken, sağ bölümde yer alan tekli evye tasarımı mutfak içi iş akışını hızlandırır ve kolay temizlenebilir yüzey yapısıyla tam hijyen sağlar."
             },
             {
-                kod: "EVT-CFT-SAG-70_1",
-                ad: "70'lik Seri Sağdan Çift Evyeli Tezgah",
-                olcu: "1395 x 680 x 880 mm",
-                stokAdet: 1,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-CFT-SAG-70_1.jpg",
-                aciklama: "70'lik derin seri (139,5 x 68 x 88 cm), sağdan çift evyeli yüksek kapasiteli profesyonel yıkama tezgahı."
+                "kod": "EVT-CFT-SAG-70_1",
+                "ad": "70'lik Seri Sağdan Çift Evyeli Tezgah",
+                "olcu": "1395 x 680 x 880 mm",
+                "kilo": "",
+                "stokAdet": 1,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "TL",
+                "eskiFiyat": 0,
+                "indirimliFiyat": 0,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-CFT-SAG-70_1.jpg",
+                "aciklama": "70'lik derin seri (139,5 x 68 x 88 cm), sağdan çift evyeli yüksek kapasiteli profesyonel yıkama tezgahı."
             },
             {
-                kod: "EVT-BMG-SAG-70_1",
-                ad: "70'lik Seri Sağdan Evyeli Soldan Makine Girişli Tezgah",
-                olcu: "1395 x 680 x 880 mm",
-                stokAdet: 1,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Makine Boşluklu",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-BMG-SAG-70_1.jpg",
-                aciklama: "70'lik seri (139,5 x 68 x 88 cm), sağdan evyeli ve sol alt bölümü bulaşık makinesi girişine uygun bulaşıkhane tezgahı."
+                "kod": "EVT-BMG-SAG-70_1",
+                "ad": "70'lik Seri Sağdan Evyeli Soldan Makine Girişli Tezgah",
+                "olcu": "1395 x 680 x 880 mm",
+                "kilo": "",
+                "stokAdet": 1,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Makine Boşluklu",
+                "paraBirimi": "TL",
+                "eskiFiyat": 0,
+                "indirimliFiyat": 0,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-BMG-SAG-70_1.jpg",
+                "aciklama": "70'lik seri (139,5 x 68 x 88 cm), sağdan evyeli ve sol alt bölümü bulaşık makinesi girişine uygun bulaşıkhane tezgahı."
             },
             {
-                kod: "EVT-BAT-SAG-70_1",
-                ad: "70'lik Seri Sağdan Tek Evyeli Bataryalı Tezgah",
-                olcu: "990 x 670 x 880 mm",
-                stokAdet: 1,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Batarya Montajlı",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-BAT-SAG-70_1.jpg",
-                aciklama: "99 x 67 x 88 cm ölçülerinde, üzerinde su bataryası takılı kullanıma hazır sağdan evyeli paslanmaz tezgah."
+                "kod": "EVT-BAT-SAG-70_1",
+                "ad": "70'lik Seri Sağdan Tek Evyeli Bataryalı Tezgah",
+                "olcu": "990 x 670 x 880 mm",
+                "kilo": "",
+                "stokAdet": 1,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Batarya Montajlı",
+                "paraBirimi": "TL",
+                "eskiFiyat": 0,
+                "indirimliFiyat": 0,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-BAT-SAG-70_1.jpg",
+                "aciklama": "99 x 67 x 88 cm ölçülerinde, üzerinde su bataryası takılı kullanıma hazır sağdan evyeli paslanmaz tezgah."
             },
             {
-                kod: "EVT-TEK-ORT-60_3",
-                ad: "60'lık Seri Ortadan Tekli Evye Ünitesi",
-                olcu: "600 x 580 x 860 mm",
-                stokAdet: 1,
-                malzeme: "AISI 304 Paslanmaz",
-                kalinlik: "1.20 mm / Kutu Profil",
-                paraBirimi: "TL", eskiFiyat: 0, indirimliFiyat: 0, kdvDurumu: "KDV Dahil",
-                gorsel: "gorseller/EVT-TEK-ORT-60_3.jpg",
-                aciklama: "60 x 58 x 86 cm ölçülerinde, dar alanlar için bağımsız tekli evye ünitesi."
+                "kod": "EVT-TEK-ORT-60_3",
+                "ad": "60'lık Seri Ortadan Tekli Evye Ünitesi",
+                "olcu": "600 x 580 x 860 mm",
+                "kilo": "",
+                "stokAdet": 1,
+                "malzeme": "AISI 304 Kalite Paslanmaz Çelik",
+                "kalinlik": "1.20 mm Sac / Kutu Profil Ayak",
+                "paraBirimi": "TL",
+                "eskiFiyat": 0,
+                "indirimliFiyat": 0,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-ORT-60_3.jpg",
+                "aciklama": "60 x 58 x 86 cm ölçülerinde, dar alanlar için bağımsız tekli evye ünitesi."
+            },
+            {
+                "kod": "EVT-TEK-SAG-60-160_1",
+                "ad": "Sağ Evyeli Sol Damlalıklı Çalışma Tezgahı",
+                "olcu": "1600 × 600 × 850 mm",
+                "kilo": "",
+                "stokAdet": 1,
+                "malzeme": "AISI 304 Paslanmaz",
+                "kalinlik": "1.20 mm / Kutu Profil",
+                "paraBirimi": "USD",
+                "eskiFiyat": 300,
+                "indirimliFiyat": 261,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SAG-60-160_1.jpg",
+                "aciklama": "Endüstriyel mutfakların hijyen ve dayanıklılık gereksinimlerine tam uygun olarak üretilmiştir. 304 kalite paslanmaz çelik gövdesi ve sağlam kutu profil iskeleti sayesinde uzun ömürlü kullanım sunar. Ergonomik sağ evye ve sol damlalık tasarımı, bulaşık ve hazırlık süreçlerinde maksimum işlevsellik ve kolay temizlik imkanı sağlar."
+            },
+            {
+                "kod": "EVT-TEK-SOL-60-160_1",
+                "ad": "Sol Evyeli Çalışma Tezgahı",
+                "olcu": "1600 × 600 × 850 mm",
+                "kilo": "",
+                "stokAdet": 2,
+                "malzeme": "AISI 304 Paslanmaz",
+                "kalinlik": "1.20 mm / Kutu Profil",
+                "paraBirimi": "USD",
+                "eskiFiyat": 300,
+                "indirimliFiyat": 261,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SOL-60-160_1.jpg",
+                "aciklama": "Endüstriyel mutfakların hijyen ve yoğun çalışma temposu gereksinimlerine tam uygun olarak üretilmiştir. 304 kalite paslanmaz çelik gövdesi ve sağlam kutu profil iskeleti ile uzun ömürlü kullanım sunar. Sol tarafta yer alan tekli evye tasarımı, mutfak operasyonlarınızda alandan tasarruf sağlarken kolay temizlenebilir yapısıyla maksimum pratiklik kazandırır."
+            },
+            {
+                "kod": "EVT-TEK-SOL-60_6",
+                "ad": "Sol Tek Evyeli Çalışma Tezgahı",
+                "olcu": "1600 × 600 × 850 mm",
+                "kilo": "",
+                "stokAdet": 2,
+                "malzeme": "AISI 304 Paslanmaz",
+                "kalinlik": "1.20 mm / Kutu Profil",
+                "paraBirimi": "USD",
+                "eskiFiyat": 300,
+                "indirimliFiyat": 261,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SOL-60_6.jpg",
+                "aciklama": "Endüstriyel mutfakların hijyen ve yoğun çalışma temposu gereksinimlerine tam uygun olarak üretilmiştir. 304 kalite paslanmaz çelik gövdesi ve sağlam kutu profil iskeleti ile uzun ömürlü kullanım sunar. Sol tarafta yer alan tekli evye ve geniş sağ tezgah alanı, hazırlık ve yıkama süreçlerinde maksimum verimlilik kazandırır."
+            },
+            {
+                "kod": "EVT-TEK-SOL-60_7",
+                "ad": "Sol Tek Evyeli Çalışma Tezgahı",
+                "olcu": "1510 × 600 × 850 mm",
+                "kilo": "",
+                "stokAdet": 1,
+                "malzeme": "AISI 304 Paslanmaz",
+                "kalinlik": "1.20 mm / Kutu Profil",
+                "paraBirimi": "USD",
+                "eskiFiyat": 300,
+                "indirimliFiyat": 261,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SOL-60_7.jpg",
+                "aciklama": "Endüstriyel mutfak standartlarına uygun, tamamı AISI 304 kalite paslanmaz çelik gövde ve kutu profil ayak yapısına sahip evyeli çalışma tezgahıdır. Sol tarafta konumlandırılmış tekli evyesi ve geniş yan tablası ile yıkama ve hazırlık süreçlerinde uzun ömürlü, hijyenik kullanım sunar."
+            },
+            {
+                "kod": "EVT-TEK-SAG-54_1",
+                "ad": "Sağ Tek Evyeli Çalışma Tezgahı",
+                "olcu": "1310 × 540 × 850 mm",
+                "kilo": "",
+                "stokAdet": 1,
+                "malzeme": "AISI 304 Paslanmaz",
+                "kalinlik": "1.20 mm / Kutu Profil",
+                "paraBirimi": "TL",
+                "eskiFiyat": 280,
+                "indirimliFiyat": 244,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-TEK-SAG-54_1",
+                "aciklama": "Dar alanlı profesyonel mutfaklar ve hazırlık üniteleri için özel 54 cm derinlikte, 304 kalite paslanmaz çelikten üretilmiştir. Kompakt tasarımına rağmen sağlam kutu profil iskeleti ve sağ bölümdeki ergonomik tekli evyesi ile alan kaybı yaşatmadan maksimum işlevsellik sağlar."
+            },
+            {
+                "kod": "EVT-CFT-SOL-60_3",
+                "ad": "Sol Çift Evyeli Sağ Damlalıklı Çalışma Tezgahı",
+                "olcu": "1800 × 600 × 850 mm",
+                "kilo": "",
+                "stokAdet": 1,
+                "malzeme": "AISI 304 Paslanmaz",
+                "kalinlik": "1.20 mm / Kutu Profil",
+                "paraBirimi": "USD",
+                "eskiFiyat": 300,
+                "indirimliFiyat": 270,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/EVT-CFT-SOL-60_3.jpg",
+                "aciklama": "Yüksek kapasiteli işletmelerin bulaşıkhane ve hazırlık bölümleri için 304 kalite paslanmaz çelikten üretilmiştir. 180 cm genişliğindeki gövde üzerinde yer alan sol çift evye kazanı ve geniş sağ damlalık tablası, yoğun yıkama süreçlerinde su sıçramalarını ve birikmelerini engelleyerek kesintisiz bir iş akışı sunar."
+            },
+            {
+                "kod": "TZG-TBN-DVR-60-140_1",
+                "ad": "Sırtlı Taban Raflı Çalışma Tezgahı",
+                "olcu": "1400 × 600 × 850 mm",
+                "kilo": "",
+                "stokAdet": 5,
+                "malzeme": "AISI 304 Paslanmaz",
+                "kalinlik": "1.20 mm / Kutu Profil",
+                "paraBirimi": "USD",
+                "eskiFiyat": 250,
+                "indirimliFiyat": 223,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/TZG-TBN-DVR-60-140_1.jpg",
+                "aciklama": "Endüstriyel mutfakların hazırlık ve çalışma alanları için AISI 304 kalite paslanmaz çelikten üretilmiştir. Arka kısmında yer alan sırt yapısı duvar dibi kullanımlarda su ve gıda sıçramalarını önlerken, sağlam kutu profil iskeleti ve geniş alt taban rafı mutfak ekipmanları için yüksek taşıma kapasiteli depolama alanı sunar."
+            },
+            {
+                "kod": "TZG-TBN-ADA-60-140_1",
+                "ad": "Orta Tip (Sırtsız) Taban Raflı Çalışma Tezgahı",
+                "olcu": "1400 × 600 × 850 mm",
+                "kilo": "",
+                "stokAdet": 6,
+                "malzeme": "AISI 304 Paslanmaz",
+                "kalinlik": "1.20 mm / Kutu Profil",
+                "paraBirimi": "USD",
+                "eskiFiyat": 250,
+                "indirimliFiyat": 223,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/TZG-TBN-ADA-60-140_1.jpg",
+                "aciklama": "Profesyonel mutfaklarda orta (ada) tip kullanıma uygun, dört tarafı açık ve sırtsız olarak AISI 304 kalite paslanmaz çelikten imal edilmiştir. Çok yönlü çalışma imkanı tanıyan düz üst tablası, dayanıklı kutu profil ayakları ve alt taban rafı ile hazırlık süreçlerinde maksimum ergonomi ve hijyen sağlar."
+            },
+            {
+                "kod": "TZG-TBN-DVR-70-140_1",
+                "ad": "Sırtlı Taban Raflı Çalışma Tezgahı",
+                "olcu": "1400 × 700 × 850 mm",
+                "kilo": "",
+                "stokAdet": 5,
+                "malzeme": "AISI 304 Paslanmaz",
+                "kalinlik": "1.20 mm / Kutu Profil",
+                "paraBirimi": "USD",
+                "eskiFiyat": 250,
+                "indirimliFiyat": 223,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/TZG-TBN-DVR-70-140_1.jpg",
+                "aciklama": "Geniş çalışma derinliğine ihtiyaç duyan endüstriyel mutfaklar için 70 cm derinlik serisinde, AISI 304 kalite paslanmaz çelikten üretilmiştir. Duvar koruyucu arka sırt detayı hijyen standartlarını korurken, güçlendirilmiş kutu profil gövdesi ve alt taban rafı yoğun mutfak temposunda uzun ömürlü kullanım sunar."
+            },
+            {
+                "kod": "TZG-TBN-ADA-70-140_1",
+                "ad": "Orta Tip (Sırtsız) Taban Raflı Çalışma Tezgahı",
+                "olcu": "1400 × 700 × 850 mm",
+                "kilo": "",
+                "stokAdet": 5,
+                "malzeme": "AISI 304 Paslanmaz",
+                "kalinlik": "1.20 mm / Kutu Profil",
+                "paraBirimi": "USD",
+                "eskiFiyat": 250,
+                "indirimliFiyat": 223,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/TZG-TBN-ADA-70-140_1.jpg",
+                "aciklama": "Geniş 70 cm derinliği ve sırtsız ada tipi tasarımıyla mutfak merkezlerinde karşılıklı çalışmaya olanak tanıyan profesyonel hazırlık tezgahıdır. Tamamı AISI 304 kalite paslanmaz çelik gövdesi, sağlam kutu profil iskeleti ve geniş alt istif rafı ile ağır hizmet koşullarına tam dayanıklılık gösterir."
+            },
+            {
+                "kod": "RAF-IST-4K-45-100_1",
+                "ad": "4 Raflı Paslanmaz Depo ve İstif Rafı",
+                "olcu": "1000 × 455 × 1550 mm",
+                "kilo": "",
+                "stokAdet": 15,
+                "malzeme": "AISI 304 Paslanmaz",
+                "kalinlik": "1.20 mm / Kutu Profil",
+                "paraBirimi": "USD",
+                "eskiFiyat": 250,
+                "indirimliFiyat": 225,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/RAF-IST-4K-45-100_1.jpg",
+                "aciklama": "Endüstriyel mutfak depoları, kuru erzak alanları ve soğuk hava depoları için AISI 304 kalite paslanmaz çelikten üretilmiştir. 4 katlı ergonomik raf yapısı yüksek ağırlık taşıma kapasitesine sahip olup, korozyona dayanıklı ve kolay temizlenebilir yüzeyleri sayesinde gıda güvenliği standartlarına tam uyum sağlar."
+            },
+            {
+                "kod": "RAF-IST-4K-45-112_1",
+                "ad": "4 Raflı Paslanmaz Depo ve İstif Rafı",
+                "olcu": "1125 × 455 × 1550 mm",
+                "kilo": "",
+                "stokAdet": 2,
+                "malzeme": "AISI 304 Paslanmaz",
+                "kalinlik": "1.20 mm / Kutu Profil",
+                "paraBirimi": "USD",
+                "eskiFiyat": 250,
+                "indirimliFiyat": 225,
+                "kdvDurumu": "KDV Dahil",
+                "gorsel": "gorseller/RAF-IST-4K-45-112_1.jpg",
+                "aciklama": "Profesyonel mutfakların depolama ve istifleme ihtiyaçları için AISI 304 kalite paslanmaz çelikten imal edilmiştir. Bükümlü sağlam dikmeleri ve 4 katlı geniş raf tablaları sayesinde ağır mutfak ekipmanlarını ve gıda kolilerini güvenle taşır, leke tutmayan yapısıyla uzun yıllar hijyenik kullanım sunar."
             }
         ];
         // /*URUNLER_BITIS*/
 
         let AYARLAR = JSON.parse(localStorage.getItem('avsar_ayarlar')) || VARSAYILAN_AYARLAR;
         let URUNLER = JSON.parse(localStorage.getItem('avsar_urunler_v4')) || VARSAYILAN_URUNLER;
-        let GUNCEL_DOLAR_KURU = parseFloat(AYARLAR.manuelDolarKuru) || 36.50;
+        
+        // Eğer tarayıcı hafızasındaki ürün sayısı dosyadakinden azsa dosyadaki 32 ürünü baz al (Ürün kaybını %100 önler)
+        if (URUNLER.length < VARSAYILAN_URUNLER.length) {
+            URUNLER = VARSAYILAN_URUNLER;
+            localStorage.setItem('avsar_urunler_v4', JSON.stringify(URUNLER));
+        }
+
+        let GUNCEL_DOLAR_KURU = parseFloat(AYARLAR.manuelDolarKuru) || 49.00;
         let aktifFiltre = "Tümü";
         let aktifUrunKodu = new URLSearchParams(window.location.search).get('urun');
 
@@ -378,7 +645,6 @@
         const ustKatalogBtn = document.getElementById('ustKatalogBtn');
         const ustKaliteRozet = document.getElementById('ustKaliteRozet');
 
-        // SAYFA YENİLEMEDEN ANINDA GEÇİŞ MOTORU (ÖNBELLEK SORUNUNU %100 ÇÖZER)
         function urunSayfasinaGit(kod) {
             aktifUrunKodu = kod;
             window.history.pushState({}, '', '?urun=' + kod);
@@ -427,7 +693,7 @@
         sistemiBaslat();
 
         // =====================================================
-        // 1. ANİMASYONLU VİTRİN KATALOĞU (ÜSTÜ ÇİZİLİ FİYATLI)
+        // 1. ANİMASYONLU VİTRİN KATALOĞU
         // =====================================================
         function vitrinKatalogGoster() {
             const yoneticiBar = sessionStorage.getItem('avsar_admin_giris') === 'evet' ? `
@@ -453,19 +719,20 @@
                         </p>
                     </div>
 
-                    <!-- MOBİL UYUMLU ARAMA VE FİLTRE ÇUBUĞU (KAYDIRMA ÇUBUĞU GİZLİ) -->
+                    <!-- MOBİL UYUMLU ARAMA VE FİLTRE ÇUBUĞU -->
                     <div class="bg-white p-3 rounded-2xl shadow-sm border border-slate-200/80 mb-6 flex flex-col md:flex-row gap-2.5 items-center justify-between">
                         <div class="relative w-full md:w-80">
-                            <input type="text" id="vitrinArama" oninput="vitrinFiltrele()" placeholder="Ürün kodu veya ölçü ara (Örn: 1500, EVT)..." 
+                            <input type="text" id="vitrinArama" oninput="vitrinFiltrele()" placeholder="Ürün kodu veya ölçü ara (Örn: 1400, TZG, RAF)..." 
                                 class="w-full pl-9 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-slate-900 focus:bg-white transition">
                             <span class="absolute left-3 top-2.5 text-slate-400 text-sm">🔍</span>
                         </div>
                         <div class="flex overflow-x-auto w-full md:w-auto gap-1.5 no-scrollbar" id="filtreButonlari">
                             <button onclick="seriFiltreSec('Tümü')" class="filtre-btn px-3.5 py-2 rounded-xl text-xs font-bold transition whitespace-nowrap shrink-0">Tümü (${URUNLER.length})</button>
+                            <button onclick="seriFiltreSec('EVT')" class="filtre-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition whitespace-nowrap shrink-0">Evyeli Tezgahlar</button>
+                            <button onclick="seriFiltreSec('TZG')" class="filtre-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition whitespace-nowrap shrink-0">Çalışma Tezgahları</button>
+                            <button onclick="seriFiltreSec('RAF')" class="filtre-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition whitespace-nowrap shrink-0">İstif Rafları</button>
                             <button onclick="seriFiltreSec('60')" class="filtre-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition whitespace-nowrap shrink-0">60'lık Seri</button>
                             <button onclick="seriFiltreSec('70')" class="filtre-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition whitespace-nowrap shrink-0">70'lik Seri</button>
-                            <button onclick="seriFiltreSec('CFT')" class="filtre-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition whitespace-nowrap shrink-0">Çift Evyeli</button>
-                            <button onclick="seriFiltreSec('BMG')" class="filtre-btn px-3.5 py-2 rounded-xl text-xs font-semibold transition whitespace-nowrap shrink-0">Makine Girişli</button>
                         </div>
                     </div>
 
@@ -492,10 +759,11 @@
             const liste = URUNLER.filter(u => {
                 const metinUyumu = u.kod.toLowerCase().includes(arama) || u.ad.toLowerCase().includes(arama) || u.olcu.toLowerCase().includes(arama);
                 let filtreUyumu = true;
-                if (aktifFiltre === '60') filtreUyumu = u.kod.includes('-60_');
-                else if (aktifFiltre === '70') filtreUyumu = u.kod.includes('-70_');
-                else if (aktifFiltre === 'CFT') filtreUyumu = u.kod.includes('-CFT-');
-                else if (aktifFiltre === 'BMG') filtreUyumu = u.kod.includes('-BMG-');
+                if (aktifFiltre === 'EVT') filtreUyumu = u.kod.startsWith('EVT-');
+                else if (aktifFiltre === 'TZG') filtreUyumu = u.kod.startsWith('TZG-');
+                else if (aktifFiltre === 'RAF') filtreUyumu = u.kod.startsWith('RAF-');
+                else if (aktifFiltre === '60') filtreUyumu = u.kod.includes('-60');
+                else if (aktifFiltre === '70') filtreUyumu = u.kod.includes('-70');
                 return metinUyumu && filtreUyumu;
             });
 
@@ -510,7 +778,6 @@
             grid.innerHTML = liste.map((u, idx) => {
                 const fh = fiyatHesapla(u);
                 
-                // VİTRİN KARTI FİYAT & ÜSTÜ ÇİZİLİ İNDİRİM GÖSTERİMİ
                 let vitrinFiyatHTML = `<span class="text-xs font-bold text-slate-500">Fiyat & Teklif Al</span>`;
                 if (fh.yeniTL > 0) {
                     vitrinFiyatHTML = `
@@ -525,7 +792,7 @@
                 }
 
                 return `
-                <div onclick="urunSayfasinaGit('${u.kod}')" style="animation-delay: ${Math.min(idx * 35, 250)}ms" class="cursor-pointer animate-fade-up opacity-0 product-card-hover group bg-white rounded-3xl border border-slate-200/80 overflow-hidden flex flex-col justify-between shadow-sm">
+                <div onclick="urunSayfasinaGit('${u.kod}')" style="animation-delay: ${Math.min(idx * 30, 250)}ms" class="cursor-pointer animate-fade-up opacity-0 product-card-hover group bg-white rounded-3xl border border-slate-200/80 overflow-hidden flex flex-col justify-between shadow-sm">
                     <div>
                         <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden">
                             <img src="${u.gorsel}" alt="${u.ad}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
@@ -539,8 +806,14 @@
                         </div>
                         <div class="p-4 sm:p-5">
                             <h3 class="font-bold text-slate-900 text-[15px] leading-snug group-hover:text-slate-700 transition mb-2.5">${u.ad}</h3>
-                            <div class="inline-flex items-center gap-1.5 bg-slate-100 text-slate-800 text-xs font-bold px-3 py-1.5 rounded-xl whitespace-nowrap">
-                                <span>📐</span> <span>${u.olcu}</span>
+                            <div class="flex flex-wrap items-center gap-1.5">
+                                <div class="inline-flex items-center gap-1 bg-slate-100 text-slate-800 text-xs font-bold px-2.5 py-1.5 rounded-xl whitespace-nowrap">
+                                    <span>📐</span> <span>${u.olcu}</span>
+                                </div>
+                                ${u.kilo ? `
+                                <div class="inline-flex items-center gap-1 bg-slate-100 text-slate-700 text-xs font-bold px-2.5 py-1.5 rounded-xl whitespace-nowrap">
+                                    <span>⚖️</span> <span>${u.kilo}</span>
+                                </div>` : ''}
                             </div>
                         </div>
                     </div>
@@ -555,7 +828,7 @@
         }
 
         // =====================================================
-        // 2. MOBİL ODAKLI MÜŞTERİ TEK ÜRÜN EKRANI (KAYMA YAPMAZ)
+        // 2. MOBİL ODAKLI MÜŞTERİ TEK ÜRÜN EKRANI (KİLO BİLGİSİ DAHİL)
         // =====================================================
         function musteriEkraniGoster(kod) {
             const u = URUNLER.find(item => item.kod.toUpperCase() === kod);
@@ -570,8 +843,9 @@
 
             const f = fiyatHesapla(u);
             const fiyatMetni = f.yeniTL > 0 ? `${formatTL(f.yeniTL)} (${u.kdvDurumu})` : "Güncel Fiyat";
+            const kiloBilgisi = u.kilo ? `, Ağırlık: ${u.kilo}` : "";
 
-            const msjStandart = encodeURIComponent(`Merhaba Avşar Krom, *${u.kod} - ${u.ad}* (${u.olcu}) ürününüzün QR kodunu okuttum. *${fiyatMetni}* üzerinden sipariş ve stok bilgisi almak istiyorum.`);
+            const msjStandart = encodeURIComponent(`Merhaba Avşar Krom, *${u.kod} - ${u.ad}* (${u.olcu}${kiloBilgisi}) ürününüzün QR kodunu okuttum. *${fiyatMetni}* üzerinden sipariş ve stok bilgisi almak istiyorum.`);
             const msjOzel = encodeURIComponent(`Merhaba Avşar Krom, *${u.kod} - ${u.ad}* modeliniz için özel ölçü teklifi almak istiyorum. İstediğim ölçüler: `);
 
             let fiyatBolumuHTML = '';
@@ -600,7 +874,7 @@
             const yoneticiBar = sessionStorage.getItem('avsar_admin_giris') === 'evet' ? `
                 <div class="mb-3 flex justify-between items-center bg-slate-900 text-white px-3.5 py-2.5 rounded-2xl text-xs shadow-sm">
                     <span class="font-medium truncate">👁️ Müşteri Önizleme</span>
-                    <button onclick="aktifUrunKodu=null; window.history.replaceState({}, '', window.location.pathname); yonetimPaneliGoster('qr');" class="bg-white text-slate-900 font-bold px-3 py-1 rounded-lg whitespace-nowrap shrink-0">⬅️ Yönetim Paneli</button>
+                    <button onclick="aktifUrunKodu=null; window.history.replaceState({}, '', window.location.pathname); yonetimPaneliGoster('ekle'); setTimeout(() => urunDoldur('${u.kod}'), 50);" class="bg-white text-slate-900 font-bold px-3 py-1 rounded-lg whitespace-nowrap shrink-0">✏️ Bu Ürünü Düzenle</button>
                 </div>
             ` : '';
 
@@ -621,7 +895,7 @@
                             </span>
                         </div>
 
-                        <!-- ÜRÜN DETAYLARI (MOBİL İÇİN ÖZEL DENGELENMİŞ ALAN) -->
+                        <!-- ÜRÜN DETAYLARI -->
                         <div class="p-4 sm:p-6">
                             <div class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/70 px-2.5 py-0.5 rounded-md mb-2">
                                 ✓ Doğrulanmış Orijinal Ürün
@@ -632,23 +906,27 @@
                             <!-- FİYAT KARTI -->
                             ${fiyatBolumuHTML}
 
-                            <!-- YENİ MOBİL TEKNİK ÖZELLİK KUTULARI (ASLA SATIR KIRMAZ / KAYMAZ) -->
-                            <div class="bg-slate-50 rounded-2xl p-3 mb-5 border border-slate-200/70 space-y-2">
-                                <!-- Üst Tam Genişlik Kutu: Ölçüler -->
-                                <div class="bg-white p-3 rounded-xl border border-slate-200/60 flex items-center justify-between gap-2">
-                                    <div class="text-xs font-semibold text-slate-500 whitespace-nowrap">📐 Ölçüler</div>
-                                    <div class="text-xs sm:text-sm font-extrabold text-slate-900 whitespace-nowrap">${u.olcu}</div>
+                            <!-- 2x2 SİMETRİK TEKNİK ÖZELLİK KUTULARI (ÖLÇÜ + KİLO + MALZEME + SAC) -->
+                            <div class="bg-slate-50 rounded-2xl p-3 mb-5 border border-slate-200/70 grid grid-cols-2 gap-2">
+                                <!-- Kutu 1: Ölçüler -->
+                                <div class="bg-white p-2.5 rounded-xl border border-slate-200/60">
+                                    <div class="text-[10px] font-semibold text-slate-400 mb-0.5">📐 Ölçüler (En×Boy×Yük.)</div>
+                                    <div class="text-xs font-extrabold text-slate-900 whitespace-nowrap">${u.olcu}</div>
                                 </div>
-                                <!-- Alt Yan Yana 2 Kutu: Malzeme ve Kalınlık -->
-                                <div class="grid grid-cols-2 gap-2">
-                                    <div class="bg-white p-2.5 rounded-xl border border-slate-200/60">
-                                        <div class="text-[10px] font-semibold text-slate-400 mb-0.5">🛡️ Malzeme Kalitesi</div>
-                                        <div class="text-xs font-bold text-slate-900 truncate">${u.malzeme}</div>
-                                    </div>
-                                    <div class="bg-white p-2.5 rounded-xl border border-slate-200/60">
-                                        <div class="text-[10px] font-semibold text-slate-400 mb-0.5">⚙️ Sac & Yapı</div>
-                                        <div class="text-xs font-bold text-slate-900 truncate">${u.kalinlik}</div>
-                                    </div>
+                                <!-- Kutu 2: Ağırlık / Kilo -->
+                                <div class="bg-white p-2.5 rounded-xl border border-slate-200/60">
+                                    <div class="text-[10px] font-semibold text-slate-400 mb-0.5">⚖️ Ağırlık (Kilo)</div>
+                                    <div class="text-xs font-extrabold text-slate-900 whitespace-nowrap">${u.kilo && u.kilo.trim() !== '' ? u.kilo : 'Standart'}</div>
+                                </div>
+                                <!-- Kutu 3: Malzeme -->
+                                <div class="bg-white p-2.5 rounded-xl border border-slate-200/60">
+                                    <div class="text-[10px] font-semibold text-slate-400 mb-0.5">🛡️ Malzeme Kalitesi</div>
+                                    <div class="text-xs font-bold text-slate-900 truncate">${u.malzeme}</div>
+                                </div>
+                                <!-- Kutu 4: Sac & Yapı -->
+                                <div class="bg-white p-2.5 rounded-xl border border-slate-200/60">
+                                    <div class="text-[10px] font-semibold text-slate-400 mb-0.5">⚙️ Sac & Yapı</div>
+                                    <div class="text-xs font-bold text-slate-900 truncate">${u.kalinlik}</div>
                                 </div>
                             </div>
 
@@ -670,7 +948,7 @@
         }
 
         // =====================================================
-        // 3. YÖNETİCİ GİRİŞİ VE OTOMATİK YÜZDE İNDİRİM HESAPLAYICILI PANEL
+        // 3. YÖNETİCİ GİRİŞİ VE KİLO DESTEKLİ YÖNETİM PANELİ
         // =====================================================
         function yoneticiGirisKontrol() {
             if (sessionStorage.getItem('avsar_admin_giris') === 'evet') {
@@ -725,7 +1003,6 @@
             }, 1200);
         }
 
-        // OTOMATİK YÜZDE (%) İNDİRİM HESAPLAMA FONKSİYONLARI
         function yuzdedenFiyatHesapla() {
             const eski = parseFloat(document.getElementById('f_eskiFiyat').value) || 0;
             const yuzde = parseFloat(document.getElementById('f_indirimYuzde').value) || 0;
@@ -766,7 +1043,7 @@
                             🏷️ 80×50 Etiket & Kopyala
                         </button>
                         <button onclick="yonetimPaneliGoster('ekle')" class="py-2.5 rounded-xl text-xs font-bold transition ${aktifSekme === 'ekle' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-800'}">
-                            ➕ Ürün & Fiyat (${URUNLER.length})
+                            ➕ Ürün, Kilo & Fiyat (${URUNLER.length})
                         </button>
                     </div>
 
@@ -822,7 +1099,7 @@
                         </div>
                     </div>
 
-                    <!-- SEKME 2: OTOMATİK YÜZDE (%) İNDİRİM HESAPLAYICILI ÜRÜN FORMU -->
+                    <!-- SEKME 2: KİLO VE OTOMATİK YÜZDE (%) İNDİRİM HESAPLAYICILI ÜRÜN FORMU -->
                     <div id="sekmeEkle" class="${aktifSekme === 'ekle' ? 'block' : 'hidden'}">
                         <div class="bg-blue-50/70 border border-blue-200 p-3.5 rounded-2xl mb-5 flex flex-col sm:flex-row justify-between items-center gap-3">
                             <div class="text-xs">
@@ -838,7 +1115,7 @@
                         </div>
 
                         <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 mb-6">
-                            <h3 class="font-bold text-sm text-slate-900 mb-3">Ürün Ekle / Yüzdelik Fiyat Güncelle</h3>
+                            <h3 class="font-bold text-sm text-slate-900 mb-3">Ürün Ekle / Kilo & Fiyat Güncelle</h3>
                             <div class="space-y-3 text-sm">
                                 <div class="grid grid-cols-3 gap-2">
                                     <div>
@@ -859,7 +1136,7 @@
                                     <input type="text" id="f_ad" placeholder="Örn: 60'lık Seri Sağdan Tek Evyeli Tezgah" class="w-full p-2.5 border rounded-lg mt-1 text-xs font-semibold">
                                 </div>
 
-                                <!-- YENİ 4 SÜTUNLU OTOMATİK YÜZDE (%) İNDİRİM HESAPLAYICI -->
+                                <!-- 4 SÜTUNLU OTOMATİK YÜZDE (%) İNDİRİM HESAPLAYICI -->
                                 <div class="bg-white p-3 rounded-xl border border-slate-200 grid grid-cols-2 sm:grid-cols-4 gap-2">
                                     <div>
                                         <label class="text-[11px] font-bold text-slate-600">Birim</label>
@@ -870,22 +1147,31 @@
                                     </div>
                                     <div>
                                         <label class="text-[11px] font-bold text-slate-600">Liste Fiyatı</label>
-                                        <input type="number" id="f_eskiFiyat" oninput="yuzdedenFiyatHesapla()" placeholder="20000" class="w-full p-2 border rounded-lg mt-1 text-xs font-semibold">
+                                        <input type="number" id="f_eskiFiyat" oninput="yuzdedenFiyatHesapla()" placeholder="300" class="w-full p-2 border rounded-lg mt-1 text-xs font-semibold">
                                     </div>
                                     <div>
                                         <label class="text-[11px] font-extrabold text-blue-600">% İndirim Yaz</label>
                                         <div class="relative mt-1">
-                                            <input type="number" id="f_indirimYuzde" oninput="yuzdedenFiyatHesapla()" placeholder="15" class="w-full p-2 pr-6 border-2 border-blue-400 rounded-lg text-xs font-extrabold text-blue-700 bg-blue-50/40">
+                                            <input type="number" id="f_indirimYuzde" oninput="yuzdedenFiyatHesapla()" placeholder="13" class="w-full p-2 pr-6 border-2 border-blue-400 rounded-lg text-xs font-extrabold text-blue-700 bg-blue-50/40">
                                             <span class="absolute right-2 top-2 text-xs font-extrabold text-blue-600">%</span>
                                         </div>
                                     </div>
                                     <div>
                                         <label class="text-[11px] font-bold text-emerald-700">Net Satış Fiyatı</label>
-                                        <input type="number" id="f_yeniFiyat" oninput="fiyattanYuzdeHesapla()" placeholder="17000" class="w-full p-2 border-2 border-emerald-500 rounded-lg mt-1 text-xs font-extrabold text-emerald-800 bg-emerald-50/40">
+                                        <input type="number" id="f_yeniFiyat" oninput="fiyattanYuzdeHesapla()" placeholder="261" class="w-full p-2 border-2 border-emerald-500 rounded-lg mt-1 text-xs font-extrabold text-emerald-800 bg-emerald-50/40">
                                     </div>
                                 </div>
 
+                                <!-- ÖLÇÜ, KİLO VE KDV SATIRI -->
                                 <div class="grid grid-cols-3 gap-2">
+                                    <div>
+                                        <label class="text-xs font-semibold text-slate-600">Ölçüler (En×Boy×Yük.)</label>
+                                        <input type="text" id="f_olcu" placeholder="1500 × 600 × 850 mm" class="w-full p-2 border rounded-lg mt-1 text-xs font-bold">
+                                    </div>
+                                    <div>
+                                        <label class="text-xs font-extrabold text-amber-700">⚖️ Ağırlık / Kilo</label>
+                                        <input type="text" id="f_kilo" placeholder="Örn: 42 kg" class="w-full p-2 border-2 border-amber-300 bg-amber-50/30 rounded-lg mt-1 text-xs font-extrabold text-slate-900">
+                                    </div>
                                     <div>
                                         <label class="text-xs font-semibold text-slate-600">KDV Bilgisi</label>
                                         <select id="f_kdv" class="w-full p-2 border rounded-lg mt-1 text-xs font-semibold bg-white">
@@ -893,25 +1179,25 @@
                                             <option value="+ KDV (Hariç)">+ KDV (Hariç)</option>
                                         </select>
                                     </div>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-2">
                                     <div>
-                                        <label class="text-xs font-semibold text-slate-600">Ölçüler</label>
-                                        <input type="text" id="f_olcu" placeholder="1500 x 600 x 850 mm" class="w-full p-2 border rounded-lg mt-1 text-xs font-bold">
+                                        <label class="text-xs font-semibold text-slate-600">Malzeme Kalitesi</label>
+                                        <input type="text" id="f_malzeme" value="AISI 304 Paslanmaz" class="w-full p-2 border rounded-lg mt-1 text-xs">
                                     </div>
                                     <div>
                                         <label class="text-xs font-semibold text-slate-600">Sac & Yapı</label>
                                         <input type="text" id="f_kalinlik" value="1.20 mm / Kutu Profil" class="w-full p-2 border rounded-lg mt-1 text-xs">
                                     </div>
                                 </div>
-                                <div>
-                                    <label class="text-xs font-semibold text-slate-600">Malzeme Kalitesi</label>
-                                    <input type="text" id="f_malzeme" value="AISI 304 Paslanmaz" class="w-full p-2 border rounded-lg mt-1 text-xs">
-                                </div>
+
                                 <div>
                                     <label class="text-xs font-semibold text-slate-600">Teknik Açıklama</label>
                                     <textarea id="f_aciklama" rows="2" class="w-full p-2 border rounded-lg mt-1 text-xs"></textarea>
                                 </div>
                                 <button onclick="urunKaydet()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition">
-                                    ✅ Ürünü ve Fiyatı Kaydet
+                                    ✅ Ürünü, Kiloyu ve Fiyatı Kaydet
                                 </button>
                             </div>
                         </div>
@@ -925,7 +1211,9 @@
                                     <div class="min-w-0 pr-2">
                                         <div class="truncate"><span class="font-bold text-slate-900">${u.kod}</span> - <span class="text-slate-700 font-medium">${u.ad}</span></div>
                                         <div class="text-[11px] text-slate-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
-                                            <span>📐 <b>${u.olcu}</b></span> \vert{}${fh.yeniTL > 0 ? `
+                                            <span>📐 <b>${u.olcu}</b></span>
+                                            ${u.kilo ? `| <span>⚖️ <b class="text-amber-700">${u.kilo}</b></span>` : ''}
+                                            | ${fh.yeniTL > 0 ? `
                                                 ${fh.eskiTL > fh.yeniTL ? `<span class="line-through text-slate-400">${formatTL(fh.eskiTL)}</span>` : ''}
                                                 <span class="text-emerald-600 font-extrabold">${formatTL(fh.yeniTL)}</span>
                                                 ${fh.indirimOrani > 0 ? `<span class="bg-emerald-100 text-emerald-800 px-1.5 py-0.2 rounded font-bold">%${fh.indirimOrani}</span>` : ''}
@@ -955,7 +1243,7 @@
 
         function kurAyariDegistir() {
             AYARLAR.otomatikKur = document.getElementById('otoKurCheck').checked;
-            AYARLAR.manuelDolarKuru = parseFloat(document.getElementById('manuelKurInput').value) || 36.50;
+            AYARLAR.manuelDolarKuru = parseFloat(document.getElementById('manuelKurInput').value) || 49.00;
             veritabaniKaydet();
             sistemiBaslat();
         }
@@ -969,7 +1257,7 @@
 
             document.getElementById('kopya_kod').value = u.kod;
             document.getElementById('kopya_ad').value = u.ad;
-            document.getElementById('kopya_olcu').value = "ÖLÇÜ: " + u.olcu.replace(/ x /g, "*");
+            document.getElementById('kopya_olcu').value = "ÖLÇÜ: " + u.olcu.replace(/ x /g, "*").replace(/ × /g, "*");
             document.getElementById('kopya_link').value = urunLinki;
             document.getElementById('onizlemeBtn').onclick = () => urunSayfasinaGit(u.kod);
 
@@ -1005,7 +1293,7 @@
 
                 ctx.textAlign = "left";
                 ctx.font = "800 22px Inter, Arial, sans-serif";
-                ctx.fillText("ÖLÇÜ: " + u.olcu.replace(/ x /g, "*"), 30, 208);
+                ctx.fillText("ÖLÇÜ: " + u.olcu.replace(/ x /g, "*").replace(/ × /g, "*"), 30, 208);
 
                 ctx.font = "800 21px Inter, Arial, sans-serif";
                 ctx.fillText("ÇELİK: AISI 304 Paslanmaz", 30, 265);
@@ -1038,6 +1326,13 @@
             const indirimliFiyat = parseFloat(document.getElementById('f_yeniFiyat').value) || 0;
             const kdvDurumu = document.getElementById('f_kdv').value;
             const olcu = document.getElementById('f_olcu').value.trim() || "Standart Ölçü";
+            
+            // Kilo bilgisini al; sadece rakam yazıldıysa sonuna otomatik " kg" ekle
+            let kilo = document.getElementById('f_kilo').value.trim();
+            if (kilo && !isNaN(kilo.replace(',', '.'))) {
+                kilo = kilo + " kg";
+            }
+
             const malzeme = document.getElementById('f_malzeme').value.trim();
             const kalinlik = document.getElementById('f_kalinlik').value.trim();
             const gorsel = document.getElementById('f_gorsel').value.trim() || `gorseller/${kod}.jpg`;
@@ -1048,7 +1343,7 @@
                 return;
             }
 
-            const yeniUrun = { kod, ad, olcu, stokAdet, malzeme, kalinlik, paraBirimi, eskiFiyat, indirimliFiyat, kdvDurumu, gorsel, aciklama };
+            const yeniUrun = { kod, ad, olcu, kilo, stokAdet, malzeme, kalinlik, paraBirimi, eskiFiyat, indirimliFiyat, kdvDurumu, gorsel, aciklama };
             const mevcutIndex = URUNLER.findIndex(u => u.kod === kod);
 
             if (mevcutIndex > -1) {
@@ -1073,6 +1368,7 @@
             fiyattanYuzdeHesapla();
             document.getElementById('f_kdv').value = u.kdvDurumu || 'KDV Dahil';
             document.getElementById('f_olcu').value = u.olcu;
+            document.getElementById('f_kilo').value = u.kilo || '';
             document.getElementById('f_malzeme').value = u.malzeme;
             document.getElementById('f_kalinlik').value = u.kalinlik;
             document.getElementById('f_gorsel').value = u.gorsel;
@@ -1088,10 +1384,17 @@
             }
         }
 
+        // TARAYICI EKLENTİLERİNİ TEMİZLEYEREK TERTEMİZ İNDİREN FONKSİYON
         function guncelKoduIndir() {
             const cloneDoc = document.documentElement.cloneNode(true);
             const cloneIcerik = cloneDoc.querySelector('#icerikAlani');
             if (cloneIcerik) cloneIcerik.innerHTML = '';
+            
+            const cloneQr = cloneDoc.querySelector('#gizliQrKutu');
+            if (cloneQr) cloneQr.innerHTML = '';
+
+            // Monica vb. tarayıcı eklentilerinin eklediği fazlalıkları temizle
+            cloneDoc.querySelectorAll('[id*="monica"], [class*="monica"], [id*="Plugin-Root"], #intellisense-root').forEach(el => el.remove());
 
             let tamHtml = cloneDoc.outerHTML;
             const yeniVeriKodu = `// /*URUNLER_BASLANGIC*/\n        const VARSAYILAN_AYARLAR = ${JSON.stringify(AYARLAR, null, 12)};\n\n        const VARSAYILAN_URUNLER = ${JSON.stringify(URUNLER, null, 12)};\n        // /*URUNLER_BITIS*/`;
