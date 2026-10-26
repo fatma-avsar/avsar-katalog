@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%" style="background-color:#111827; font-family:&#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Mühendislik Izgarası -->
+    <pattern id="smallGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1f2937" stroke-width="0.7" />
+    </pattern>
+    <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+      <rect width="100" height="100" fill="url(#smallGrid)" />
+      <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#374151" stroke-width="1.2" />
+    </pattern>
+    <!-- Ölçü Okları -->
+    <marker id="arrowStart" markerWidth="8" markerHeight="8" refX="2" refY="4" orient="auto">
+      <path d="M8,1 L2,4 L8,7" fill="none" stroke="#38bdf8" stroke-width="1.4" />
+    </marker>
+    <marker id="arrowEnd" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,1 L6,4 L0,7" fill="none" stroke="#38bdf8" stroke-width="1.4" />
+    </marker>
+  </defs>
+
+  <!-- Arka Plan -->
+  <rect width="800" height="500" fill="url(#grid)" />
+
+  <!-- Üst Başlık Barı -->
+  <rect x="20" y="15" width="760" height="36" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1" />
+  <text x="35" y="38" fill="#f8fafc" font-size="14" font-weight="700" letter-spacing="1">AVŞAR KROM | SERVANT TEKNİK ÖLÇÜ ŞEMASI (BLUEPRINT)</text>
+  <text x="765" y="38" fill="#38bdf8" font-size="13" font-weight="600" text-anchor="end">KOD: SRV-CEK-DLP-60_1 (1000x600x1550 mm)</text>
+
+  <!-- ==================== 1. ÖN GÖRÜNÜŞ (FRONT VIEW) ==================== -->
+  <!-- Ölçek: 1 mm = 0.20 px -> 1000mm = 200px genişlik, 1550mm = 310px toplam yükseklik -->
+  <!-- Üst Etajer: 700mm = 140px | Alt Tezgah: 850mm = 170px -->
+  <g transform="translate(80, 95)">
+    <text x="100" y="-14" fill="#94a3b8" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="0.8">ÖN GÖRÜNÜŞ (FRONT VIEW)</text>
+
+    <!-- Üst 3 Katlı Etajer Gövdesi (700mm = 140px yükseklik) -->
+    <rect x="0" y="0" width="200" height="140" fill="#1e293b" fill-opacity="0.45" stroke="#e2e8f0" stroke-width="2" />
+    <!-- Sol & Sağ Yan Dikme Kalınlığı -->
+    <line x1="6" y1="0" x2="6" y2="140" stroke="#94a3b8" stroke-width="1" />
+    <line x1="194" y1="0" x2="194" y2="140" stroke="#94a3b8" stroke-width="1" />
+    <!-- Üst Şapka Bükümü -->
+    <rect x="0" y="0" width="200" height="6" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" />
+    <!-- 2. Ara Raf -->
+    <rect x="6" y="45" width="188" height="6" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" />
+    <!-- 1. Ara Raf -->
+    <rect x="6" y="92" width="188" height="6" fill="#334155" stroke="#e2e8f0" stroke-width="1.5" />
+
+    <!-- Ana Tezgah Üst Tablası (40mm = 8px) -->
+    <rect x="-4" y="140" width="208" height="8" fill="#475569" stroke="#f8fafc" stroke-width="2" />
+
+    <!-- Alt Dolap Gövdesi (850mm toplam alt yükseklik -> 140'tan 310'a = 170px) -->
+    <rect x="0" y="148" width="200" height="148" fill="#0f172a" fill-opacity="0.7" stroke="#e2e8f0" stroke-width="2" />
+
+    <!-- AVŞAR KROM Soğuk Damga Yeri -->
+    <text x="10" y="156" fill="#38bdf8" font-size="5.5" font-weight="700" letter-spacing="0.5">AVŞAR KROM</text>
+
+    <!-- 2 Adet Çekmece (Sol & Sağ) -->
+    <rect x="8" y="160" width="88" height="34" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+    <rect x="104" y="160" width="88" height="34" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+    <!-- Çekmece Gömme Yuvarlak Kulplar -->
+    <circle cx="52" cy="177" r="8" fill="#0f172a" stroke="#e2e8f0" stroke-width="1.5" />
+    <path d="M 46 175 Q 52 181 58 175" fill="none" stroke="#94a3b8" stroke-width="1.2" />
+    <circle cx="148" cy="177" r="8" fill="#0f172a" stroke="#e2e8f0" stroke-width="1.5" />
+    <path d="M 142 175 Q 148 181 154 175" fill="none" stroke="#94a3b8" stroke-width="1.2" />
+
+    <!-- Ara Kayıt Sacı -->
+    <line x1="0" y1="200" x2="200" y2="200" stroke="#94a3b8" stroke-width="1.2" />
+
+    <!-- Çift Çarpma Kapak (Sol & Sağ) -->
+    <rect x="8" y="204" width="91" height="88" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+    <rect x="101" y="204" width="91" height="88" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+    <!-- Kapak Gömme Yuvarlak Kulplar -->
+    <circle cx="84" cy="222" r="8" fill="#0f172a" stroke="#e2e8f0" stroke-width="1.5" />
+    <path d="M 78 220 Q 84 226 90 220" fill="none" stroke="#94a3b8" stroke-width="1.2" />
+    <circle cx="116" cy="222" r="8" fill="#0f172a" stroke="#e2e8f0" stroke-width="1.5" />
+    <path d="M 110 220 Q 116 226 122 220" fill="none" stroke="#94a3b8" stroke-width="1.2" />
+
+    <!-- 40x40 Kare Ayaklar + Rotil (14px = 70mm) -->
+    <rect x="6" y="296" width="10" height="14" fill="#cbd5e1" stroke="#f8fafc" stroke-width="1" />
+    <rect x="184" y="296" width="10" height="14" fill="#cbd5e1" stroke="#f8fafc" stroke-width="1" />
+
+    <!-- ÖLÇÜ ÇİZGİLERİ (ÖN GÖRÜNÜŞ) -->
+    <!-- Toplam Boy: 1000 mm -->
+    <line x1="0" y1="315" x2="0" y2="338" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2" />
+    <line x1="200" y1="315" x2="200" y2="338" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2" />
+    <line x1="4" y1="330" x2="196" y2="330" stroke="#38bdf8" stroke-width="1.5" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)" />
+    <rect x="65" y="320" width="70" height="18" rx="3" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+    <text x="100" y="333" fill="#38bdf8" font-size="11" font-weight="700" text-anchor="middle">1000 mm</text>
+
+    <!-- Sol: Toplam Yükseklik 1550 mm -->
+    <line x1="-38" y1="0" x2="-5" y2="0" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2" />
+    <line x1="-38" y1="310" x2="-5" y2="310" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2" />
+    <line x1="-30" y1="4" x2="-30" y2="306" stroke="#38bdf8" stroke-width="1.5" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)" />
+    <rect x="-64" y="146" width="66" height="18" rx="3" fill="#0f172a" stroke="#38bdf8" stroke-width="1" transform="rotate(-90 -31 155)" />
+    <text x="-27" y="159" fill="#38bdf8" font-size="11" font-weight="700" text-anchor="middle" transform="rotate(-90 -27 159)">1550 mm</text>
+
+    <!-- Sağ: Üst Etajer (700 mm) & Alt Tezgah (850 mm) -->
+    <line x1="205" y1="0" x2="235" y2="0" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2" />
+    <line x1="205" y1="140" x2="235" y2="140" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2" />
+    <line x1="205" y1="310" x2="235" y2="310" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2" />
+    <line x1="226" y1="4" x2="226" y2="136" stroke="#38bdf8" stroke-width="1.4" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)" />
+    <text x="234" y="74" fill="#38bdf8" font-size="10.5" font-weight="700">700 mm (Etajer)</text>
+    <line x1="226" y1="144" x2="226" y2="306" stroke="#38bdf8" stroke-width="1.4" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)" />
+    <text x="234" y="230" fill="#38bdf8" font-size="10.5" font-weight="700">850 mm (Tezgah)</text>
+  </g>
+
+  <!-- ==================== 2. YAN GÖRÜNÜŞ (SIDE VIEW) & ÖZELLİK TABLOSU ==================== -->
+  <!-- Derinlik Ölçeği: 600mm = 120px | Üst Etajer Derinliği: 300mm = 60px -->
+  <g transform="translate(465, 95)">
+    <text x="65" y="-14" fill="#94a3b8" font-size="12" font-weight="700" text-anchor="middle" letter-spacing="0.8">YAN GÖRÜNÜŞ (SIDE VIEW)</text>
+
+    <!-- Üst Etajer Yan Profili (Derinlik: 300mm = 60px, Yükseklik: 700mm = 140px) -->
+    <rect x="0" y="0" width="60" height="140" fill="#1e293b" stroke="#e2e8f0" stroke-width="2" />
+    <!-- İç Raflar (Kesikli Çizgi) -->
+    <line x1="0" y1="45" x2="60" y2="45" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4,3" />
+    <line x1="0" y1="92" x2="60" y2="92" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4,3" />
+
+    <!-- Üst Tabla Yan Profili (Derinlik: 600mm = 120px) -->
+    <rect x="0" y="140" width="122" height="8" fill="#475569" stroke="#f8fafc" stroke-width="2" />
+
+    <!-- Alt Dolap Yan Profili (Derinlik: 600mm = 120px) -->
+    <rect x="0" y="148" width="120" height="148" fill="#1e293b" stroke="#e2e8f0" stroke-width="2" />
+    <!-- Çekmece & İç Taban Rafı İzdüşümü -->
+    <rect x="10" y="160" width="106" height="34" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4,3" />
+    <line x1="4" y1="286" x2="116" y2="286" stroke="#38bdf8" stroke-width="1.2" stroke-dasharray="4,3" />
+
+    <!-- Yan Ayaklar -->
+    <rect x="4" y="296" width="10" height="14" fill="#cbd5e1" stroke="#f8fafc" stroke-width="1" />
+    <rect x="106" y="296" width="10" height="14" fill="#cbd5e1" stroke="#f8fafc" stroke-width="1" />
+
+    <!-- Üst Etajer Derinlik Ölçüsü: 300 mm -->
+    <line x1="4" y1="20" x2="56" y2="20" stroke="#38bdf8" stroke-width="1.3" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)" />
+    <text x="30" y="34" fill="#38bdf8" font-size="10" font-weight="700" text-anchor="middle">300 mm</text>
+
+    <!-- Ön Servis Boşluğu Ölçüsü: 300 mm -->
+    <line x1="60" y1="125" x2="60" y2="140" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2" />
+    <line x1="120" y1="125" x2="120" y2="140" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2" />
+    <line x1="64" y1="130" x2="116" y2="130" stroke="#38bdf8" stroke-width="1.2" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)" />
+    <text x="90" y="123" fill="#38bdf8" font-size="9.5" font-weight="700" text-anchor="middle">300 mm</text>
+
+    <!-- Alt Tezgah Derinlik Ölçüsü: 600 mm -->
+    <line x1="0" y1="315" x2="0" y2="338" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2" />
+    <line x1="120" y1="315" x2="120" y2="338" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2,2" />
+    <line x1="4" y1="330" x2="116" y2="330" stroke="#38bdf8" stroke-width="1.5" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)" />
+    <rect x="25" y="320" width="70" height="18" rx="3" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+    <text x="60" y="333" fill="#38bdf8" font-size="11" font-weight="700" text-anchor="middle">600 mm</text>
+
+    <!-- Teknik Özellik Kutusu -->
+    <g transform="translate(145, 5)">
+      <rect x="0" y="0" width="165" height="235" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+      <text x="12" y="24" fill="#38bdf8" font-size="11.5" font-weight="700">YAPISAL ÖZELLİKLER</text>
+      <line x1="12" y1="32" x2="153" y2="32" stroke="#334155" stroke-width="1" />
+      <text x="12" y="52" fill="#e2e8f0" font-size="10.5">• Ürün: Paslanmaz Servant</text>
+      <text x="12" y="72" fill="#e2e8f0" font-size="10.5">• Çelik: AISI 304 Paslanmaz</text>
+      <text x="12" y="92" fill="#e2e8f0" font-size="10.5">• Sac Kalınlığı: 1.20 mm</text>
+      <text x="12" y="112" fill="#e2e8f0" font-size="10.5">• Etajer: 3 Katlı (700x300)</text>
+      <text x="12" y="132" fill="#e2e8f0" font-size="10.5">• Ön Tezgah Alanı: 300 mm</text>
+      <text x="12" y="152" fill="#e2e8f0" font-size="10.5">• Çekmece: 2 Adet Raylı</text>
+      <text x="12" y="172" fill="#e2e8f0" font-size="10.5">• Alt Dolap: Çift Çarpma Kapak</text>
+      <text x="12" y="192" fill="#e2e8f0" font-size="10.5">• Kulp: Gömme Dairesel Pas.</text>
+      <text x="12" y="212" fill="#e2e8f0" font-size="10.5">• Ayak: 40x40 mm + Rotil</text>
+    </g>
+  </g>
+
+  <!-- Alt Bilgi -->
+  <text x="400" y="482" fill="#64748b" font-size="11" text-anchor="middle">Ölçüler milimetre (mm) cinsindendir. Avşar Krom Endüstriyel Mutfak Sistemleri standart üretim toleranslarına tabidir.</text>
+</svg>
