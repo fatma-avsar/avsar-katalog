@@ -1145,8 +1145,8 @@
                 return `
                 <div onclick="urunSayfasinaGit('${u.kod}')" style="animation-delay: ${Math.min(idx * 30, 250)}ms" class="cursor-pointer animate-fade-up opacity-0 product-card-hover group bg-white rounded-3xl border border-slate-200/80 overflow-hidden flex flex-col justify-between shadow-sm">
                     <div>
-                       <div class="relative w-full bg-slate-100 overflow-hidden flex items-center justify-center">
-                            <img src="${u.gorsel}" alt="${u.ad}" class="w-full h-auto block group-hover:scale-[1.02] transition duration-500"
+<div class="relative w-full bg-slate-100 overflow-hidden">
+                            <img src="${u.gorsel}" alt="${u.ad}" style="width: 100%; height: auto; display: block;" class="group-hover:scale-105 transition duration-500"
                                  onerror="this.src='https://placehold.co/600x800/f1f5f9/475569?text=${encodeURIComponent(u.kod)}'">
                                 ${u.kod}
                             </span>
@@ -1263,22 +1263,26 @@
             ` : '';
 
             
-            // Görsel veya Teknik Şema Gösterim Alanı (Kırpmadan Tam Boyut Gösterir)
+// Görsel veya Teknik Şema Gösterim Alanı (Kırpmadan Tam Boyut Gösterir)
             let gorselIcerikHTML = '';
             if (aktifGorselModu === 'sema' && semaVarMi) {
                 if (u.semaGorsel === 'AUTO_SRV_BLUEPRINT') {
-                    gorselIcerikHTML = `<div class="w-full aspect-[16/10] bg-[#0f172a] flex items-center justify-center">${srvBlueprintSvgUret(u)}</div>`;
+                    gorselIcerikHTML = `<div style="width: 100%; background-color: #0f172a;">${srvBlueprintSvgUret(u)}</div>`;
                 } else {
-                    gorselIcerikHTML = `<img src="${u.semaGorsel}" alt="${u.ad} Teknik Şema" class="w-full h-auto block bg-[#0f172a]" onerror="this.src='${u.gorsel}'">`;
+                    gorselIcerikHTML = `<img src="${u.semaGorsel}" alt="${u.ad} Teknik Şema" style="width: 100%; height: auto; display: block; background-color: #0f172a;" onerror="this.src='${u.gorsel}'">`;
                 }
             } else {
-                gorselIcerikHTML = `<img src="${u.gorsel}" alt="${u.ad}" class="w-full h-auto block" onerror="this.src='https://placehold.co/600x800/e2e8f0/475569?text=Gorsel+Hazirlaniyor+(${u.kod})'">`;
+                gorselIcerikHTML = `<img src="${u.gorsel}" alt="${u.ad}" style="width: 100%; height: auto; display: block;" onerror="this.src='https://placehold.co/600x800/e2e8f0/475569?text=Gorsel+Hazirlaniyor+(${u.kod})'">`;
             }
 
             kutu.innerHTML = `
                 <div class="max-w-md mx-auto animate-fade-up">
                     ${yoneticiBar}
                     <div class="bg-white rounded-3xl shadow-md border border-slate-200/80 overflow-hidden">
+                        
+                        <!-- ÜRÜN FOTOĞRAFI / TEKNİK ŞEMA ALANI (OTOMATİK YÜKSEKLİK) -->
+                        <div onclick="zoomAc('${u.kod}')" class="relative bg-slate-100 w-full overflow-hidden cursor-zoom-in">
+                            ${gorselIcerikHTML}
                         
                         <!-- ÜRÜN FOTOĞRAFI / TEKNİK ŞEMA ALANI (OTOMATİK YÜKSEKLİK) -->
                         <div onclick="zoomAc('${u.kod}')" class="relative bg-slate-100 w-full overflow-hidden cursor-zoom-in">
@@ -1821,7 +1825,7 @@
             if (cloneQr) cloneQr.innerHTML = '';
 
             cloneDoc.querySelectorAll('[id*="monica"], [class*="monica"], [id*="Plugin-Root"], #intellisense-root').forEach(el => el.remove());
-
+            cloneDoc.querySelectorAll('style:not(:first-of-type)').forEach(el => el.remove());
             let tamHtml = cloneDoc.outerHTML;
             const yeniVeriKodu = `// /*URUNLER_BASLANGIC*/\n        const VARSAYILAN_AYARLAR = ${JSON.stringify(AYARLAR, null, 12)};\n\n        const VARSAYILAN_URUNLER = ${JSON.stringify(URUNLER, null, 12)};\n        // /*URUNLER_BITIS*/`;
             
