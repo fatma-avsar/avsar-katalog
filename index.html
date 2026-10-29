@@ -1350,14 +1350,48 @@
                             </span>
                         </div>
 
-                        <!-- 1. FOTOĞRAF & 2. TEKNİK ŞEMA GEÇİŞ SEKMESİ -->
+                   // 2. Görsel bir Teknik Şema mı yoksa Normal Fotoğraf mı otomatik anla:
+            const buBirSemaMi = semaVarMi && (u.semaGorsel.toLowerCase().endsWith('.svg') || u.semaGorsel.includes('BLUEPRINT') || u.semaGorsel.toLowerCase().includes('sema'));
+
+            // Görsel veya Teknik Şema Gösterim Alanı
+            let gorselIcerikHTML = '';
+            if (aktifGorselModu === 'sema' && semaVarMi) {
+                if (u.semaGorsel === 'AUTO_SRV_BLUEPRINT') {
+                    gorselIcerikHTML = `<div class="w-full bg-[#0f172a] pt-11 pb-2 px-1">${srvBlueprintSvgUret(u)}</div>`;
+                } else {
+                    gorselIcerikHTML = `<img src="${u.semaGorsel}" alt="${u.ad} 2. Görsel" style="width: 100%; height: auto; display: block; ${buBirSemaMi ? 'background-color: #0f172a;' : ''}" onerror="this.src='${u.gorsel}'">`;
+                }
+            } else {
+                gorselIcerikHTML = `<img src="${u.gorsel}" alt="${u.ad}" style="width: 100%; height: auto; display: block;" onerror="this.src='https://placehold.co/600x750/e2e8f0/475569?text=Gorsel+Hazirlaniyor+(${u.kod})'">`;
+            }
+
+            kutu.innerHTML = `
+                <div class="max-w-md mx-auto animate-fade-up">
+                    ${yoneticiBar}
+                    <div class="bg-white rounded-3xl shadow-md border border-slate-200/80 overflow-hidden">
+                        
+                        <!-- ÜRÜN FOTOĞRAFI / 2. GÖRSEL ALANI -->
+                        <div onclick="zoomAc('${u.kod}')" class="relative bg-slate-100 w-full overflow-hidden cursor-zoom-in">
+                            ${gorselIcerikHTML}
+                            <span class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-sm text-white text-[11px] font-extrabold px-3 py-1 rounded-lg tracking-wider shadow whitespace-nowrap">
+                                ${u.kod}
+                            </span>
+                            <span class="absolute top-3 right-3 bg-emerald-600/95 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow whitespace-nowrap">
+                                Stok: ${u.stokAdet || 1} Adet
+                            </span>
+                            <span class="absolute bottom-2.5 right-2.5 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-lg whitespace-nowrap">
+                                🔍 Büyüt
+                            </span>
+                        </div>
+
+                        <!-- 1. GÖRSEL & 2. GÖRSEL / ŞEMA GEÇİŞ SEKMESİ -->
                         ${semaVarMi ? `
                         <div class="bg-slate-100 p-1.5 grid grid-cols-2 gap-1.5 border-b border-slate-200/80">
                             <button onclick="gorselModuDegistir('foto', '${u.kod}')" class="py-2 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 whitespace-nowrap ${aktifGorselModu === 'foto' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-800'}">
-                                <span>📸</span> <span>Ürün Fotoğrafı</span>
+                                <span>📸</span> <span>1. Görsel</span>
                             </button>
                             <button onclick="gorselModuDegistir('sema', '${u.kod}')" class="py-2 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 whitespace-nowrap ${aktifGorselModu === 'sema' ? 'bg-slate-900 text-sky-400 shadow-sm' : 'text-slate-600 hover:text-slate-900'}">
-                                <span>📐</span> <span>Teknik Şema (Blueprint)</span>
+                                <span>${buBirSemaMi ? '📐' : '📸'}</span> <span>${buBirSemaMi ? 'Teknik Şema' : '2. Görsel (Detay)'}</span>
                             </button>
                         </div>
                         ` : ''}
