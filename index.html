@@ -16,9 +16,24 @@
             overflow-x: hidden;
         }
         
-        /* KAYDIRMA ÇUBUĞUNU GİZLEME (MOBİL FİLTRELER İÇİN) */
+        /* KAYDIRMA ÇUBUĞUNU GİZLEME (INSTAGRAM SLIDER & MOBİL FİLTRELER İÇİN) */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* INSTAGRAM TARZI YATAY KAYDIRMA (SWIPE) */
+        .insta-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        .insta-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+        }
 
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(10px); }
@@ -67,7 +82,7 @@
 </head>
 <body class="min-h-screen flex flex-col justify-between">
 
-    <!-- MOBİL UYUMLU ÜST KURUMSAL BAŞLIK (ASLA KAYMA YAPMAZ) -->
+    <!-- MOBİL UYUMLU ÜST KURUMSAL BAŞLIK -->
     <header class="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200/80 py-3 px-3.5 sm:px-6 shadow-sm">
         <div class="max-w-5xl mx-auto flex justify-between items-center gap-2">
             <!-- SOL: ORİJİNAL AK LOGOSU + KURUMSAL BAŞLIK -->
@@ -149,6 +164,7 @@
                 "indirimliFiyat": 15600,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/SRV-CEK-DLP-60_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "AUTO_SRV_BLUEPRINT",
                 "aciklama": "Endüstriyel mutfak ve servis alanları için AISI 304 kalite paslanmaz çelikten üretilmiştir. Alt gövdede yer alan çift çekmece ve iki kapaklı dolap ünitesi kapalı depolama imkanı sunarken, 300 mm derinliğindeki 2 katlı üst etajer raf sistemi maksimum düzen ve ergonomi sağlar."
             },
@@ -165,6 +181,7 @@
                 "indirimliFiyat": 350,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SAG-60_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Sağdan pres baskı tek evye havuzlu, sol tarafı çalışma ve damlalık tablalı, ayarlanabilir rotil ayaklı paslanmaz yıkama tezgahı."
             },
@@ -181,6 +198,7 @@
                 "indirimliFiyat": 0,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-ORT-60_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Merkezi (orta) konumlandırılmış geniş evye havuzlu, her iki yanında simetrik çalışma alanı bulunan 190 cm endüstriyel evyeli tezgah."
             },
@@ -197,6 +215,7 @@
                 "indirimliFiyat": 261,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SOL-60_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Soldan tek evyeli, geniş sağ çalışma ve süzülme tablalı, 200,5 cm uzunluğunda yüksek mukavemetli hazırlık ve yıkama tezgahı."
             },
@@ -213,6 +232,7 @@
                 "indirimliFiyat": 0,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-CFT-SAG-60_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Sağ bölümde çift evye havuzuna sahip, sol tarafı geniş damlalıklı, 213 cm uzunluğunda profesyonel bulaşıkhane ve hazırlık tezgahı."
             },
@@ -229,6 +249,7 @@
                 "indirimliFiyat": 0,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-CFT-SAG-60_2.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Sağdan çift evye havuzlu, 175 cm uzunluğunda, yoğun yıkama ve durulama işlemleri için tasarlanmış paslanmaz çelik tezgah."
             },
@@ -245,6 +266,7 @@
                 "indirimliFiyat": 270,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SOL-60_2.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Geniş çalışma alanına ihtiyaç duyan profesyonel mutfaklar için 304 kalite paslanmaz çelikten imal edilmiştir. 168 cm uzunluğundaki gövdesi, sol bölümdeki tekli evyesi ve dayanıklı kutu profil iskeletiyle hem yıkama hem de tezgah üstü hazırlık işlemlerinde üstün performans sağlar."
             },
@@ -261,6 +283,7 @@
                 "indirimliFiyat": 0,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SAG-60_2.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Sağdan tek evyeli, 165 cm boyunda, hijyenik pres baskı evyeli ve ayarlanabilir rotil ayaklı çalışma tezgahı."
             },
@@ -277,6 +300,7 @@
                 "indirimliFiyat": 261,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-CFT-SOL-60_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Yoğun yıkama trafiğine sahip endüstriyel mutfaklar için 304 kalite paslanmaz çelikten imal edilmiştir. Sol bölümde yer alan çiftli evye kazanı aynı anda yıkama ve durulama imkanı sağlarken, sağ taraftaki eğimli damlalık alanı suyun tezgah yüzeyinde birikmesini önleyerek hijyenik ve düzenli bir çalışma ortamı oluşturur."
             },
@@ -293,6 +317,7 @@
                 "indirimliFiyat": 305,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SOL-60_3.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Soldan tek evyeli, 137x60x85 cm ölçülerinde kompakt ve dayanıklı endüstriyel yıkama tezgahı."
             },
@@ -309,6 +334,7 @@
                 "indirimliFiyat": 279,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-ORT-60_2.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Endüstriyel mutfakların hijyen ve yoğun çalışma temposuna uygun olarak AISI 304 kalite paslanmaz çelikten üretilmiştir. Merkezde (ortada) konumlandırılan tekli evye yapısı, her iki yanında simetrik kullanım alanı bırakarak yıkama operasyonlarında dengeli ve ergonomik bir çalışma imkanı sunar."
             },
@@ -325,6 +351,7 @@
                 "indirimliFiyat": 0,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SAG-60_3.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Sağdan tek evye havuzlu, 140x60x85 cm standart ölçülerde paslanmaz çelik yıkama ve hazırlık tezgahı."
             },
@@ -341,6 +368,7 @@
                 "indirimliFiyat": 270,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SOL-60_4.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Endüstriyel mutfakların hijyen ve yoğun çalışma temposuna uygun olarak AISI 304 kalite paslanmaz çelikten üretilmiştir."
             },
@@ -357,6 +385,7 @@
                 "indirimliFiyat": 0,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SAG-60_4.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Dar alanlar için ideal 84x58x85 cm ölçülerinde, sağdan evyeli kompakt paslanmaz tezgah."
             },
@@ -373,6 +402,7 @@
                 "indirimliFiyat": 0,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SOL-60_5.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Dar alanlar için ideal 84x58x85 cm ölçülerinde, soldan evyeli kompakt paslanmaz tezgah."
             },
@@ -389,6 +419,7 @@
                 "indirimliFiyat": 0,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-BMG-SAG-60_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Sağ tarafı evyeli, sol alt kısmı bulaşık makinesi girişine uygun boşluklu 120x58x86 cm bulaşıkhane tezgahı."
             },
@@ -405,6 +436,7 @@
                 "indirimliFiyat": 261,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SAG-60_5.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Profesyonel mutfakların yıkama ve hazırlık süreçleri için AISI 304 kalite paslanmaz çelikten üretilmiştir. Sağlam kutu profil ayak yapısı yüksek taşıma kapasitesi sunarken, sağ bölümde yer alan tekli evye tasarımı mutfak içi iş akışını hızlandırır ve kolay temizlenebilir yüzey yapısıyla tam hijyen sağlar."
             },
@@ -421,6 +453,7 @@
                 "indirimliFiyat": 0,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-CFT-SAG-70_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "70'lik derin seri (139,5 x 68 x 88 cm), sağdan çift evyeli yüksek kapasiteli profesyonel yıkama tezgahı."
             },
@@ -437,6 +470,7 @@
                 "indirimliFiyat": 0,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-BMG-SAG-70_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "70'lik seri (139,5 x 68 x 88 cm), sağdan evyeli ve sol alt bölümü bulaşık makinesi girişine uygun bulaşıkhane tezgahı."
             },
@@ -453,6 +487,7 @@
                 "indirimliFiyat": 0,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-BAT-SAG-70_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "99 x 67 x 88 cm ölçülerinde, üzerinde su bataryası takılı kullanıma hazır sağdan evyeli paslanmaz tezgah."
             },
@@ -469,6 +504,7 @@
                 "indirimliFiyat": 0,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-ORT-60_3.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "60 x 58 x 86 cm ölçülerinde, dar alanlar için bağımsız tekli evye ünitesi."
             },
@@ -485,6 +521,7 @@
                 "indirimliFiyat": 261,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SAG-60-160_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Endüstriyel mutfakların hijyen ve dayanıklılık gereksinimlerine tam uygun olarak üretilmiştir. 304 kalite paslanmaz çelik gövdesi ve sağlam kutu profil iskeleti sayesinde uzun ömürlü kullanım sunar. Ergonomik sağ evye ve sol damlalık tasarımı, bulaşık ve hazırlık süreçlerinde maksimum işlevsellik ve kolay temizlik imkanı sağlar."
             },
@@ -501,6 +538,7 @@
                 "indirimliFiyat": 261,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SOL-60-160_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Endüstriyel mutfakların hijyen ve yoğun çalışma temposu gereksinimlerine tam uygun olarak üretilmiştir. 304 kalite paslanmaz çelik gövdesi ve sağlam kutu profil iskeleti ile uzun ömürlü kullanım sunar. Sol tarafta yer alan tekli evye tasarımı, mutfak operasyonlarınızda alandan tasarruf sağlarken kolay temizlenebilir yapısıyla maksimum pratiklik kazandırır."
             },
@@ -517,6 +555,7 @@
                 "indirimliFiyat": 261,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SOL-60_6.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Endüstriyel mutfakların hijyen ve yoğun çalışma temposu gereksinimlerine tam uygun olarak üretilmiştir. 304 kalite paslanmaz çelik gövdesi ve sağlam kutu profil iskeleti ile uzun ömürlü kullanım sunar. Sol tarafta yer alan tekli evye ve geniş sağ tezgah alanı, hazırlık ve yıkama süreçlerinde maksimum verimlilik kazandırır."
             },
@@ -533,6 +572,7 @@
                 "indirimliFiyat": 261,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SOL-60_7.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Endüstriyel mutfak standartlarına uygun, tamamı AISI 304 kalite paslanmaz çelik gövde ve kutu profil ayak yapısına sahip evyeli çalışma tezgahıdır. Sol tarafta konumlandırılmış tekli evyesi ve geniş yan tablası ile yıkama ve hazırlık süreçlerinde uzun ömürlü, hijyenik kullanım sunar."
             },
@@ -549,6 +589,7 @@
                 "indirimliFiyat": 244,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-TEK-SAG-54_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Dar alanlı profesyonel mutfaklar ve hazırlık üniteleri için özel 54 cm derinlikte, 304 kalite paslanmaz çelikten üretilmiştir. Kompakt tasarımına rağmen sağlam kutu profil iskeleti ve sağ bölümdeki ergonomik tekli evyesi ile alan kaybı yaşatmadan maksimum işlevsellik sağlar."
             },
@@ -565,6 +606,7 @@
                 "indirimliFiyat": 270,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/EVT-CFT-SOL-60_3.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Yüksek kapasiteli işletmelerin bulaşıkhane ve hazırlık bölümleri için 304 kalite paslanmaz çelikten üretilmiştir. 180 cm genişliğindeki gövde üzerinde yer alan sol çift evye kazanı ve geniş sağ damlalık tablası, yoğun yıkama süreçlerinde su sıçramalarını ve birikmelerini engelleyerek kesintisiz bir iş akışı sunar."
             },
@@ -581,6 +623,7 @@
                 "indirimliFiyat": 223,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/TZG-TBN-DVR-60-140_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Endüstriyel mutfakların hazırlık ve çalışma alanları için paslanmaz çelikten üretilmiştir. Arka kısmında yer alan sırt yapısı duvar dibi kullanımlarda su ve gıda sıçramalarını önlerken, sağlam kutu profil iskeleti ve geniş alt taban rafı mutfak ekipmanları için yüksek taşıma kapasiteli depolama alanı sunar."
             },
@@ -597,6 +640,7 @@
                 "indirimliFiyat": 223,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/TZG-TBN-ADA-60-140_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "gorseller/TZG-TBN-ADA-60-140_1.svg",
                 "aciklama": "Profesyonel mutfaklarda orta (ada) tip kullanıma uygun, dört tarafı açık ve sırtsız olarak paslanmaz çelikten imal edilmiştir. Çok yönlü çalışma imkanı tanıyan düz üst tablası, dayanıklı kutu profil ayakları ve alt taban rafı ile hazırlık süreçlerinde maksimum ergonomi ve hijyen sağlar."
             },
@@ -613,6 +657,7 @@
                 "indirimliFiyat": 223,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/TZG-TBN-DVR-70-140_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Geniş çalışma derinliğine ihtiyaç duyan endüstriyel mutfaklar için 70 cm derinlik serisinde, paslanmaz çelikten üretilmiştir. Duvar koruyucu arka sırt detayı hijyen standartlarını korurken, güçlendirilmiş kutu profil gövdesi ve alt taban rafı yoğun mutfak temposunda uzun ömürlü kullanım sunar."
             },
@@ -629,6 +674,7 @@
                 "indirimliFiyat": 223,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/TZG-TBN-ADA-70-140_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "gorseller/TZG-TBN-ADA-70-140_1.svg",
                 "aciklama": "Geniş 70 cm derinliği ve sırtsız ada tipi tasarımıyla mutfak merkezlerinde karşılıklı çalışmaya olanak tanıyan profesyonel hazırlık tezgahıdır. Sağlam kutu profil iskeleti ve geniş alt istif rafı ile ağır hizmet koşullarına tam dayanıklılık gösterir."
             },
@@ -645,6 +691,7 @@
                 "indirimliFiyat": 225,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/RAF-IST-4K-45-100_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Endüstriyel mutfak depoları, kuru erzak alanları ve soğuk hava depoları için AISI 304 kalite paslanmaz çelikten üretilmiştir. 4 katlı ergonomik raf yapısı yüksek ağırlık taşıma kapasitesine sahip olup, korozyona dayanıklı ve kolay temizlenebilir yüzeyleri sayesinde gıda güvenliği standartlarına tam uyum sağlar."
             },
@@ -661,6 +708,7 @@
                 "indirimliFiyat": 225,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/RAF-IST-4K-45-112_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Profesyonel mutfakların depolama ve istifleme ihtiyaçları için AISI 304 kalite paslanmaz çelikten imal edilmiştir. Bükümlü sağlam dikmeleri ve 4 katlı geniş raf tablaları sayesinde ağır mutfak ekipmanlarını ve gıda kolilerini güvenle taşır, leke tutmayan yapısıyla uzun yıllar hijyenik kullanım sunar."
             },
@@ -677,6 +725,7 @@
                 "indirimliFiyat": 6600,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/DAV-KMR-60-80_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Kömürlü ızgara ve ocakbaşı üniteleri için yüksek ısıya dayanıklı AISI 430 kalite paslanmaz çelikten üretilmiştir. 80×60×95 cm kompakt yapısıyla yoğun duman, is ve kokuyu hızla tahliye etmek üzere tasarlanmıştır."
             },
@@ -693,6 +742,7 @@
                 "indirimliFiyat": 6600,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/DAV-KMR-60-100_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Kömürlü ızgara ve pişirme üniteleri için yüksek ısıya dayanıklı AISI 430 kalite paslanmaz çelikten üretilmiştir. 100×60×95 cm ölçülerindeki davlumbaz gövdesi, duman ve yağ buharını verimli şekilde toplar."
             },
@@ -709,6 +759,7 @@
                 "indirimliFiyat": 9000,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/DAV-KMR-60-125_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Profesyonel kömürlü ızgara hatları için AISI 430 kalite paslanmaz çelikten imal edilmiştir. 125×60×105 cm yüksek hazneli yapısı sayesinde yoğun dumanı geri tepmeden tahliye eder."
             },
@@ -725,6 +776,7 @@
                 "indirimliFiyat": 9000,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/DAV-KMR-70-125_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "70 cm derinlik serisindeki kömürlü ızgaralar için AISI 430 kalite paslanmaz çelikten üretilmiştir. 125×70×105 cm geniş duman toplama hacmi ile yüksek çekiş performansı sağlar."
             },
@@ -741,6 +793,7 @@
                 "indirimliFiyat": 10800,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/DAV-KMR-60-150_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Endüstriyel kömürlü ızgara üniteleri için 150×60×115 cm ölçülerinde, yüksek ısı dayanımlı AISI 430 kalite paslanmaz çelikten üretilmiş duman tahliye davlumbazıdır."
             },
@@ -757,6 +810,7 @@
                 "indirimliFiyat": 10800,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/DAV-KMR-70-150_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Geniş ızgara hatları için 150×70×115 cm ölçülerinde, AISI 430 kalite paslanmaz çelikten imal edilmiştir. Derin gövde yapısı sayesinde yoğun kömür dumanını eksiksiz hapseder."
             },
@@ -773,6 +827,7 @@
                 "indirimliFiyat": 13200,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/DAV-KMR-70-175_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Restoran ve ocakbaşı işletmelerinin 175 cm'lik kömürlü ızgara üniteleri için AISI 430 kalite paslanmaz çelikten üretilmiştir. 175×70×115 cm ölçüsüyle yüksek çekiş verimliliği sunar."
             },
@@ -789,6 +844,7 @@
                 "indirimliFiyat": 13200,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/DAV-KMR-60-200_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "200×60×115 cm ölçülerinde, yüksek ısı ve korozyon direncine sahip AISI 430 kalite paslanmaz çelikten üretilmiş endüstriyel kömürlü ızgara davlumbazıdır."
             },
@@ -805,6 +861,7 @@
                 "indirimliFiyat": 13200,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/DAV-KMR-70-200_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Yüksek kapasiteli pişirme alanları için 200×70×115 cm ölçülerinde, AISI 430 kalite paslanmaz çelikten üretilmiştir. Geniş iç hacmi ile duman tahliyesinde maksimum performans gösterir."
             },
@@ -821,6 +878,7 @@
                 "indirimliFiyat": 14400,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/DAV-KMR-70-225_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Büyük ölçekli ocakbaşı ve ızgara hatları için 225×70×115 cm ölçülerinde, AISI 430 kalite paslanmaz çelikten imal edilmiş yüksek mukavemetli kömürlü ızgara davlumbazıdır."
             },
@@ -837,6 +895,7 @@
                 "indirimliFiyat": 14400,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/DAV-KMR-80-290_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "Yoğun duman üreten geniş kömürlü ızgara sistemleri için 290×80×130 cm ekstra derin ve yüksek hazneli olarak AISI 430 kalite paslanmaz çelikten üretilmiştir."
             },
@@ -853,6 +912,7 @@
                 "indirimliFiyat": 13000,
                 "kdvDurumu": "KDV Dahil",
                 "gorsel": "gorseller/DAV-KMR-70-300_1.jpg",
+                "gorsel2": "",
                 "semaGorsel": "",
                 "aciklama": "300×70×120 cm (3 metre) uzunluğundaki tam boy kömürlü ızgara hatları için AISI 430 kalite paslanmaz çelikten üretilmiştir. Güçlendirilmiş gövde yapısı ile uzun ömürlü ve yüksek çekişli kullanım sunar."
             }
@@ -860,21 +920,20 @@
         // /*URUNLER_BITIS*/
 
         let AYARLAR = JSON.parse(localStorage.getItem('avsar_ayarlar')) || VARSAYILAN_AYARLAR;
-        // Tüm düzeltmelerin anında devreye girmesi için v6 anahtarına geçildi
-        let URUNLER = JSON.parse(localStorage.getItem('avsar_urunler_v6')) || VARSAYILAN_URUNLER;
+        let URUNLER = JSON.parse(localStorage.getItem('avsar_urunler_v7')) || VARSAYILAN_URUNLER;
         
         if (URUNLER.length < VARSAYILAN_URUNLER.length) {
             URUNLER = VARSAYILAN_URUNLER;
-            localStorage.setItem('avsar_urunler_v6', JSON.stringify(URUNLER));
+            localStorage.setItem('avsar_urunler_v7', JSON.stringify(URUNLER));
         }
 
         let GUNCEL_DOLAR_KURU = parseFloat(AYARLAR.manuelDolarKuru) || 49.00;
         let aktifFiltre = "Tümü";
         let aktifUrunKodu = new URLSearchParams(window.location.search).get('urun');
-        let aktifGorselModu = "foto";
+        let aktifSlaytIndex = 0;
 
         function veritabaniKaydet() {
-            localStorage.setItem('avsar_urunler_v6', JSON.stringify(URUNLER));
+            localStorage.setItem('avsar_urunler_v7', JSON.stringify(URUNLER));
             localStorage.setItem('avsar_ayarlar', JSON.stringify(AYARLAR));
         }
 
@@ -893,7 +952,16 @@
             return { eskiTL, yeniTL, indirimOrani };
         }
 
-        // YAPIŞTIRILAN QR ETİKETLERİ KURTARAN AKILLI ARAMA MOTORU
+        // ÜRÜNÜN TÜM GÖRSELLERİNİ (1. FOTO, 2. FOTO, 3. ŞEMA/FOTO) LİSTE OLARAK DÖNDÜREN FONKSİYON
+        function urunMedyalariniGetir(u) {
+            const liste = [];
+            if (u.gorsel && u.gorsel.trim() !== "") liste.push(u.gorsel.trim());
+            if (u.gorsel2 && u.gorsel2.trim() !== "") liste.push(u.gorsel2.trim());
+            if (u.semaGorsel && u.semaGorsel.trim() !== "") liste.push(u.semaGorsel.trim());
+            if (liste.length === 0) liste.push(`gorseller/${u.kod}.jpg`);
+            return liste;
+        }
+
         function akilliUrunBul(arananKod) {
             if (!arananKod) return null;
             const temizKod = decodeURIComponent(arananKod).trim().toUpperCase();
@@ -912,7 +980,6 @@
             return bulunan || null;
         }
 
-        // SRV-CEK-DLP-60_1 (1000 x 600 x 1550 mm) YAZILARI ÇAKIŞMAYAN KUSURSUZ VEKTÖREL BLUEPRINT ŞEMASI
         function srvBlueprintSvgUret(u) {
             return `
             <svg viewBox="0 0 940 560" style="width: 100%; height: auto; display: block; background-color: #0f172a;" xmlns="http://www.w3.org/2000/svg">
@@ -924,12 +991,10 @@
                 <rect width="940" height="560" fill="#0f172a"/>
                 <rect width="940" height="560" fill="url(#grid)"/>
                 
-                <!-- ÜST BAŞLIK BARI -->
                 <rect x="24" y="18" width="892" height="44" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
                 <text x="44" y="45" fill="#f8fafc" font-family="Inter, sans-serif" font-weight="800" font-size="15" letter-spacing="0.8">AVŞAR KROM | MÜHENDİSLİK &amp; TEKNİK ÖLÇÜ ŞEMASI</text>
                 <text x="896" y="45" fill="#38bdf8" font-family="Inter, sans-serif" font-weight="800" font-size="14" text-anchor="end">KOD: ${u.kod}</text>
 
-                <!-- SOL: ÖN GÖRÜNÜŞ -->
                 <text x="206" y="92" fill="#94a3b8" font-family="Inter, sans-serif" font-weight="700" font-size="11" text-anchor="middle" letter-spacing="1">ÖN GÖRÜNÜŞ (ÖLÇÜLER: mm)</text>
                 
                 <rect x="92" y="108" width="228" height="162" fill="#1e293b" fill-opacity="0.35" stroke="#e2e8f0" stroke-width="2"/>
@@ -938,10 +1003,8 @@
                 <rect x="96" y="212" width="220" height="6" fill="#475569" stroke="#e2e8f0" stroke-width="1.5"/>
 
                 <rect x="87" y="270" width="238" height="9" fill="#334155" stroke="#ffffff" stroke-width="2"/>
-
                 <rect x="92" y="279" width="228" height="176" fill="#1e293b" fill-opacity="0.6" stroke="#e2e8f0" stroke-width="2"/>
                 
-                <!-- 2 Çekmece -->
                 <rect x="102" y="290" width="100" height="42" fill="#0f172a" stroke="#cbd5e1" stroke-width="1.8"/>
                 <circle cx="152" cy="311" r="9" fill="none" stroke="#e2e8f0" stroke-width="1.8"/>
                 <path d="M 144 309 Q 152 317 160 309" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
@@ -950,7 +1013,6 @@
                 <circle cx="260" cy="311" r="9" fill="none" stroke="#e2e8f0" stroke-width="1.8"/>
                 <path d="M 252 309 Q 260 317 268 309" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
 
-                <!-- 2 Kapak -->
                 <rect x="102" y="342" width="102" height="104" fill="#0f172a" stroke="#cbd5e1" stroke-width="1.8"/>
                 <circle cx="184" cy="366" r="9" fill="none" stroke="#e2e8f0" stroke-width="1.8"/>
                 <path d="M 176 364 Q 184 372 192 364" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
@@ -959,11 +1021,9 @@
                 <circle cx="228" cy="366" r="9" fill="none" stroke="#e2e8f0" stroke-width="1.8"/>
                 <path d="M 220 364 Q 228 372 236 364" fill="none" stroke="#e2e8f0" stroke-width="1.5"/>
 
-                <!-- Ayaklar -->
                 <rect x="98" y="455" width="14" height="18" fill="#cbd5e1"/>
                 <rect x="300" y="455" width="14" height="18" fill="#cbd5e1"/>
 
-                <!-- SOL TOPLAM YÜKSEKLİK OKU (1550 mm) -->
                 <line x1="48" y1="108" x2="86" y2="108" stroke="#38bdf8" stroke-dasharray="3,3"/>
                 <line x1="48" y1="473" x2="94" y2="473" stroke="#38bdf8" stroke-dasharray="3,3"/>
                 <line x1="58" y1="112" x2="58" y2="469" stroke="#38bdf8" stroke-width="2"/>
@@ -972,7 +1032,6 @@
                 <rect x="20" y="272" width="76" height="28" rx="5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
                 <text x="58" y="290" fill="#38bdf8" font-family="Inter, sans-serif" font-weight="800" font-size="13" text-anchor="middle">1550 mm</text>
 
-                <!-- SAĞ KISMİ YÜKSEKLİKLER (700 mm + 850 mm) -->
                 <line x1="326" y1="108" x2="362" y2="108" stroke="#38bdf8" stroke-dasharray="3,3"/>
                 <line x1="326" y1="270" x2="362" y2="270" stroke="#38bdf8" stroke-dasharray="3,3"/>
                 <line x1="320" y1="473" x2="362" y2="473" stroke="#38bdf8" stroke-dasharray="3,3"/>
@@ -983,7 +1042,6 @@
                 <rect x="322" y="360" width="64" height="24" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.2"/>
                 <text x="354" y="376" fill="#e0f2fe" font-family="Inter, sans-serif" font-weight="700" font-size="11" text-anchor="middle">850 mm</text>
 
-                <!-- ALT GENİŞLİK OKU (1000 mm) -->
                 <line x1="92" y1="478" x2="92" y2="515" stroke="#38bdf8" stroke-dasharray="3,3"/>
                 <line x1="320" y1="478" x2="320" y2="515" stroke="#38bdf8" stroke-dasharray="3,3"/>
                 <line x1="96" y1="504" x2="316" y2="504" stroke="#38bdf8" stroke-width="2"/>
@@ -992,7 +1050,6 @@
                 <rect x="162" y="489" width="88" height="28" rx="5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
                 <text x="206" y="507" fill="#38bdf8" font-family="Inter, sans-serif" font-weight="800" font-size="13" text-anchor="middle">1000 mm</text>
 
-                <!-- ORTA: YAN KESİT -->
                 <text x="516" y="92" fill="#94a3b8" font-family="Inter, sans-serif" font-weight="700" font-size="11" text-anchor="middle" letter-spacing="1">YAN KESİT (DERİNLİK)</text>
                 
                 <rect x="448" y="108" width="68" height="162" fill="#1e293b" fill-opacity="0.4" stroke="#e2e8f0" stroke-width="2"/>
@@ -1008,7 +1065,6 @@
                 <rect x="452" y="455" width="14" height="18" fill="#cbd5e1"/>
                 <rect x="564" y="455" width="14" height="18" fill="#cbd5e1"/>
 
-                <!-- Alt Derinlik Oku (600 mm) -->
                 <line x1="448" y1="478" x2="448" y2="515" stroke="#38bdf8" stroke-dasharray="3,3"/>
                 <line x1="584" y1="478" x2="584" y2="515" stroke="#38bdf8" stroke-dasharray="3,3"/>
                 <line x1="452" y1="504" x2="580" y2="504" stroke="#38bdf8" stroke-width="2"/>
@@ -1017,7 +1073,6 @@
                 <rect x="476" y="489" width="80" height="28" rx="5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
                 <text x="516" y="507" fill="#38bdf8" font-family="Inter, sans-serif" font-weight="800" font-size="13" text-anchor="middle">600 mm</text>
 
-                <!-- SAĞ: GENİŞLETİLMİŞ TEKNİK ÖZELLİK KARTI (ASLA ÇAKIŞMAZ) -->
                 <rect x="628" y="108" width="288" height="348" rx="12" fill="#1e293b" fill-opacity="0.9" stroke="#334155" stroke-width="1.5"/>
                 <text x="648" y="138" fill="#38bdf8" font-family="Inter, sans-serif" font-weight="800" font-size="13" letter-spacing="0.5">TEKNİK ŞARTNAME VERİLERİ</text>
                 <line x1="648" y1="150" x2="896" y2="150" stroke="#334155" stroke-width="1.5"/>
@@ -1046,13 +1101,58 @@
             </svg>`;
         }
 
+        // INSTAGRAM TARZI SLAYT İÇERİĞİ ÜRETİCİ (FOTOĞRAF VEYA BLUEPRINT)
+        function slaytElemaniOlustur(medyaYolu, u) {
+            if (medyaYolu === 'AUTO_SRV_BLUEPRINT') {
+                return `<div class="w-full bg-[#0f172a] pt-11 pb-8 px-1 flex items-center justify-center">${srvBlueprintSvgUret(u)}</div>`;
+            }
+            const semaMi = medyaYolu.toLowerCase().endsWith('.svg') || medyaYolu.toLowerCase().includes('sema');
+            return `<img src="${medyaYolu}" alt="${u.ad}" style="width: 100%; height: auto; display: block; ${semaMi ? 'background-color: #0f172a;' : ''}" onerror="this.src='https://placehold.co/600x750/e2e8f0/475569?text=${encodeURIComponent(u.kod)}'">`;
+        }
+
+        // INSTAGRAM SLIDER KONTROL FONKSİYONLARI (OKLAR VE NOKTALAR)
+        function instaSlaytDegistir(sliderId, yon, event) {
+            if (event) event.stopPropagation();
+            const kutuEl = document.getElementById(sliderId);
+            if (!kutuEl) return;
+            const genislik = kutuEl.clientWidth;
+            const toplamSlayt = kutuEl.children.length;
+            let mevcutIndex = Math.round(kutuEl.scrollLeft / genislik);
+            let yeniIndex = mevcutIndex + yon;
+            if (yeniIndex < 0) yeniIndex = toplamSlayt - 1;
+            if (yeniIndex >= toplamSlayt) yeniIndex = 0;
+            kutuEl.scrollTo({ left: yeniIndex * genislik, behavior: 'smooth' });
+        }
+
+        function instaSlaytGit(sliderId, hedefIndex, event) {
+            if (event) event.stopPropagation();
+            const kutuEl = document.getElementById(sliderId);
+            if (!kutuEl) return;
+            kutuEl.scrollTo({ left: hedefIndex * kutuEl.clientWidth, behavior: 'smooth' });
+        }
+
+        function instaNoktalariGuncelle(sliderId, noktaGrupId) {
+            const kutuEl = document.getElementById(sliderId);
+            const noktaGrup = document.getElementById(noktaGrupId);
+            if (!kutuEl || !noktaGrup) return;
+            const aktifIdx = Math.round(kutuEl.scrollLeft / (kutuEl.clientWidth || 1));
+            aktifSlaytIndex = aktifIdx;
+            Array.from(noktaGrup.children).forEach((nokta, i) => {
+                if (i === aktifIdx) {
+                    nokta.className = "w-2.5 h-2.5 rounded-full bg-white scale-125 shadow-md transition-all duration-200 cursor-pointer";
+                } else {
+                    nokta.className = "w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-200 cursor-pointer";
+                }
+            });
+        }
+
         const kutu = document.getElementById('icerikAlani');
         const ustKatalogBtn = document.getElementById('ustKatalogBtn');
         const ustKaliteRozet = document.getElementById('ustKaliteRozet');
 
         function urunSayfasinaGit(kod) {
             aktifUrunKodu = kod;
-            aktifGorselModu = "foto";
+            aktifSlaytIndex = 0;
             window.history.pushState({}, '', '?urun=' + kod);
             ekraniCiz();
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1099,7 +1199,7 @@
         sistemiBaslat();
 
         // =====================================================
-        // 1. ANİMASYONLU VİTRİN KATALOĞU (HİÇBİR ELEMAN KAYMAZ VEYA BÖLÜNMEZ)
+        // 1. ANİMASYONLU VİTRİN KATALOĞU (INSTAGRAM KAYDIRMALI)
         // =====================================================
         function vitrinKatalogGoster() {
             const yoneticiBar = sessionStorage.getItem('avsar_admin_giris') === 'evet' ? `
@@ -1183,7 +1283,10 @@
 
             grid.innerHTML = liste.map((u, idx) => {
                 const fh = fiyatHesapla(u);
-                const semaVarMi = u.semaGorsel && u.semaGorsel.trim() !== "";
+                const medyalar = urunMedyalariniGetir(u);
+                const cokluMedya = medyalar.length > 1;
+                const sliderId = `vitrin_slider_${idx}`;
+                const noktaId = `vitrin_nokta_${idx}`;
                 
                 let vitrinFiyatHTML = `<span class="text-xs font-bold text-slate-500 whitespace-nowrap">Fiyat & Teklif Al</span>`;
                 if (fh.yeniTL > 0) {
@@ -1202,19 +1305,35 @@
                 <div onclick="urunSayfasinaGit('${u.kod}')" style="animation-delay: ${Math.min(idx * 30, 250)}ms" class="cursor-pointer animate-fade-up opacity-0 product-card-hover group bg-white rounded-3xl border border-slate-200/80 overflow-hidden flex flex-col justify-between shadow-sm">
                     <div>
                         <div class="relative w-full bg-slate-100 overflow-hidden">
-                            <img src="${u.gorsel}" alt="${u.ad}" style="width: 100%; height: auto; display: block;" class="group-hover:scale-[1.03] transition duration-500"
-                                 onerror="this.src='https://placehold.co/600x750/f1f5f9/475569?text=${encodeURIComponent(u.kod)}'">
-                            <span class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-sm text-white text-[11px] font-extrabold px-2.5 py-1 rounded-lg tracking-wider shadow whitespace-nowrap">
+                            <!-- INSTAGRAM SLIDER KUTUSU -->
+                            <div id="${sliderId}" onscroll="instaNoktalariGuncelle('${sliderId}', '${noktaId}')" class="insta-slider no-scrollbar w-full items-center">
+                                ${medyalar.map(m => `<div class="insta-slide">${slaytElemaniOlustur(m, u)}</div>`).join('')}
+                            </div>
+
+                            <!-- ÜST ROZETLER -->
+                            <span class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-sm text-white text-[11px] font-extrabold px-2.5 py-1 rounded-lg tracking-wider shadow whitespace-nowrap pointer-events-none">
                                 ${u.kod}
                             </span>
-                            <span class="absolute top-3 right-3 bg-emerald-600/95 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow-sm whitespace-nowrap">
+                            <span class="absolute top-3 right-3 bg-emerald-600/95 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow-sm whitespace-nowrap pointer-events-none">
                                 Stok: ${u.stokAdet || 1} Adet
                             </span>
-                      ${semaVarMi ? `
-                            <span class="absolute bottom-2.5 right-2.5 bg-sky-600/95 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-lg shadow whitespace-nowrap">
-                                ${(u.semaGorsel.includes('.svg') || u.semaGorsel.includes('BLUEPRINT') || u.semaGorsel.toLowerCase().includes('sema')) ? '📐 Teknik Şemalı' : '📸 2 Görselli'}
-                            </span>` : ''}
+
+                            <!-- INSTAGRAM YAN OKLAR VE ALTTAKİ YUVARLAK NOKTALAR (TOPUKLAR) -->
+                            ${cokluMedya ? `
+                                <button onclick="instaSlaytDegistir('${sliderId}', -1, event)" class="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/85 hover:bg-white text-slate-900 shadow-md flex items-center justify-center font-black text-lg transition active:scale-95 z-10">
+                                    ‹
+                                </button>
+                                <button onclick="instaSlaytDegistir('${sliderId}', 1, event)" class="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/85 hover:bg-white text-slate-900 shadow-md flex items-center justify-center font-black text-lg transition active:scale-95 z-10">
+                                    ›
+                                </button>
+                                <div id="${noktaId}" class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-slate-900/60 backdrop-blur-sm px-2.5 py-1.5 rounded-full flex items-center gap-1.5 z-10">
+                                    ${medyalar.map((_, i) => `
+                                        <span onclick="instaSlaytGit('${sliderId}', ${i}, event)" class="${i === 0 ? 'w-2.5 h-2.5 rounded-full bg-white scale-125 shadow-md' : 'w-2 h-2 rounded-full bg-white/50 hover:bg-white/80'} transition-all duration-200 cursor-pointer"></span>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
                         </div>
+
                         <div class="p-4 sm:p-5">
                             <h3 class="font-bold text-slate-900 text-[15px] leading-snug group-hover:text-slate-700 transition mb-2.5">${u.ad}</h3>
                             <div class="flex flex-wrap items-center gap-1.5">
@@ -1239,28 +1358,22 @@
         }
 
         // =====================================================
-        // 2. MÜŞTERİ TEK ÜRÜN EKRANI (ÇİFT GÖRSEL HATASI VE TAŞMALAR GİDERİLDİ)
+        // 2. MÜŞTERİ TEK ÜRÜN EKRANI (INSTAGRAM KAYDIRMALI GALERİ)
         // =====================================================
-        function gorselModuDegistir(mod, kod) {
-            aktifGorselModu = mod;
-            musteriEkraniGoster(kod);
-        }
-
         function zoomAc(kod) {
             const u = akilliUrunBul(kod);
             if (!u) return;
+            const medyalar = urunMedyalariniGetir(u);
+            const seciliMedya = medyalar[aktifSlaytIndex] || medyalar[0];
+
             const modal = document.getElementById('zoomModal');
             const icerik = document.getElementById('zoomIcerik');
             document.getElementById('zoomBaslik').innerText = `${u.kod} - ${u.ad} (${u.olcu})`;
             
-            if (aktifGorselModu === 'sema' && u.semaGorsel) {
-                if (u.semaGorsel === 'AUTO_SRV_BLUEPRINT') {
-                    icerik.innerHTML = `<div class="w-full p-2">${srvBlueprintSvgUret(u)}</div>`;
-                } else {
-                    icerik.innerHTML = `<img src="${u.semaGorsel}" class="max-w-full max-h-[80vh] object-contain">`;
-                }
+            if (seciliMedya === 'AUTO_SRV_BLUEPRINT') {
+                icerik.innerHTML = `<div class="w-full p-2">${srvBlueprintSvgUret(u)}</div>`;
             } else {
-                icerik.innerHTML = `<img src="${u.gorsel}" class="max-w-full max-h-[80vh] object-contain">`;
+                icerik.innerHTML = `<img src="${seciliMedya}" class="max-w-full max-h-[80vh] object-contain">`;
             }
             modal.classList.remove('hidden');
         }
@@ -1284,7 +1397,8 @@
             const f = fiyatHesapla(u);
             const fiyatMetni = f.yeniTL > 0 ? `${formatTL(f.yeniTL)} (${u.kdvDurumu})` : "Güncel Fiyat";
             const kiloBilgisi = u.kilo ? `, Ağırlık: ${u.kilo}` : "";
-            const semaVarMi = u.semaGorsel && u.semaGorsel.trim() !== "";
+            const medyalar = urunMedyalariniGetir(u);
+            const cokluMedya = medyalar.length > 1;
 
             const msjStandart = encodeURIComponent(`Merhaba Avşar Krom, *${u.kod} - ${u.ad}* (${u.olcu}${kiloBilgisi}) ürününüzün QR kodunu okuttum. *${fiyatMetni}* üzerinden sipariş ve stok bilgisi almak istiyorum.`);
             const msjOzel = encodeURIComponent(`Merhaba Avşar Krom, *${u.kod} - ${u.ad}* modeliniz için özel ölçü teklifi almak istiyorum. İstediğim ölçüler: `);
@@ -1319,82 +1433,43 @@
                 </div>
             ` : '';
 
-            // Görsel veya Teknik Şema Gösterim Alanı (Tekil ve Kırpmadan Tam Boyut)
-            let gorselIcerikHTML = '';
-            if (aktifGorselModu === 'sema' && semaVarMi) {
-                if (u.semaGorsel === 'AUTO_SRV_BLUEPRINT') {
-                    gorselIcerikHTML = `<div class="w-full bg-[#0f172a] pt-11 pb-2 px-1">${srvBlueprintSvgUret(u)}</div>`;
-                } else {
-                    gorselIcerikHTML = `<img src="${u.semaGorsel}" alt="${u.ad} Teknik Şema" style="width: 100%; height: auto; display: block; background-color: #0f172a;" onerror="this.src='${u.gorsel}'">`;
-                }
-            } else {
-                gorselIcerikHTML = `<img src="${u.gorsel}" alt="${u.ad}" style="width: 100%; height: auto; display: block;" onerror="this.src='https://placehold.co/600x750/e2e8f0/475569?text=Gorsel+Hazirlaniyor+(${u.kod})'">`;
-            }
-
             kutu.innerHTML = `
                 <div class="max-w-md mx-auto animate-fade-up">
                     ${yoneticiBar}
                     <div class="bg-white rounded-3xl shadow-md border border-slate-200/80 overflow-hidden">
                         
-                        <!-- ÜRÜN FOTOĞRAFI / TEKNİK ŞEMA ALANI (OTOMATİK YÜKSEKLİK - TEKİL) -->
-                        <div onclick="zoomAc('${u.kod}')" class="relative bg-slate-100 w-full overflow-hidden cursor-zoom-in">
-                            ${gorselIcerikHTML}
-                            <span class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-sm text-white text-[11px] font-extrabold px-3 py-1 rounded-lg tracking-wider shadow whitespace-nowrap">
+                        <!-- INSTAGRAM TARZI KAYDIRMALI GÖRSEL GALERİSİ (OKLAR + YUVARLAK TOPUKLAR) -->
+                        <div class="relative bg-slate-100 w-full overflow-hidden">
+                            <div id="detaySlider" onscroll="instaNoktalariGuncelle('detaySlider', 'detayNoktalar')" onclick="zoomAc('${u.kod}')" class="insta-slider no-scrollbar w-full items-center cursor-zoom-in">
+                                ${medyalar.map(m => `<div class="insta-slide">${slaytElemaniOlustur(m, u)}</div>`).join('')}
+                            </div>
+
+                            <!-- Üst Rozetler -->
+                            <span class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-sm text-white text-[11px] font-extrabold px-3 py-1 rounded-lg tracking-wider shadow whitespace-nowrap pointer-events-none">
                                 ${u.kod}
                             </span>
-                            <span class="absolute top-3 right-3 bg-emerald-600/95 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow whitespace-nowrap">
+                            <span class="absolute top-3 right-3 bg-emerald-600/95 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow whitespace-nowrap pointer-events-none">
                                 Stok: ${u.stokAdet || 1} Adet
                             </span>
-                            <span class="absolute bottom-2.5 right-2.5 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-lg whitespace-nowrap">
+                            <span onclick="zoomAc('${u.kod}')" class="absolute bottom-3 right-3 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-lg whitespace-nowrap cursor-pointer z-10">
                                 🔍 Büyüt
                             </span>
+
+                            <!-- SAĞ/SOL INSTAGRAM OKLARI VE ALTTAKİ YUVARLAK NOKTALAR (TOPUKLAR) -->
+                            ${cokluMedya ? `
+                                <button onclick="instaSlaytDegistir('detaySlider', -1, event)" class="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-900 shadow-lg flex items-center justify-center font-black text-xl transition active:scale-95 z-10">
+                                    ‹
+                                </button>
+                                <button onclick="instaSlaytDegistir('detaySlider', 1, event)" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 hover:bg-white text-slate-900 shadow-lg flex items-center justify-center font-black text-xl transition active:scale-95 z-10">
+                                    ›
+                                </button>
+                                <div id="detayNoktalar" class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-slate-900/65 backdrop-blur-sm px-3 py-1.5 rounded-full flex items-center gap-2 z-10">
+                                    ${medyalar.map((_, i) => `
+                                        <span onclick="instaSlaytGit('detaySlider', ${i}, event)" class="${i === 0 ? 'w-2.5 h-2.5 rounded-full bg-white scale-125 shadow-md' : 'w-2 h-2 rounded-full bg-white/50 hover:bg-white/80'} transition-all duration-200 cursor-pointer"></span>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
                         </div>
-
-                   // 2. Görsel bir Teknik Şema mı yoksa Normal Fotoğraf mı otomatik anla:
-            const buBirSemaMi = semaVarMi && (u.semaGorsel.toLowerCase().endsWith('.svg') || u.semaGorsel.includes('BLUEPRINT') || u.semaGorsel.toLowerCase().includes('sema'));
-
-            // Görsel veya Teknik Şema Gösterim Alanı
-            let gorselIcerikHTML = '';
-            if (aktifGorselModu === 'sema' && semaVarMi) {
-                if (u.semaGorsel === 'AUTO_SRV_BLUEPRINT') {
-                    gorselIcerikHTML = `<div class="w-full bg-[#0f172a] pt-11 pb-2 px-1">${srvBlueprintSvgUret(u)}</div>`;
-                } else {
-                    gorselIcerikHTML = `<img src="${u.semaGorsel}" alt="${u.ad} 2. Görsel" style="width: 100%; height: auto; display: block; ${buBirSemaMi ? 'background-color: #0f172a;' : ''}" onerror="this.src='${u.gorsel}'">`;
-                }
-            } else {
-                gorselIcerikHTML = `<img src="${u.gorsel}" alt="${u.ad}" style="width: 100%; height: auto; display: block;" onerror="this.src='https://placehold.co/600x750/e2e8f0/475569?text=Gorsel+Hazirlaniyor+(${u.kod})'">`;
-            }
-
-            kutu.innerHTML = `
-                <div class="max-w-md mx-auto animate-fade-up">
-                    ${yoneticiBar}
-                    <div class="bg-white rounded-3xl shadow-md border border-slate-200/80 overflow-hidden">
-                        
-                        <!-- ÜRÜN FOTOĞRAFI / 2. GÖRSEL ALANI -->
-                        <div onclick="zoomAc('${u.kod}')" class="relative bg-slate-100 w-full overflow-hidden cursor-zoom-in">
-                            ${gorselIcerikHTML}
-                            <span class="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-sm text-white text-[11px] font-extrabold px-3 py-1 rounded-lg tracking-wider shadow whitespace-nowrap">
-                                ${u.kod}
-                            </span>
-                            <span class="absolute top-3 right-3 bg-emerald-600/95 backdrop-blur-sm text-white text-[11px] font-bold px-2.5 py-1 rounded-lg shadow whitespace-nowrap">
-                                Stok: ${u.stokAdet || 1} Adet
-                            </span>
-                            <span class="absolute bottom-2.5 right-2.5 bg-slate-900/80 backdrop-blur-sm text-white text-[10px] font-semibold px-2.5 py-1 rounded-lg whitespace-nowrap">
-                                🔍 Büyüt
-                            </span>
-                        </div>
-
-                        <!-- 1. GÖRSEL & 2. GÖRSEL / ŞEMA GEÇİŞ SEKMESİ -->
-                        ${semaVarMi ? `
-                        <div class="bg-slate-100 p-1.5 grid grid-cols-2 gap-1.5 border-b border-slate-200/80">
-                            <button onclick="gorselModuDegistir('foto', '${u.kod}')" class="py-2 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 whitespace-nowrap ${aktifGorselModu === 'foto' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-800'}">
-                                <span>📸</span> <span>1. Görsel</span>
-                            </button>
-                            <button onclick="gorselModuDegistir('sema', '${u.kod}')" class="py-2 rounded-xl text-xs font-extrabold transition flex items-center justify-center gap-1.5 whitespace-nowrap ${aktifGorselModu === 'sema' ? 'bg-slate-900 text-sky-400 shadow-sm' : 'text-slate-600 hover:text-slate-900'}">
-                                <span>${buBirSemaMi ? '📐' : '📸'}</span> <span>${buBirSemaMi ? 'Teknik Şema' : '2. Görsel (Detay)'}</span>
-                            </button>
-                        </div>
-                        ` : ''}
 
                         <!-- ÜRÜN DETAYLARI -->
                         <div class="p-4 sm:p-6">
@@ -1407,7 +1482,7 @@
                             <!-- FİYAT KARTI -->
                             ${fiyatBolumuHTML}
 
-                            <!-- 2x2 SİMETRİK TEKNİK ÖZELLİK KUTULARI (TAŞMA VE BÖLÜNME YAPMAZ) -->
+                            <!-- 2x2 SİMETRİK TEKNİK ÖZELLİK KUTULARI -->
                             <div class="bg-slate-50 rounded-2xl p-3 mb-5 border border-slate-200/70 grid grid-cols-2 gap-2">
                                 <div class="bg-white p-2.5 rounded-xl border border-slate-200/60 min-w-0">
                                     <div class="text-[10px] font-semibold text-slate-400 mb-0.5 truncate">📐 Ölçüler (En×Boy×Yük.)</div>
@@ -1445,7 +1520,7 @@
         }
 
         // =====================================================
-        // 3. YÖNETİCİ GİRİŞİ VE 2. FOTOĞRAF DESTEKLİ YÖNETİM PANELİ
+        // 3. YÖNETİCİ GİRİŞİ VE 3 GÖRSEL DESTEKLİ YÖNETİM PANELİ
         // =====================================================
         function yoneticiGirisKontrol() {
             if (sessionStorage.getItem('avsar_admin_giris') === 'evet') {
@@ -1540,7 +1615,7 @@
                             🏷️ 80×50 Etiket & Kopyala
                         </button>
                         <button onclick="yonetimPaneliGoster('ekle')" class="py-2.5 rounded-xl text-xs font-bold transition ${aktifSekme === 'ekle' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-800'}">
-                            ➕ Ürün, Şema & Fiyat (${URUNLER.length})
+                            ➕ Ürün, Galeri & Fiyat (${URUNLER.length})
                         </button>
                     </div>
 
@@ -1577,10 +1652,10 @@
                             </div>
                         </div>
 
-                        <!-- ULTRA HD (1920 x 1200 px) 80 x 50 mm CANVAS ETİKET GÖRSELİ -->
+                        <!-- ULTRA HD (1920 x 1200 px) EŞİT KALINLIKTA ETİKET GÖRSELİ -->
                         <div class="bg-slate-100 p-3 sm:p-4 rounded-2xl flex flex-col items-center">
                             <canvas id="etiketCanvas" width="1920" height="1200" class="w-full max-w-[440px] bg-white border-2 border-slate-900 rounded-lg shadow-sm"></canvas>
-                            <p class="text-[11px] text-slate-500 mt-2 text-center">📏 <b>80 x 50 mm Ultra HD (1920×1200 px)</b> — Keskin Baskı Kalitesi</p>
+                            <p class="text-[11px] text-slate-500 mt-2 text-center">📏 <b>80 x 50 mm Ultra HD (1920×1200 px)</b> — Tüm Yazılar Eşit Kalınlıkta</p>
                         </div>
 
                         <div class="grid grid-cols-3 gap-2 mt-4">
@@ -1596,7 +1671,7 @@
                         </div>
                     </div>
 
-                    <!-- SEKME 2: 2. FOTOĞRAF (TEKNİK ŞEMA), KİLO VE FİYAT FORMU -->
+                    <!-- SEKME 2: INSTAGRAM 3'LÜ GALERİ, KİLO VE FİYAT FORMU -->
                     <div id="sekmeEkle" class="${aktifSekme === 'ekle' ? 'block' : 'hidden'}">
                         <div class="bg-blue-50/70 border border-blue-200 p-3.5 rounded-2xl mb-5 flex flex-col sm:flex-row justify-between items-center gap-3">
                             <div class="text-xs">
@@ -1612,7 +1687,7 @@
                         </div>
 
                         <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200 mb-6">
-                            <h3 class="font-bold text-sm text-slate-900 mb-3">Ürün Ekle / Teknik Şema & Fiyat Güncelle</h3>
+                            <h3 class="font-bold text-sm text-slate-900 mb-3">Ürün Ekle / Instagram Galeri & Fiyat Güncelle</h3>
                             <div class="space-y-3 text-sm">
                                 <div class="grid grid-cols-2 gap-2">
                                     <div>
@@ -1625,14 +1700,19 @@
                                     </div>
                                 </div>
 
-                                <div class="grid grid-cols-2 gap-2">
+                                <!-- 3 GÖRSELLİ INSTAGRAM GALERİ GİRİŞ ALANI -->
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 bg-white p-2.5 rounded-xl border border-slate-200">
                                     <div>
-                                        <label class="text-xs font-semibold text-slate-600">1. Görsel (Ürün Fotoğrafı) *</label>
+                                        <label class="text-[11px] font-bold text-slate-700">📸 1. Ana Görsel *</label>
                                         <input type="text" id="f_gorsel" placeholder="gorseller/KOD.jpg" class="w-full p-2 border rounded-lg mt-1 text-xs">
                                     </div>
                                     <div>
-                                        <label class="text-xs font-extrabold text-sky-700">📐 2. Görsel (Teknik Şema / Blueprint)</label>
-                                        <input type="text" id="f_semaGorsel" placeholder="gorseller/KOD_sema.svg (Opsiyonel)" class="w-full p-2 border-2 border-sky-300 bg-sky-50/30 rounded-lg mt-1 text-xs font-semibold">
+                                        <label class="text-[11px] font-bold text-purple-700">📸 2. Ek Fotoğraf (Opsiyonel)</label>
+                                        <input type="text" id="f_gorsel2" placeholder="gorseller/KOD_2.jpg" class="w-full p-2 border border-purple-300 bg-purple-50/20 rounded-lg mt-1 text-xs">
+                                    </div>
+                                    <div>
+                                        <label class="text-[11px] font-bold text-sky-700">📐 3. Şema / 3. Foto (Opsiyonel)</label>
+                                        <input type="text" id="f_semaGorsel" placeholder="gorseller/KOD_sema.svg" class="w-full p-2 border border-sky-300 bg-sky-50/20 rounded-lg mt-1 text-xs">
                                     </div>
                                 </div>
 
@@ -1702,7 +1782,7 @@
                                     <textarea id="f_aciklama" rows="2" class="w-full p-2 border rounded-lg mt-1 text-xs"></textarea>
                                 </div>
                                 <button onclick="urunKaydet()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition">
-                                    ✅ Ürünü, Şemayı ve Fiyatı Kaydet
+                                    ✅ Ürünü, Görselleri ve Fiyatı Kaydet
                                 </button>
                             </div>
                         </div>
@@ -1711,13 +1791,14 @@
                         <div class="max-h-64 overflow-y-auto space-y-2 mb-6 pr-1">
                             ${URUNLER.map(u => {
                                 const fh = fiyatHesapla(u);
+                                const mSayisi = urunMedyalariniGetir(u).length;
                                 return `
                                 <div class="flex justify-between items-center bg-white border border-slate-200 p-2.5 rounded-xl text-xs">
                                     <div class="min-w-0 pr-2">
                                         <div class="truncate"><span class="font-bold text-slate-900">${u.kod}</span> - <span class="text-slate-700 font-medium">${u.ad}</span></div>
                                         <div class="text-[11px] text-slate-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
                                             <span>📐 <b>${u.olcu}</b></span>
-                                            ${u.semaGorsel ? `| <span class="text-sky-600 font-bold">📐 Şemalı</span>` : ''}
+                                            ${mSayisi > 1 ? `| <span class="text-sky-600 font-bold">📸 ${mSayisi} Görsel</span>` : ''}
                                             ${u.kilo ? `| <span>⚖️ <b class="text-amber-700">${u.kilo}</b></span>` : ''}
                                             | ${fh.yeniTL > 0 ? `
                                                 ${fh.eskiTL > fh.yeniTL ? `<span class="line-through text-slate-400">${formatTL(fh.eskiTL)}</span>` : ''}
@@ -1753,7 +1834,21 @@
             sistemiBaslat();
         }
 
-        // ULTRA HD (1920x1200 px) ETİKET ÇİZİM MOTORU — SABİT GITHUB LİNKLİ
+        // TÜM YAZILARI EŞİT KALINLIKTA VE EŞİT FONTTA ÇİZEN YARDIMCI FONKSİYON (RIBON BASKI İÇİN EKSTRA KONTURLU)
+        function esitKalinYaziCiz(ctx, metin, x, y, fontBoyutu, hiza = "left", renk = "#000000", konturKalinlik = 3.2) {
+            ctx.save();
+            ctx.font = `900 ${fontBoyutu}px 'Inter', 'Arial Black', Arial, sans-serif`;
+            ctx.textAlign = hiza;
+            ctx.fillStyle = renk;
+            ctx.strokeStyle = renk;
+            ctx.lineWidth = konturKalinlik;
+            ctx.lineJoin = "round";
+            ctx.strokeText(metin, x, y);
+            ctx.fillText(metin, x, y);
+            ctx.restore();
+        }
+
+        // ULTRA HD (1920x1200 px) ETİKET ÇİZİM MOTORU — TÜM YAZILAR EŞİT KALINLIKTA VE EŞİT FONTTA
         function etiketGuncelle() {
             const seciliKod = document.getElementById('urunSecici').value;
             const u = URUNLER.find(item => item.kod === seciliKod);
@@ -1780,44 +1875,43 @@
 
                 ctx.imageSmoothingEnabled = false;
 
+                // Beyaz Zemin
                 ctx.fillStyle = "#FFFFFF";
                 ctx.fillRect(0, 0, 1920, 1200);
 
+                // Üst Siyah Kuşak
                 ctx.fillStyle = "#000000";
                 ctx.fillRect(48, 42, 1824, 156);
 
-                ctx.fillStyle = "#FFFFFF";
-                ctx.font = "900 66px Inter, Arial, sans-serif";
-                ctx.textAlign = "center";
-                ctx.fillText("AVŞAR KROM   •   ENDÜSTRİYEL MUTFAK", 960, 144);
+                // Üst Kuşak Beyaz Yazı (Eşit Kalınlıkta)
+                esitKalinYaziCiz(ctx, "AVŞAR KROM   •   ENDÜSTRİYEL MUTFAK", 960, 144, 64, "center", "#FFFFFF", 2.2);
 
-                ctx.fillStyle = "#000000";
-                ctx.font = "900 96px Inter, Arial, sans-serif";
-                ctx.fillText(formatliOlcu, 960, 326);
+                // 1. ÖLÇÜ SATIRI (Ekstra Kalın)
+                esitKalinYaziCiz(ctx, formatliOlcu, 960, 322, 92, "center", "#000000", 3.5);
 
-                let adFontBoyutu = 64;
-                ctx.font = `800 ${adFontBoyutu}px Inter, Arial, sans-serif`;
-                while (ctx.measureText(u.ad).width > 1800 && adFontBoyutu > 40) {
-                    adFontBoyutu -= 2;
-                    ctx.font = `800 ${adFontBoyutu}px Inter, Arial, sans-serif`;
+                // 2. ÜRÜN ADI SATIRI (Diğer satırlarla birebir aynı 62px boyutta ve aynı kalınlıkta)
+                let adBoyut = 62;
+                ctx.font = `900 ${adBoyut}px 'Inter', 'Arial Black', Arial, sans-serif`;
+                while (ctx.measureText(u.ad).width > 1780 && adBoyut > 42) {
+                    adBoyut -= 2;
+                    ctx.font = `900 ${adBoyut}px 'Inter', 'Arial Black', Arial, sans-serif`;
                 }
-                ctx.fillText(u.ad, 960, 428);
+                esitKalinYaziCiz(ctx, u.ad, 960, 428, adBoyut, "center", "#000000", 3.2);
 
-                ctx.fillRect(72, 474, 1776, 6);
+                // Ayırıcı Çizgi (Daha Kalın)
+                ctx.fillStyle = "#000000";
+                ctx.fillRect(72, 476, 1776, 8);
 
-                ctx.textAlign = "left";
-                ctx.font = "900 64px Inter, Arial, sans-serif";
-                ctx.fillText("KOD: " + u.kod, 90, 624);
-
+                // SOL ALT SÜTUN: TAMAMI BİREBİR AYNI FONT (62px), AYNI HİZA (x: 90) VE AYNI KALINLIKTA!
                 const celikTuru = (u.malzeme && u.malzeme.includes("430")) ? "AISI 430" : "AISI 304";
                 const celikVeKilo = u.kilo ? `ÇELİK: ${celikTuru} (${u.kilo})` : `ÇELİK: ${celikTuru} Paslanmaz`;
-                ctx.font = "800 58px Inter, Arial, sans-serif";
-                ctx.fillText(celikVeKilo, 90, 795);
 
-                ctx.font = "800 66px Inter, Arial, sans-serif";
-                ctx.fillText("TEL: 0532 333 38 06", 135, 975);
-                ctx.fillText("MUSTAFA AVŞAR", 174, 1074);
+                esitKalinYaziCiz(ctx, "KOD: " + u.kod, 90, 615, 62, "left", "#000000", 3.2);
+                esitKalinYaziCiz(ctx, celikVeKilo, 90, 760, 62, "left", "#000000", 3.2);
+                esitKalinYaziCiz(ctx, "TEL: 0532 333 38 06", 90, 935, 62, "left", "#000000", 3.2);
+                esitKalinYaziCiz(ctx, "MUSTAFA AVŞAR", 90, 1055, 62, "left", "#000000", 3.2);
 
+                // SAĞ ALT QR KOD
                 if (qrCanvas) {
                     ctx.drawImage(qrCanvas, 1275, 540, 555, 555);
                 }
@@ -1851,6 +1945,7 @@
             const malzeme = document.getElementById('f_malzeme').value.trim();
             const kalinlik = document.getElementById('f_kalinlik').value.trim();
             const gorsel = document.getElementById('f_gorsel').value.trim() || `gorseller/${kod}.jpg`;
+            const gorsel2 = document.getElementById('f_gorsel2').value.trim();
             const semaGorsel = document.getElementById('f_semaGorsel').value.trim();
             const aciklama = document.getElementById('f_aciklama').value.trim();
 
@@ -1859,7 +1954,7 @@
                 return;
             }
 
-            const yeniUrun = { kod, ad, olcu, kilo, stokAdet, malzeme, kalinlik, paraBirimi, eskiFiyat, indirimliFiyat, kdvDurumu, gorsel, semaGorsel, aciklama };
+            const yeniUrun = { kod, ad, olcu, kilo, stokAdet, malzeme, kalinlik, paraBirimi, eskiFiyat, indirimliFiyat, kdvDurumu, gorsel, gorsel2, semaGorsel, aciklama };
             const mevcutIndex = URUNLER.findIndex(u => u.kod === kod);
 
             if (mevcutIndex > -1) {
@@ -1887,7 +1982,8 @@
             document.getElementById('f_kilo').value = u.kilo || '';
             document.getElementById('f_malzeme').value = u.malzeme;
             document.getElementById('f_kalinlik').value = u.kalinlik;
-            document.getElementById('f_gorsel').value = u.gorsel;
+            document.getElementById('f_gorsel').value = u.gorsel || '';
+            document.getElementById('f_gorsel2').value = u.gorsel2 || '';
             document.getElementById('f_semaGorsel').value = u.semaGorsel || '';
             document.getElementById('f_aciklama').value = u.aciklama;
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1901,7 +1997,6 @@
             }
         }
 
-        // ANA STİLİ KORUYARAK EKLENTİ ARTIKLARINI TEMİZLEYEN GÜVENLİ İNDİRME FONKSİYONU
         function guncelKoduIndir() {
             const cloneDoc = document.documentElement.cloneNode(true);
             const cloneIcerik = cloneDoc.querySelector('#icerikAlani');
@@ -1910,7 +2005,6 @@
             const cloneQr = cloneDoc.querySelector('#gizliQrKutu');
             if (cloneQr) cloneQr.innerHTML = '';
 
-            // Sadece yabancı eklenti stillerini sil, bizim #anaStil etiketimizi koru!
             cloneDoc.querySelectorAll('style:not(#anaStil)').forEach(el => el.remove());
             cloneDoc.querySelectorAll('[id*="monica"], [class*="monica"], [id*="Plugin-Root"], #intellisense-root').forEach(el => el.remove());
             
